@@ -1,10 +1,17 @@
 # A2A x402 Gateway
 
-**Pay-per-request AI agent services via A2A protocol + x402 micropayments**
+**Pay-per-request AI agent services via A2A protocol + x402 V2 micropayments**
 
-An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 cryptocurrency micropayments on Base network.
+An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 V2 cryptocurrency micropayments on Base + SKALE networks. Features SIWx session authentication for repeat access.
 
 Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackathon](https://dorahacks.io/hackathon/x402).
+
+## Live Demo
+
+- **Demo Page**: https://a2a.opspawn.com/demo
+- **Agent Card**: https://a2a.opspawn.com/.well-known/agent-card.json
+- **Dashboard**: https://a2a.opspawn.com/dashboard
+- **Demo Video**: https://a2a.opspawn.com/public/demo-video.mp4
 
 ## How It Works
 
@@ -54,21 +61,25 @@ This server implements the [Agent-to-Agent Protocol](https://a2a-protocol.org/) 
 - **Task lifecycle**: submitted → working → completed/failed/input-required
 - **Skills** with input/output modes and pricing metadata
 
-### x402 Payment Protocol
+### x402 V2 Payment Protocol
 
-Payment requirements are returned via A2A task metadata:
+Payment requirements are returned via A2A task metadata using x402 V2 with CAIP-2 network IDs:
 
 ```json
 {
   "x402.payment.required": true,
+  "x402.version": "2.0",
   "x402.accepts": [{
     "scheme": "exact",
-    "network": "base",
+    "network": "eip155:8453",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "payTo": "0x7483a9F237cf8043704D6b17DA31c12BfFF860DD",
     "maxAmountRequired": "10000",
-    "resource": "/screenshot",
-    "description": "Screenshot - $0.01 USDC"
+    "price": "$0.01"
+  }, {
+    "scheme": "exact",
+    "network": "eip155:324705682",
+    "gasless": true
   }]
 }
 ```
@@ -163,7 +174,8 @@ const { result: task } = await r1.json();
 
 - **Runtime**: Node.js 22
 - **Protocol**: A2A v0.3 (JSON-RPC 2.0 over HTTP)
-- **Payments**: x402 protocol on Base (USDC)
+- **Payments**: x402 V2 (SDK v2.3.0) on Base + SKALE (USDC)
+- **Auth**: SIWx (CAIP-122 wallet sessions)
 - **Backend**: Express 5
 - **Facilitator**: PayAI (facilitator.payai.network)
 - **Services**: SnapAPI (Puppeteer + Chrome)
@@ -175,7 +187,7 @@ npm start &
 npm test
 ```
 
-14 tests covering:
+19 tests covering:
 - Health check and agent card discovery
 - x402 service catalog
 - Free skill execution (markdown → HTML)
