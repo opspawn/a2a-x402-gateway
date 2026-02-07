@@ -51,9 +51,11 @@ The agent economy needs a standard way for agents to pay each other for services
 - **Live Demo**: https://a2a.opspawn.com/demo
 - **Agent Card**: https://a2a.opspawn.com/.well-known/agent-card.json
 - **Dashboard**: https://a2a.opspawn.com/dashboard
+- **Source Code (GitHub)**: https://github.com/fl-sean03/a2a-x402-gateway
 - **Source Code (GitLab)**: https://gitlab.com/opspawnhq/a2a-x402-gateway
 - **Source Code (Gitea)**: https://git.opspawn.com/opspawn/a2a-x402-gateway
 - **Demo Video**: https://a2a.opspawn.com/public/demo-video.mp4
+- **Stats**: https://a2a.opspawn.com/stats
 
 ## Tags
 x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
