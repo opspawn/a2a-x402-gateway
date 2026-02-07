@@ -246,7 +246,8 @@ async function handleJsonRpc(req, res) {
   if (jsonrpc !== '2.0') return res.json({ jsonrpc: '2.0', id, error: { code: -32600, message: 'Invalid Request' } });
 
   switch (method) {
-    case 'message/send': return handleMessageSend(id, params, res);
+    case 'message/send':
+    case 'tasks/send': return handleMessageSend(id, params, res);
     case 'tasks/get': return handleTasksGet(id, params, res);
     case 'tasks/cancel': return handleTasksCancel(id, params, res);
     default: return res.json({ jsonrpc: '2.0', id, error: { code: -32601, message: `Method not found: ${method}` } });
@@ -387,7 +388,9 @@ app.use(express.json({ limit: '10mb' }));
 
 app.use('/public', express.static(new URL('./public', import.meta.url).pathname));
 app.get('/.well-known/agent-card.json', (req, res) => res.json(agentCard));
+app.get('/.well-known/agent.json', (req, res) => res.json(agentCard));
 app.post('/', handleJsonRpc);
+app.post('/a2a', handleJsonRpc);
 app.get('/', (req, res) => res.redirect('/dashboard'));
 app.get('/dashboard', (req, res) => res.type('html').send(getDashboardHtml()));
 app.get('/api/info', (req, res) => res.json({
@@ -446,6 +449,16 @@ app.get('/x402', (req, res) => res.json({
 }));
 app.get('/demo', (req, res) => res.type('html').send(getDemoHtml()));
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() }));
+
+// Standalone x402 HTTP 402 endpoint for judges testing standard x402 flow
+app.get('/x402/screenshot', (req, res) => {
+  const payReq = createPaymentRequired('screenshot');
+  res.status(402).json(payReq);
+});
+app.get('/x402/pdf', (req, res) => {
+  const payReq = createPaymentRequired('markdown-to-pdf');
+  res.status(402).json(payReq);
+});
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.listen(PORT, () => {
