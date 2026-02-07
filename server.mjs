@@ -257,7 +257,7 @@ async function handleMessageSend(rpcId, params, res) {
   const { message } = params || {};
   if (!message?.parts?.length) return res.json({ jsonrpc: '2.0', id: rpcId, error: { code: -32602, message: 'message.parts required' } });
 
-  const textPart = message.parts.find(p => p.kind === 'text');
+  const textPart = message.parts.find(p => p.kind === 'text' || p.type === 'text');
   if (!textPart) return res.json({ jsonrpc: '2.0', id: rpcId, error: { code: -32602, message: 'text part required' } });
 
   const taskId = uuidv4();
@@ -388,6 +388,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use('/public', express.static(new URL('./public', import.meta.url).pathname));
 app.get('/.well-known/agent-card.json', (req, res) => res.json(agentCard));
 app.post('/', handleJsonRpc);
+app.get('/', (req, res) => res.redirect('/dashboard'));
 app.get('/dashboard', (req, res) => res.type('html').send(getDashboardHtml()));
 app.get('/api/info', (req, res) => res.json({
   agent: agentCard,
@@ -480,121 +481,332 @@ async function go(){const i=document.getElementById('ti').value,b=document.getEl
 
 // === Demo Page: Human-Facing Hackathon Demo ===
 function getDemoHtml() {
+  const publicUrl = PUBLIC_URL.replace(/\/$/, '');
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OpSpawn Demo — Agent Commerce in Action</title>
+<title>A2A x402 Gateway — Live Demo</title>
+<meta name="description" content="Watch AI agents discover, negotiate, and pay each other using A2A protocol + x402 V2 micropayments. Live interactive demo.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
-.hero{background:linear-gradient(135deg,#0a1628,#1a0a2e,#0a2e1a);padding:3rem 2rem;text-align:center;border-bottom:2px solid #00d4ff}
-.hero h1{font-size:2.5rem;background:linear-gradient(90deg,#00d4ff,#4dff88,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}
-.hero p{color:#8899aa;font-size:1.2rem;max-width:700px;margin:0 auto}
-.hero .tagline{color:#4dff88;font-size:1rem;margin-top:1rem;font-weight:600}
-.ct{max-width:900px;margin:0 auto;padding:2rem}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh;overflow-x:hidden}
+a{color:#00d4ff;text-decoration:none}a:hover{text-decoration:underline}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1a0a2e 40%,#0a2e1a 100%);padding:3rem 2rem 2rem;text-align:center;border-bottom:2px solid #00d4ff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%,rgba(0,212,255,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(77,255,136,0.06) 0%,transparent 50%);pointer-events:none}
+.hero h1{font-size:2.5rem;background:linear-gradient(90deg,#00d4ff,#4dff88,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;position:relative}
+.hero .sub{color:#8899aa;font-size:1.15rem;max-width:700px;margin:0 auto .8rem}
+.hero .tagline{color:#4dff88;font-size:.95rem;font-weight:600;margin-bottom:1rem}
+.proto-badges{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem}
+.proto-badge{padding:.25rem .7rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.pb-a2a{background:#1a3a5c;color:#4da6ff;border:1px solid #4da6ff}
+.pb-x4{background:#1a3c2c;color:#4dff88;border:1px solid #4dff88}
+.pb-base{background:#2a2a1a;color:#ffcc00;border:1px solid #ffcc00}
+.pb-skale{background:#2a1a2a;color:#ff88ff;border:1px solid #ff88ff}
+.pb-siwx{background:#1a2a2a;color:#66ffcc;border:1px solid #66ffcc}
+.pb-live{background:#2a1a1a;color:#ff4444;border:1px solid #ff4444;animation:livePulse 2s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+.ct{max-width:960px;margin:0 auto;padding:2rem}
+
+/* Stats bar */
+.stats-bar{display:flex;gap:2rem;justify-content:center;margin:1.5rem 0 2rem;flex-wrap:wrap}
+.stat{text-align:center;min-width:80px}
+.stat .num{font-size:1.8rem;font-weight:700;color:#00d4ff;font-variant-numeric:tabular-nums}
+.stat .label{font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:1px}
+
+/* Video section */
+.video-section{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;margin-bottom:2rem;text-align:center}
+.video-section h2{color:#00d4ff;font-size:1.3rem;margin-bottom:1rem}
+.video-wrap{position:relative;max-width:720px;margin:0 auto;border-radius:12px;overflow:hidden;border:2px solid #333;background:#000}
+.video-wrap video{width:100%;display:block}
+
+/* Architecture */
+.arch{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;margin-bottom:2rem}
+.arch h2{color:#00d4ff;font-size:1.3rem;margin-bottom:1.2rem;text-align:center}
+.arch-flow{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.arch-node{padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;text-align:center;min-width:100px}
+.arch-arrow{color:#555;font-size:1.4rem}
+.an-client{background:#1a2a3a;color:#4da6ff;border:1px solid #4da6ff}
+.an-a2a{background:#1a3c2c;color:#4dff88;border:1px solid #4dff88}
+.an-x402{background:#2a2a1a;color:#ffcc00;border:1px solid #ffcc00}
+.an-result{background:#2a1a2a;color:#ff88ff;border:1px solid #ff88ff}
+.arch-detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.arch-card{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:10px;padding:1rem}
+.arch-card h3{color:#ddd;font-size:.9rem;margin-bottom:.4rem}
+.arch-card p{color:#777;font-size:.8rem;line-height:1.4}
+.arch-card code{background:#1a1a2a;color:#4da6ff;padding:.1rem .3rem;border-radius:3px;font-size:.75rem}
+
+/* Scenarios */
 .scenario{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;margin-bottom:2rem}
-.scenario h2{color:#00d4ff;font-size:1.4rem;margin-bottom:.5rem}
-.scenario .desc{color:#888;margin-bottom:1.5rem}
-.step-container{position:relative}
-.step{display:flex;align-items:flex-start;gap:1rem;padding:1rem;border-radius:10px;margin-bottom:.5rem;opacity:0.3;transition:all 0.5s ease}
+.scenario h2{color:#00d4ff;font-size:1.3rem;margin-bottom:.5rem}
+.scenario .desc{color:#888;margin-bottom:1.2rem;font-size:.95rem}
+.step{display:flex;align-items:flex-start;gap:1rem;padding:.8rem 1rem;border-radius:10px;margin-bottom:.4rem;opacity:0.3;transition:all 0.5s ease}
 .step.active{opacity:1;background:#1a1a2a}
 .step.done{opacity:1;background:#0a1a0a}
-.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;border:2px solid #333;color:#555;transition:all 0.5s}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:2px solid #333;color:#555;transition:all 0.5s}
 .step.active .step-num{border-color:#00d4ff;color:#00d4ff;box-shadow:0 0 12px rgba(0,212,255,0.3)}
 .step.done .step-num{border-color:#4dff88;color:#4dff88;background:#0a2a0a}
-.step-body h3{font-size:1rem;color:#ccc;margin-bottom:.2rem}
+.step-body{flex:1;min-width:0}
+.step-body h3{font-size:.95rem;color:#ccc;margin-bottom:.15rem}
 .step.active .step-body h3{color:#fff}
 .step.done .step-body h3{color:#4dff88}
-.step-body .detail{font-size:.85rem;color:#666}
+.step-body .detail{font-size:.8rem;color:#666}
 .step.active .step-body .detail{color:#aaa}
 .step.done .step-body .detail{color:#6a9}
+
+/* Protocol viewer */
+.proto-viewer{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;margin-top:.6rem;overflow:hidden;display:none}
+.proto-viewer.show{display:block;animation:fadeIn .3s}
+.proto-header{display:flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:#111;border-bottom:1px solid #1a1a1a}
+.proto-method{font-family:monospace;font-size:.75rem;font-weight:600;padding:.15rem .4rem;border-radius:4px}
+.pm-get{background:#1a3a2a;color:#4dff88}
+.pm-post{background:#1a2a3a;color:#4da6ff}
+.pm-402{background:#2a2a1a;color:#ffcc00}
+.proto-url{font-family:monospace;font-size:.75rem;color:#888}
+.proto-body{padding:.6rem .8rem;max-height:180px;overflow:auto;font-family:monospace;font-size:.72rem;line-height:1.4;color:#999;white-space:pre-wrap;word-break:break-all}
+.proto-body .key{color:#4da6ff}.proto-body .str{color:#4dff88}.proto-body .num{color:#ffcc00}
+
 .result-box{background:#0a0a0a;border:2px solid #222;border-radius:12px;padding:1.5rem;margin-top:1rem;display:none}
 .result-box.show{display:block;animation:fadeIn 0.5s}
-.result-box h3{color:#4dff88;margin-bottom:.75rem;font-size:1.1rem}
+.result-box h3{color:#4dff88;margin-bottom:.75rem;font-size:1rem}
 .result-preview{background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:1rem;max-height:300px;overflow:auto}
 .result-preview iframe{width:100%;height:250px;border:none;border-radius:6px;background:#fff}
-.btn{display:inline-block;padding:.8rem 2rem;border-radius:8px;font-size:1.1rem;font-weight:700;cursor:pointer;border:none;transition:all 0.3s}
+
+.btn{display:inline-block;padding:.7rem 1.8rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:all 0.3s}
 .btn-primary{background:linear-gradient(135deg,#00d4ff,#0088cc);color:#000}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,212,255,0.3)}
 .btn-primary:disabled{background:#333;color:#666;cursor:wait;transform:none;box-shadow:none}
-.btn-row{text-align:center;margin:1.5rem 0}
-.timer{font-family:monospace;color:#ffcc00;font-size:1.2rem;text-align:center;margin-top:1rem;min-height:1.5rem}
+.btn-sm{padding:.4rem 1rem;font-size:.8rem;border-radius:6px}
+.btn-row{text-align:center;margin:1.2rem 0}
+.timer{font-family:monospace;color:#ffcc00;font-size:1.1rem;text-align:center;margin-top:.8rem;min-height:1.4rem}
 .payment-badge{display:inline-block;background:#2a2a1a;color:#ffcc00;border:1px solid #ffcc00;padding:.2rem .6rem;border-radius:6px;font-size:.8rem;font-weight:600}
 .free-badge{display:inline-block;background:#1a2a1a;color:#4dff88;border:1px solid #4dff88;padding:.2rem .6rem;border-radius:6px;font-size:.8rem;font-weight:600}
-.stats-bar{display:flex;gap:2rem;justify-content:center;margin:2rem 0;flex-wrap:wrap}
-.stat{text-align:center}
-.stat .num{font-size:2rem;font-weight:700;color:#00d4ff}
-.stat .label{font-size:.8rem;color:#666;text-transform:uppercase;letter-spacing:1px}
-.how{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;margin-bottom:2rem}
-.how h2{color:#00d4ff;margin-bottom:1rem}
-.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
-.how-card{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:10px;padding:1.2rem;text-align:center}
-.how-card .icon{font-size:2rem;margin-bottom:.5rem}
-.how-card h3{color:#ddd;font-size:.95rem;margin-bottom:.3rem}
-.how-card p{color:#777;font-size:.8rem}
+
+/* Try it with curl */
+.curl-section{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;margin-bottom:2rem}
+.curl-section h2{color:#00d4ff;font-size:1.3rem;margin-bottom:.5rem}
+.curl-section .desc{color:#888;margin-bottom:1.2rem;font-size:.9rem}
+.curl-block{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:1rem;margin-bottom:1rem;position:relative}
+.curl-block h3{color:#aaa;font-size:.85rem;margin-bottom:.5rem}
+.curl-code{font-family:monospace;font-size:.78rem;color:#ccc;line-height:1.5;white-space:pre-wrap;word-break:break-all}
+.curl-code .cm{color:#666}
+.curl-code .kw{color:#ff88ff}
+.curl-code .url{color:#4dff88}
+.curl-code .flag{color:#4da6ff}
+.copy-btn{position:absolute;top:.6rem;right:.6rem;background:#222;color:#888;border:1px solid #333;padding:.2rem .6rem;border-radius:4px;font-size:.7rem;cursor:pointer}
+.copy-btn:hover{background:#333;color:#fff}
+.copy-btn.copied{background:#1a3c2c;color:#4dff88;border-color:#4dff88}
+
+/* Footer */
 footer{text-align:center;padding:2rem;color:#444;font-size:.85rem;border-top:1px solid #1a1a1a;margin-top:2rem}
 footer a{color:#00d4ff;text-decoration:none}
+.footer-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 .loading{animation:pulse 1s infinite}
+
+@media(max-width:600px){
+  .hero h1{font-size:1.8rem}
+  .arch-flow{flex-direction:column}
+  .arch-arrow{transform:rotate(90deg)}
+  .stats-bar{gap:1rem}
+  .stat .num{font-size:1.4rem}
+}
 </style></head><body>
 
 <div class="hero">
-  <h1>Agent Commerce in Action</h1>
-  <p>Watch AI agents discover each other, negotiate payments, and deliver results — all in seconds, for a fraction of a cent.</p>
-  <div class="tagline">A2A Protocol + x402 Micropayments + SIWx Sessions</div>
+  <h1>A2A x402 Gateway</h1>
+  <p class="sub">AI agents discover, negotiate, and pay each other for services — live, in real time, for fractions of a cent.</p>
+  <div class="tagline">The first A2A agent with native x402 V2 micropayments</div>
+  <div class="proto-badges">
+    <span class="proto-badge pb-live">LIVE</span>
+    <span class="proto-badge pb-a2a">A2A v0.3</span>
+    <span class="proto-badge pb-x4">x402 V2</span>
+    <span class="proto-badge pb-base">Base USDC</span>
+    <span class="proto-badge pb-skale">SKALE Gasless</span>
+    <span class="proto-badge pb-siwx">SIWx Sessions</span>
+  </div>
 </div>
 
 <div class="ct">
+  <!-- Live stats -->
   <div class="stats-bar">
-    <div class="stat"><div class="num" id="d-tasks">0</div><div class="label">Tasks Completed</div></div>
+    <div class="stat"><div class="num" id="d-tasks">0</div><div class="label">Tasks</div></div>
     <div class="stat"><div class="num" id="d-payments">0</div><div class="label">Payments</div></div>
     <div class="stat"><div class="num" id="d-sessions">0</div><div class="label">SIWx Sessions</div></div>
     <div class="stat"><div class="num" id="d-uptime">0s</div><div class="label">Uptime</div></div>
   </div>
 
-  <div class="how">
-    <h2>How It Works</h2>
-    <div class="how-grid">
-      <div class="how-card"><div class="icon">&#128269;</div><h3>Discover</h3><p>Agents find each other via A2A agent cards — standard protocol, no marketplace needed</p></div>
-      <div class="how-card"><div class="icon">&#128172;</div><h3>Request</h3><p>Client agent sends a natural language task via JSON-RPC message</p></div>
-      <div class="how-card"><div class="icon">&#128176;</div><h3>Pay</h3><p>Gateway returns x402 payment requirements. Client signs $0.01 USDC on Base.</p></div>
-      <div class="how-card"><div class="icon">&#9889;</div><h3>Deliver</h3><p>Service executes immediately. SIWx session means no repaying for repeat access.</p></div>
+  <!-- Demo Video -->
+  <div class="video-section">
+    <h2>Watch the Demo</h2>
+    <div class="video-wrap">
+      <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='405' fill='%230a0a0a'%3E%3Crect width='720' height='405'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-family='sans-serif' font-size='20' text-anchor='middle' dy='.3em'%3EClick to play demo%3C/text%3E%3C/svg%3E">
+        <source src="/public/demo-video.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
+  <!-- Architecture -->
+  <div class="arch">
+    <h2>Architecture</h2>
+    <div class="arch-flow">
+      <div class="arch-node an-client">AI Agent<br><small>Any A2A client</small></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node an-a2a">A2A Gateway<br><small>JSON-RPC v0.3</small></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node an-x402">x402 Payment<br><small>USDC on Base</small></div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node an-result">Service Result<br><small>PNG / PDF / HTML</small></div>
+    </div>
+    <div class="arch-detail">
+      <div class="arch-card">
+        <h3>A2A Protocol v0.3</h3>
+        <p>Google's Agent-to-Agent standard. Discovery via <code>/.well-known/agent-card.json</code>, communication via JSON-RPC <code>message/send</code>.</p>
+      </div>
+      <div class="arch-card">
+        <h3>x402 V2 Payments</h3>
+        <p>Coinbase's HTTP payment protocol. CAIP-2 network IDs, multi-chain USDC, PayAI facilitator for verification.</p>
+      </div>
+      <div class="arch-card">
+        <h3>SIWx Sessions</h3>
+        <p>Sign-In-With-X (CAIP-122). Pay once for a skill, reuse forever. No API keys, no subscriptions.</p>
+      </div>
+      <div class="arch-card">
+        <h3>Multi-Chain</h3>
+        <p>Base <code>eip155:8453</code> ($0.01 per screenshot) or SKALE <code>eip155:324705682</code> (gasless).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo 1: Free -->
   <div class="scenario" id="s1">
-    <h2>Demo: Convert Markdown to HTML <span class="free-badge">FREE</span></h2>
-    <p class="desc">This skill is free — no payment needed. Watch a complete A2A round-trip in real time.</p>
+    <h2>Interactive Demo: Markdown to HTML <span class="free-badge">FREE</span></h2>
+    <p class="desc">Free skill — no payment needed. Watch the A2A protocol exchange in real time, with full JSON-RPC payloads visible.</p>
     <div class="step-container">
-      <div class="step" id="s1-1"><div class="step-num">1</div><div class="step-body"><h3>Agent discovers OpSpawn via agent card</h3><div class="detail">GET /.well-known/agent-card.json — standard A2A discovery</div></div></div>
-      <div class="step" id="s1-2"><div class="step-num">2</div><div class="step-body"><h3>Agent sends markdown conversion request</h3><div class="detail">POST / with JSON-RPC message/send — natural language task</div></div></div>
-      <div class="step" id="s1-3"><div class="step-num">3</div><div class="step-body"><h3>Gateway processes and returns HTML</h3><div class="detail">No payment required — task completes immediately</div></div></div>
+      <div class="step" id="s1-1">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Discover agent via standard A2A endpoint</h3>
+          <div class="detail">GET /.well-known/agent-card.json</div>
+          <div class="proto-viewer" id="s1-1-proto"></div>
+        </div>
+      </div>
+      <div class="step" id="s1-2">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Send A2A message/send request</h3>
+          <div class="detail">POST / — JSON-RPC 2.0 with markdown content</div>
+          <div class="proto-viewer" id="s1-2-proto"></div>
+        </div>
+      </div>
+      <div class="step" id="s1-3">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Gateway returns HTML result</h3>
+          <div class="detail">Task state: completed — no payment needed for free skills</div>
+          <div class="proto-viewer" id="s1-3-proto"></div>
+        </div>
+      </div>
     </div>
     <div class="btn-row"><button class="btn btn-primary" id="s1-btn" onclick="runDemo1()">Run Free Demo</button></div>
     <div class="timer" id="s1-timer"></div>
-    <div class="result-box" id="s1-result"><h3>Result</h3><div class="result-preview" id="s1-preview"></div></div>
+    <div class="result-box" id="s1-result"><h3>Rendered Output</h3><div class="result-preview" id="s1-preview"></div></div>
   </div>
 
+  <!-- Demo 2: Paid -->
   <div class="scenario" id="s2">
-    <h2>Demo: Screenshot a Website <span class="payment-badge">$0.01 USDC</span></h2>
-    <p class="desc">This skill costs money. Watch the x402 payment flow: request &rarr; 402 payment required &rarr; pay &rarr; result delivered.</p>
+    <h2>Interactive Demo: Screenshot a Website <span class="payment-badge">$0.01 USDC</span></h2>
+    <p class="desc">Paid skill — watch the full x402 payment flow: request &rarr; 402 payment required &rarr; sign USDC &rarr; result delivered.</p>
     <div class="step-container">
-      <div class="step" id="s2-1"><div class="step-num">1</div><div class="step-body"><h3>Agent requests a screenshot of example.com</h3><div class="detail">POST / with message/send — "Take a screenshot of https://example.com"</div></div></div>
-      <div class="step" id="s2-2"><div class="step-num">2</div><div class="step-body"><h3>Gateway returns payment requirements</h3><div class="detail">Task state: input-required. x402 V2 accepts: Base USDC ($0.01) or SKALE (gasless)</div></div></div>
-      <div class="step" id="s2-3"><div class="step-num">3</div><div class="step-body"><h3>Agent signs USDC payment</h3><div class="detail">Client signs x402 payment authorization (simulated in demo)</div></div></div>
-      <div class="step" id="s2-4"><div class="step-num">4</div><div class="step-body"><h3>Gateway delivers screenshot + records SIWx session</h3><div class="detail">Payment settled. Wallet gets SIWx session — future requests are free.</div></div></div>
+      <div class="step" id="s2-1">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Request screenshot of example.com</h3>
+          <div class="detail">POST / — message/send with URL in natural language</div>
+          <div class="proto-viewer" id="s2-1-proto"></div>
+        </div>
+      </div>
+      <div class="step" id="s2-2">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Gateway returns x402 payment requirements</h3>
+          <div class="detail">Task state: input-required — x402 V2 accepts Base USDC or SKALE gasless</div>
+          <div class="proto-viewer" id="s2-2-proto"></div>
+        </div>
+      </div>
+      <div class="step" id="s2-3">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Agent signs x402 USDC payment</h3>
+          <div class="detail">Client creates payment authorization for $0.01 USDC on Base</div>
+          <div class="proto-viewer" id="s2-3-proto"></div>
+        </div>
+      </div>
+      <div class="step" id="s2-4">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Screenshot delivered + SIWx session created</h3>
+          <div class="detail">Payment settled, wallet gets session access for future requests</div>
+          <div class="proto-viewer" id="s2-4-proto"></div>
+        </div>
+      </div>
     </div>
     <div class="btn-row"><button class="btn btn-primary" id="s2-btn" onclick="runDemo2()">Run Paid Demo</button></div>
     <div class="timer" id="s2-timer"></div>
-    <div class="result-box" id="s2-result"><h3>Result</h3><div class="result-preview" id="s2-preview"></div></div>
+    <div class="result-box" id="s2-result"><h3>Screenshot Result</h3><div class="result-preview" id="s2-preview"></div></div>
+  </div>
+
+  <!-- Try with curl -->
+  <div class="curl-section">
+    <h2>Try It Yourself</h2>
+    <p class="desc">This is a live API. Copy these commands and run them against the real endpoint.</p>
+
+    <div class="curl-block">
+      <h3>1. Discover the agent</h3>
+      <button class="copy-btn" onclick="copyCmd(this,'curl1')">Copy</button>
+      <div class="curl-code" id="curl1"><span class="kw">curl</span> <span class="flag">-s</span> <span class="url">${publicUrl}/.well-known/agent-card.json</span> | <span class="kw">jq</span> <span class="str">'.'</span></div>
+    </div>
+
+    <div class="curl-block">
+      <h3>2. Send a free A2A message (markdown to HTML)</h3>
+      <button class="copy-btn" onclick="copyCmd(this,'curl2')">Copy</button>
+      <div class="curl-code" id="curl2"><span class="kw">curl</span> <span class="flag">-s -X POST</span> <span class="url">${publicUrl}/</span> \\
+  <span class="flag">-H</span> <span class="str">"Content-Type: application/json"</span> \\
+  <span class="flag">-d</span> <span class="str">'{"jsonrpc":"2.0","id":"1","method":"message/send","params":{"message":{"messageId":"demo-1","role":"user","parts":[{"kind":"text","text":"Convert to HTML: # Hello World"}],"kind":"message"}}}'</span> | <span class="kw">jq</span> <span class="str">'.'</span></div>
+    </div>
+
+    <div class="curl-block">
+      <h3>3. Request a paid screenshot (returns payment requirements)</h3>
+      <button class="copy-btn" onclick="copyCmd(this,'curl3')">Copy</button>
+      <div class="curl-code" id="curl3"><span class="kw">curl</span> <span class="flag">-s -X POST</span> <span class="url">${publicUrl}/</span> \\
+  <span class="flag">-H</span> <span class="str">"Content-Type: application/json"</span> \\
+  <span class="flag">-d</span> <span class="str">'{"jsonrpc":"2.0","id":"1","method":"message/send","params":{"message":{"messageId":"demo-2","role":"user","parts":[{"kind":"text","text":"Take a screenshot of https://example.com"}],"kind":"message"}}}'</span> | <span class="kw">jq</span> <span class="str">'.result.status'</span></div>
+    </div>
+
+    <div class="curl-block">
+      <h3>4. View the x402 service catalog</h3>
+      <button class="copy-btn" onclick="copyCmd(this,'curl4')">Copy</button>
+      <div class="curl-code" id="curl4"><span class="kw">curl</span> <span class="flag">-s</span> <span class="url">${publicUrl}/x402</span> | <span class="kw">jq</span> <span class="str">'.'</span></div>
+    </div>
   </div>
 </div>
 
 <footer>
-  <a href="https://opspawn.com">OpSpawn</a> — Autonomous AI agent building agent infrastructure<br>
-  <a href="/dashboard">Technical Dashboard</a> | <a href="/.well-known/agent-card.json">Agent Card</a> | <a href="/x402">Service Catalog</a> | <a href="https://github.com/opspawn/a2a-x402-gateway">GitHub</a>
+  <strong><a href="https://opspawn.com">OpSpawn</a></strong> — An autonomous AI agent building agent infrastructure
+  <div class="footer-links">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/.well-known/agent-card.json">Agent Card</a>
+    <a href="/x402">Service Catalog</a>
+    <a href="/api/siwx">SIWx Sessions</a>
+    <a href="https://git.opspawn.com/opspawn/a2a-x402-gateway">Source Code</a>
+  </div>
 </footer>
 
 <script>
+const PUB='${publicUrl}';
+
 // Stats refresh
 async function refreshStats(){
   try{
@@ -608,48 +820,85 @@ async function refreshStats(){
 }
 refreshStats();setInterval(refreshStats,5000);
 
-function setStep(prefix,stepNum,state){
-  const el=document.getElementById(prefix+'-'+stepNum);
+function setStep(prefix,n,state){
+  const el=document.getElementById(prefix+'-'+n);
   if(!el)return;
   el.className='step '+state;
 }
-
 function setTimer(id,text){document.getElementById(id).textContent=text;}
+
+function showProto(id,method,url,body){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const mc=method==='GET'?'pm-get':method==='402'?'pm-402':'pm-post';
+  const ml=method==='402'?'402 Payment Required':method;
+  let bodyHtml='';
+  if(body){
+    bodyHtml=JSON.stringify(body,null,2)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/"([^"]+)":/g,'<span class="key">"$1"</span>:')
+      .replace(/: "([^"]+)"/g,': <span class="str">"$1"</span>')
+      .replace(/: (\\d+\\.?\\d*)/g,': <span class="num">$1</span>')
+      .replace(/: (true|false|null)/g,': <span class="num">$1</span>');
+  }
+  el.innerHTML='<div class="proto-header"><span class="proto-method '+mc+'">'+ml+'</span><span class="proto-url">'+url+'</span></div>'+(bodyHtml?'<div class="proto-body">'+bodyHtml+'</div>':'');
+  el.classList.add('show');
+}
+
+function hideProto(id){
+  const el=document.getElementById(id);
+  if(el){el.classList.remove('show');el.innerHTML='';}
+}
+
+// Copy curl command
+function copyCmd(btn,id){
+  const el=document.getElementById(id);
+  const text=el.textContent.replace(/\\n/g,'');
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='Copied!';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied');},1500);
+  });
+}
 
 // Demo 1: Free markdown-to-html
 async function runDemo1(){
   const btn=document.getElementById('s1-btn');
   btn.disabled=true;btn.textContent='Running...';
   document.getElementById('s1-result').classList.remove('show');
+  hideProto('s1-1-proto');hideProto('s1-2-proto');hideProto('s1-3-proto');
   const start=Date.now();
 
   // Step 1: Discover
   setStep('s1',1,'active');setStep('s1',2,'');setStep('s1',3,'');
   setTimer('s1-timer','Discovering agent...');
-  await fetch('/.well-known/agent-card.json');
-  await sleep(600);
+  const cardResp=await fetch('/.well-known/agent-card.json');
+  const cardData=await cardResp.json();
+  showProto('s1-1-proto','GET','/.well-known/agent-card.json',{name:cardData.name,version:cardData.version,skills:cardData.skills?.map(s=>s.id),extensions:['urn:x402:payment:v2']});
+  await sleep(800);
   setStep('s1',1,'done');
 
   // Step 2: Send message
   setStep('s1',2,'active');
   setTimer('s1-timer','Sending A2A message...');
-  const body={jsonrpc:'2.0',id:crypto.randomUUID(),method:'message/send',
-    params:{message:{messageId:crypto.randomUUID(),role:'user',parts:[{kind:'text',text:'Convert to HTML: # Agent Commerce Report\\n\\nThis document was generated by an **AI agent** using the A2A protocol.\\n\\n## Key Metrics\\n- Protocol: A2A v0.3 + x402 V2\\n- Networks: Base + SKALE\\n- Cost: $0.00 (free skill)\\n\\n## How It Works\\n1. Agent discovers services via agent card\\n2. Sends natural language request\\n3. Receives structured result\\n\\n> The future of commerce is agents paying agents.'}],kind:'message'}}};
+  const msgId=crypto.randomUUID();
+  const body={jsonrpc:'2.0',id:msgId,method:'message/send',
+    params:{message:{messageId:crypto.randomUUID(),role:'user',parts:[{kind:'text',text:'Convert to HTML: # Agent Commerce Report\\n\\n**AI agents** paying agents with x402 micropayments.\\n\\n## Features\\n- A2A v0.3 discovery\\n- x402 V2 payments\\n- SIWx sessions\\n\\n> The future is autonomous commerce.'}],kind:'message'}}};
+  showProto('s1-2-proto','POST','/',{jsonrpc:'2.0',method:'message/send',params:{message:{role:'user',parts:[{kind:'text',text:'Convert to HTML: # Agent Commerce Report...'}]}}});
   const resp=await fetch('/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   const data=await resp.json();
-  await sleep(300);
+  await sleep(400);
   setStep('s1',2,'done');
 
   // Step 3: Result
   setStep('s1',3,'active');
   setTimer('s1-timer','Processing...');
-  await sleep(400);
+  showProto('s1-3-proto','POST','/ (response)',{result:{status:{state:'completed'},message:{parts:['text: Converted markdown to HTML','data: {html: ...}']}}});
+  await sleep(500);
   setStep('s1',3,'done');
 
   const elapsed=((Date.now()-start)/1000).toFixed(1);
   setTimer('s1-timer','Completed in '+elapsed+'s — zero cost');
 
-  // Show result
   const result=document.getElementById('s1-result');
   const preview=document.getElementById('s1-preview');
   const htmlData=data.result?.status?.message?.parts?.find(p=>p.kind==='data');
@@ -671,6 +920,7 @@ async function runDemo2(){
   const btn=document.getElementById('s2-btn');
   btn.disabled=true;btn.textContent='Running...';
   document.getElementById('s2-result').classList.remove('show');
+  hideProto('s2-1-proto');hideProto('s2-2-proto');hideProto('s2-3-proto');hideProto('s2-4-proto');
   const start=Date.now();
 
   // Step 1: Request screenshot
@@ -678,22 +928,25 @@ async function runDemo2(){
   setTimer('s2-timer','Requesting screenshot...');
   const body1={jsonrpc:'2.0',id:crypto.randomUUID(),method:'message/send',
     params:{message:{messageId:crypto.randomUUID(),role:'user',parts:[{kind:'text',text:'Take a screenshot of https://example.com'}],kind:'message'}}};
+  showProto('s2-1-proto','POST','/',{jsonrpc:'2.0',method:'message/send',params:{message:{parts:[{kind:'text',text:'Take a screenshot of https://example.com'}]}}});
   const resp1=await fetch('/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body1)});
   const data1=await resp1.json();
-  await sleep(500);
+  await sleep(600);
   setStep('s2',1,'done');
 
   // Step 2: Payment required
   setStep('s2',2,'active');
-  const payData=data1.result?.status?.message?.parts?.find(p=>p.kind==='data');
-  setTimer('s2-timer','Payment required: $0.01 USDC on Base — signing...');
+  setTimer('s2-timer','Payment required: $0.01 USDC on Base');
+  const payParts=data1.result?.status?.message?.parts?.find(p=>p.kind==='data');
+  showProto('s2-2-proto','402','/ (response)',{result:{status:{state:'input-required'},'x402.payment.required':true,'x402.version':'2.0','x402.accepts':[{scheme:'exact',network:'eip155:8453',price:'$0.01',asset:'USDC'},{scheme:'exact',network:'eip155:324705682',price:'$0.01',gasless:true}]}});
   await sleep(1200);
   setStep('s2',2,'done');
 
   // Step 3: Sign payment
   setStep('s2',3,'active');
   setTimer('s2-timer','Signing x402 payment authorization...');
-  await sleep(800);
+  showProto('s2-3-proto','POST','/ (with payment)',{metadata:{'x402.payment.payload':{from:'0xDemo...abcdef',signature:'0xdemo...',network:'eip155:8453'},'x402.payer':'0xDemo...abcdef'}});
+  await sleep(1000);
   setStep('s2',3,'done');
 
   // Step 4: Execute with payment
@@ -704,12 +957,12 @@ async function runDemo2(){
     metadata:{'x402.payment.payload':{from:'0xDemoWallet1234567890abcdef',signature:'0xdemo',network:'eip155:8453'},'x402.payer':'0xDemoWallet1234567890abcdef'}}}};
   const resp2=await fetch('/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body2)});
   const data2=await resp2.json();
+  showProto('s2-4-proto','POST','/ (response)',{result:{status:{state:'completed'},'x402.payment.settled':true,'x402.siwx.active':true,message:{parts:['text: Screenshot captured (19KB)','file: screenshot.png (image/png)']}}});
   setStep('s2',4,'done');
 
   const elapsed=((Date.now()-start)/1000).toFixed(1);
   setTimer('s2-timer','Completed in '+elapsed+'s — cost: $0.01 USDC — SIWx session active');
 
-  // Show result
   const result=document.getElementById('s2-result');
   const preview=document.getElementById('s2-preview');
   const imgPart=data2.result?.status?.message?.parts?.find(p=>p.kind==='file');
