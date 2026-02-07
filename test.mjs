@@ -26,7 +26,7 @@ await test('GET /.well-known/agent-card.json returns valid V2 agent card', async
   assert(r.status === 200);
   const d = await r.json();
   assert(d.name === 'OpSpawn Screenshot Agent');
-  assert(d.version === '2.0.0', `Version: ${d.version}`);
+  assert(d.version === '2.1.0', `Version: ${d.version}`);
   assert(d.skills.length === 3);
   assert(d.skills[0].id === 'screenshot');
   assert(d.protocolVersion === '0.3.0');
@@ -43,7 +43,7 @@ await test('GET /.well-known/agent-card.json returns valid V2 agent card', async
 await test('GET /x402 returns V2 service catalog', async () => {
   const r = await fetch(`${BASE}/x402`);
   const d = await r.json();
-  assert(d.version === '2.0.0', `Version: ${d.version}`);
+  assert(d.version === '2.1.0', `Version: ${d.version}`);
   assert(d.protocols.a2a.version === '0.3.0');
   assert(d.protocols.x402.version === '2.0', `x402 version: ${d.protocols.x402.version}`);
   assert(d.protocols.x402.networks.length >= 2, 'Has multiple networks');
@@ -341,6 +341,53 @@ await test('GET /api/payments reflects activity', async () => {
   const d = await r.json();
   assert(d.total > 0, `Total payments: ${d.total}`);
   assert(d.payments.some(p => p.type === 'payment-required'), 'Has payment-required entry');
+});
+
+await test('SKALE Europa: correct chain ID in agent card', async () => {
+  const r = await fetch(`${BASE}/.well-known/agent-card.json`);
+  const d = await r.json();
+  const payExt = d.extensions.find(e => e.uri === 'urn:x402:payment:v2');
+  const skaleNet = payExt.config.networks.find(n => n.name === 'SKALE Europa');
+  assert(skaleNet, 'SKALE Europa network present');
+  assert(skaleNet.network === 'eip155:2046399126', `SKALE Europa CAIP-2: ${skaleNet.network}`);
+  assert(skaleNet.gasless === true, 'SKALE is gasless');
+  assert(skaleNet.tokenAddress === '0x5F795bb52dAC3085f578f4877D450e2929D2F13d', `SKALE USDC: ${skaleNet.tokenAddress}`);
+});
+
+await test('SKALE Europa: correct USDC in payment requirements', async () => {
+  const r = await fetch(BASE, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      jsonrpc: '2.0', id: 'test-skale-pay',
+      method: 'message/send',
+      params: {
+        message: {
+          messageId: 'msg-skale', role: 'user', kind: 'message',
+          parts: [{ kind: 'text', text: 'Take a screenshot of https://example.com' }],
+        },
+      },
+    }),
+  });
+  const d = await r.json();
+  const accepts = d.result.status.message.parts.find(p => p.kind === 'data')?.data['x402.accepts'];
+  const skaleAccept = accepts.find(a => a.network === 'eip155:2046399126');
+  assert(skaleAccept, 'SKALE Europa in payment accepts');
+  assert(skaleAccept.asset === '0x5F795bb52dAC3085f578f4877D450e2929D2F13d', `SKALE USDC asset: ${skaleAccept.asset}`);
+  assert(skaleAccept.gasless === true, 'Marked gasless');
+  // Base should use different USDC address
+  const baseAccept = accepts.find(a => a.network === 'eip155:8453');
+  assert(baseAccept.asset !== skaleAccept.asset, 'Base and SKALE use different USDC addresses');
+});
+
+await test('SKALE Europa: x402 catalog shows correct chain details', async () => {
+  const r = await fetch(`${BASE}/x402`);
+  const d = await r.json();
+  const skaleNet = d.protocols.x402.networks.find(n => n.name === 'SKALE Europa');
+  assert(skaleNet, 'SKALE Europa in catalog');
+  assert(skaleNet.chainId === 2046399126, `Chain ID: ${skaleNet.chainId}`);
+  assert(skaleNet.gasless === true, 'Gasless flag');
+  assert(skaleNet.network === 'eip155:2046399126', 'CAIP-2 format');
 });
 
 console.log(`\nResults: ${passed} passed, ${failed} failed, ${passed + failed} total\n`);

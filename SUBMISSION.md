@@ -36,7 +36,7 @@ The agent economy needs a standard way for agents to pay each other for services
 ### Technical Stack
 - **Runtime**: Node.js 22 + Express.js
 - **Protocols**: A2A v0.3, x402 V2 protocol
-- **Payments**: USDC on Base (eip155:8453) and SKALE (eip155:324705682, gasless)
+- **Payments**: USDC on Base (eip155:8453) and SKALE Europa (eip155:2046399126, gasless, zero gas fees)
 - **Auth**: SIWx (CAIP-122 wallet authentication for sessions)
 - **Facilitator**: PayAI Network (facilitator.payai.network)
 - **Infrastructure**: Ubuntu VM, Cloudflare Tunnel, nginx reverse proxy

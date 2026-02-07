@@ -7,7 +7,7 @@
  * Architecture:
  * - A2A protocol v0.3 for agent-to-agent communication (JSON-RPC over HTTP)
  * - x402 V2 protocol for payment (USDC on Base, gasless on SKALE)
- * - CAIP-2 network identifiers (eip155:8453, eip155:324705682)
+ * - CAIP-2 network identifiers (eip155:8453, eip155:2046399126)
  * - Express HTTP server with web dashboard
  *
  * Built by OpSpawn for the SF Agentic Commerce x402 Hackathon
@@ -15,6 +15,9 @@
 
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
 // === Configuration ===
 const PORT = parseInt(process.env.PORT || '4002', 10);
@@ -33,12 +36,60 @@ const NETWORKS = {
 };
 const DEFAULT_NETWORK = NETWORKS.base;
 
+// === Persistence ===
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const STATS_FILE = join(__dirname, 'stats.json');
+
+function loadStats() {
+  try {
+    if (existsSync(STATS_FILE)) {
+      const raw = readFileSync(STATS_FILE, 'utf8');
+      if (!raw.trim()) {
+        console.log('[stats] Stats file is empty, using defaults');
+        return { paymentLog: [], siwxSessions: {}, totalTasks: 0, startedAt: new Date().toISOString() };
+      }
+      const data = JSON.parse(raw);
+      console.log(`[stats] Loaded ${data.paymentLog?.length || 0} payments, ${Object.keys(data.siwxSessions || {}).length} sessions`);
+      return data;
+    }
+  } catch (e) {
+    console.error('[stats] Failed to load stats file:', e.message);
+    console.error('[stats] Starting with fresh state');
+  }
+  return { paymentLog: [], siwxSessions: {}, totalTasks: 0, startedAt: new Date().toISOString() };
+}
+
+function saveStats() {
+  try {
+    const sessions = {};
+    for (const [wallet, data] of siwxSessions.entries()) {
+      sessions[wallet] = { skills: [...data.paidSkills], lastPayment: data.lastPayment };
+    }
+    const payload = JSON.stringify({
+      paymentLog, siwxSessions: sessions,
+      totalTasks: totalTaskCount, startedAt: persistedStats.startedAt,
+      savedAt: new Date().toISOString(),
+    }, null, 2);
+    writeFileSync(STATS_FILE, payload);
+  } catch (e) {
+    console.error('[stats] Failed to save:', e.message, '— data in memory only');
+  }
+}
+
+const persistedStats = loadStats();
+
 // === State ===
 const tasks = new Map();
-const paymentLog = [];
+const paymentLog = persistedStats.paymentLog || [];
+let totalTaskCount = persistedStats.totalTasks || 0;
 
-// === SIWx session store (in-memory) ===
+// === SIWx session store ===
 const siwxSessions = new Map(); // wallet address -> { paidSkills: Set, lastPayment: timestamp }
+// Restore persisted sessions
+for (const [wallet, data] of Object.entries(persistedStats.siwxSessions || {})) {
+  siwxSessions.set(wallet, { paidSkills: new Set(data.skills || []), lastPayment: data.lastPayment });
+}
+console.log(`[stats] Loaded: ${paymentLog.length} payments, ${siwxSessions.size} sessions, ${totalTaskCount} total tasks`);
 
 function recordSiwxPayment(walletAddress, skill) {
   const normalized = walletAddress.toLowerCase();
@@ -63,7 +114,7 @@ const agentCard = {
   description: 'AI agent providing screenshot, PDF, and document generation services via x402 V2 micropayments on Base + SKALE Europa (gasless). Pay per request with USDC. Supports SIWx session-based auth for repeat access.',
   url: `${PUBLIC_URL}/`,
   provider: { organization: 'OpSpawn', url: 'https://opspawn.com' },
-  version: '2.0.0',
+  version: '2.1.0',
   protocolVersion: '0.3.0',
   capabilities: {
     streaming: false,
@@ -126,6 +177,7 @@ function createTask(id, contextId, state, message) {
     history: [], artifacts: [], metadata: {},
   };
   tasks.set(id, task);
+  totalTaskCount++;
   return task;
 }
 
@@ -152,9 +204,14 @@ function parseRequest(text) {
 }
 
 // === Service handlers ===
+const SNAPAPI_TIMEOUT = 30000; // 30s timeout for SnapAPI calls
+
 async function handleScreenshot(url) {
   const params = new URLSearchParams({ url, format: 'png', width: '1280', height: '800' });
-  const resp = await fetch(`${SNAPAPI_URL}/api/capture?${params}`, { headers: { 'X-API-Key': SNAPAPI_KEY } });
+  const resp = await fetch(`${SNAPAPI_URL}/api/capture?${params}`, {
+    headers: { 'X-API-Key': SNAPAPI_KEY },
+    signal: AbortSignal.timeout(SNAPAPI_TIMEOUT),
+  });
   if (!resp.ok) throw new Error(`SnapAPI error: ${resp.status}`);
   const buffer = Buffer.from(await resp.arrayBuffer());
   return {
@@ -170,6 +227,7 @@ async function handleMarkdownToPdf(markdown) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-API-Key': SNAPAPI_KEY },
     body: JSON.stringify({ markdown }),
+    signal: AbortSignal.timeout(SNAPAPI_TIMEOUT),
   });
   if (!resp.ok) throw new Error(`SnapAPI error: ${resp.status}`);
   const buffer = Buffer.from(await resp.arrayBuffer());
@@ -186,6 +244,7 @@ async function handleMarkdownToHtml(markdown) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ markdown, theme: 'light' }),
+    signal: AbortSignal.timeout(SNAPAPI_TIMEOUT),
   });
   if (!resp.ok) throw new Error(`SnapAPI error: ${resp.status}`);
   const html = await resp.text();
@@ -274,7 +333,7 @@ async function handleMessageSend(rpcId, params, res) {
   const siwxWallet = message.metadata?.['x402.siwx.wallet'];
   if (siwxWallet && hasSiwxAccess(siwxWallet, request.skill)) {
     console.log(`[siwx] Session access granted for ${siwxWallet} -> ${request.skill}`);
-    paymentLog.push({ type: 'siwx-access', taskId, skill: request.skill, wallet: siwxWallet, timestamp: new Date().toISOString() });
+    paymentLog.push({ type: 'siwx-access', taskId, skill: request.skill, wallet: siwxWallet, network: null, timestamp: new Date().toISOString() });
     return handleFreeExecution(rpcId, taskId, contextId, request, message, res);
   }
 
@@ -299,7 +358,7 @@ async function handleMessageSend(rpcId, params, res) {
     task.metadata['x402.skill'] = request.skill;
     task.metadata['x402.version'] = '2.0';
 
-    paymentLog.push({ type: 'payment-required', taskId, skill: request.skill, amount: payReq.accepts[0].price, timestamp: new Date().toISOString() });
+    paymentLog.push({ type: 'payment-required', taskId, skill: request.skill, amount: payReq.accepts[0].price, network: null, timestamp: new Date().toISOString() });
     return res.json({ jsonrpc: '2.0', id: rpcId, result: task });
   }
 
@@ -332,7 +391,8 @@ async function handleFreeExecution(rpcId, taskId, contextId, request, message, r
 async function handlePaidExecution(rpcId, taskId, contextId, request, paymentPayload, message, res) {
   console.log(`[x402-v2] Payment received for ${request.skill}`);
   const payerWallet = paymentPayload?.from || message.metadata?.['x402.payer'] || 'unknown';
-  paymentLog.push({ type: 'payment-received', taskId, skill: request.skill, wallet: payerWallet, timestamp: new Date().toISOString() });
+  const paymentNetwork = paymentPayload?.network || message.metadata?.['x402.network'] || 'eip155:8453';
+  paymentLog.push({ type: 'payment-received', taskId, skill: request.skill, wallet: payerWallet, network: paymentNetwork, timestamp: new Date().toISOString() });
 
   // Record SIWx session so the payer can re-access without paying again
   if (payerWallet !== 'unknown') {
@@ -350,7 +410,8 @@ async function handlePaidExecution(rpcId, taskId, contextId, request, paymentPay
     else result = await handleMarkdownToHtml(request.markdown || '# Hello');
 
     const txHash = `0x${uuidv4().replace(/-/g, '')}`;
-    paymentLog.push({ type: 'payment-settled', taskId, skill: request.skill, txHash, wallet: payerWallet, timestamp: new Date().toISOString() });
+    paymentLog.push({ type: 'payment-settled', taskId, skill: request.skill, txHash, wallet: payerWallet, network: paymentNetwork, timestamp: new Date().toISOString() });
+    saveStats();
 
     updateTask(taskId, 'completed', {
       kind: 'message', role: 'agent', messageId: uuidv4(), parts: result.parts, taskId, contextId,
@@ -404,7 +465,7 @@ app.get('/api/info', (req, res) => res.json({
     services: { screenshot: '$0.01', 'markdown-to-pdf': '$0.005', 'markdown-to-html': 'free' },
   },
   stats: {
-    payments: paymentLog.length, tasks: tasks.size, uptime: process.uptime(),
+    payments: paymentLog.length, tasks: totalTaskCount, tasksThisSession: tasks.size, uptime: process.uptime(),
     siwxSessions: siwxSessions.size,
     paymentsByType: {
       required: paymentLog.filter(p => p.type === 'payment-required').length,
@@ -423,7 +484,7 @@ app.get('/api/siwx', (req, res) => {
   res.json({ sessions, total: sessions.length });
 });
 app.get('/x402', (req, res) => res.json({
-  service: 'OpSpawn A2A x402 Gateway', version: '2.0.0',
+  service: 'OpSpawn A2A x402 Gateway', version: '2.1.0',
   description: 'A2A-compliant agent with x402 V2 micropayment services on Base + SKALE Europa (gasless)',
   provider: { name: 'OpSpawn', url: 'https://opspawn.com' },
   protocols: {
@@ -470,17 +531,77 @@ app.get('/stats', (req, res) => {
     settled: paymentLog.filter(p => p.type === 'payment-settled').length,
     siwxAccess: paymentLog.filter(p => p.type === 'siwx-access').length,
   };
+  const allTasks = [...tasks.values()];
+  const completed = allTasks.filter(t => t.status.state === 'completed').length;
+  const failed = allTasks.filter(t => t.status.state === 'failed').length;
   res.json({
-    agent: { name: 'OpSpawn Screenshot Agent', version: '2.0.0', url: PUBLIC_URL },
+    agent: { name: 'OpSpawn Screenshot Agent', version: '2.1.0', url: PUBLIC_URL },
     uptime: { seconds: Math.round(uptime), human: formatUptime(uptime) },
-    tasks: { total: tasks.size, completed: [...tasks.values()].filter(t => t.status.state === 'completed').length, failed: [...tasks.values()].filter(t => t.status.state === 'failed').length },
-    payments: { total: paymentLog.length, byType, revenue: { currency: 'USDC', estimated: (byType.settled * 0.01).toFixed(4) } },
-    sessions: { siwx: siwxSessions.size },
+    tasks: {
+      total: totalTaskCount, thisSession: tasks.size, completed, failed,
+      errorRate: tasks.size > 0 ? (failed / tasks.size * 100).toFixed(1) + '%' : '0%',
+    },
+    payments: {
+      total: paymentLog.length, byType,
+      revenue: calculateDetailedRevenue(),
+    },
+    sessions: {
+      siwx: siwxSessions.size,
+      reuseCount: byType.siwxAccess,
+      savingsEstimate: (byType.siwxAccess * 0.01).toFixed(4),
+    },
     services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
     networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
+    recentActivity: paymentLog.slice(-10).reverse().map(p => ({
+      type: p.type, skill: p.skill, network: p.network, timestamp: p.timestamp,
+    })),
+    protocol: {
+      a2a: { version: '0.3.0', methods: ['message/send', 'tasks/get', 'tasks/cancel'] },
+      x402: { version: '2.0', features: ['siwx', 'payment-identifier', 'bazaar-discovery', 'multi-chain'] },
+    },
     timestamp: now,
   });
 });
+
+function calculateDetailedRevenue() {
+  const bySkill = {};
+  const byNetwork = {};
+  const skillCounts = {};
+  let total = 0;
+  let settledCount = 0;
+  const timestamps = [];
+  for (const p of paymentLog) {
+    if (p.type === 'payment-settled') {
+      const amount = p.skill === 'screenshot' ? 0.01 : p.skill === 'markdown-to-pdf' ? 0.005 : 0;
+      total += amount;
+      settledCount++;
+      bySkill[p.skill] = (bySkill[p.skill] || 0) + amount;
+      skillCounts[p.skill] = (skillCounts[p.skill] || 0) + 1;
+      const net = p.network || 'eip155:8453';
+      byNetwork[net] = (byNetwork[net] || 0) + amount;
+      if (p.timestamp) timestamps.push(new Date(p.timestamp).getTime());
+    }
+  }
+  // Calculate average time between payments
+  let avgInterval = null;
+  if (timestamps.length > 1) {
+    timestamps.sort((a, b) => a - b);
+    const intervals = [];
+    for (let i = 1; i < timestamps.length; i++) intervals.push(timestamps[i] - timestamps[i - 1]);
+    avgInterval = Math.round(intervals.reduce((a, b) => a + b, 0) / intervals.length / 1000);
+  }
+  return {
+    currency: 'USDC',
+    total: total.toFixed(4),
+    avgPerTask: settledCount > 0 ? (total / settledCount).toFixed(4) : '0',
+    avgPaymentInterval: avgInterval ? `${avgInterval}s` : null,
+    bySkill: Object.fromEntries(Object.entries(bySkill).map(([k, v]) => [k, { amount: v.toFixed(4), count: skillCounts[k] || 0 }])),
+    byNetwork: Object.fromEntries(Object.entries(byNetwork).map(([k, v]) => [k, { amount: v.toFixed(4), gasless: k === NETWORKS.skale.caip2 }])),
+    conversionRate: paymentLog.filter(p => p.type === 'payment-required').length > 0
+      ? ((settledCount / paymentLog.filter(p => p.type === 'payment-required').length) * 100).toFixed(1) + '%'
+      : 'N/A',
+  };
+}
 
 function formatUptime(s) {
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
@@ -497,6 +618,11 @@ app.listen(PORT, () => {
   console.log(`  Wallet: ${WALLET_ADDRESS}\n`);
 });
 
+// Persist stats every 60s and on shutdown
+setInterval(saveStats, 60000);
+process.on('SIGTERM', () => { saveStats(); process.exit(0); });
+process.on('SIGINT', () => { saveStats(); process.exit(0); });
+
 // === Dashboard HTML ===
 function getDashboardHtml() {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpSpawn A2A x402 Gateway</title>
@@ -509,13 +635,13 @@ function getDashboardHtml() {
 <div class="card"><h2>Agent Skills</h2><div class="sc"><span class="sn">Web Screenshot</span><span class="sp pd">$0.01</span><div class="sd">Capture any webpage as PNG. Send URL in message.</div></div><div class="sc"><span class="sn">Markdown to PDF</span><span class="sp pd">$0.005</span><div class="sd">Convert markdown to styled PDF document.</div></div><div class="sc"><span class="sn">Markdown to HTML</span><span class="sp fr">FREE</span><div class="sd">Convert markdown to styled HTML.</div></div></div>
 <div class="card"><h2>Endpoints</h2><ul class="el"><li><span>GET</span> /.well-known/agent-card.json</li><li><span>POST</span> / (message/send)</li><li><span>POST</span> / (tasks/get)</li><li><span>POST</span> / (tasks/cancel)</li><li><span>GET</span> /x402</li><li><span>GET</span> /api/info</li><li><span>GET</span> /api/payments</li><li><span>GET</span> /stats</li><li><span>GET</span> /health</li></ul></div>
 <div class="card"><h2>Payment Info (x402 V2)</h2><div class="sr"><span class="sl">Networks</span><span class="sv">Base (eip155:8453) + SKALE Europa (eip155:2046399126)</span></div><div class="sr"><span class="sl">Token</span><span class="sv">USDC</span></div><div class="sr"><span class="sl">Wallet</span><span class="sv" style="font-size:.75rem;word-break:break-all">${WALLET_ADDRESS}</span></div><div class="sr"><span class="sl">Facilitator</span><span class="sv">PayAI</span></div><div class="sr"><span class="sl">Protocol</span><span class="sv">x402 V2 + A2A v0.3</span></div><div class="sr"><span class="sl">SIWx</span><span class="sv" style="color:#66ffcc">Active (pay once, reuse)</span></div><div class="sr"><span class="sl">SIWx Sessions</span><span class="sv" id="ss">0</span></div></div>
-<div class="card"><h2>Live Stats</h2><div class="sr"><span class="sl">Payment Events</span><span class="sv" id="sp">0</span></div><div class="sr"><span class="sl">Tasks</span><span class="sv" id="st">0</span></div><div class="sr"><span class="sl">Uptime</span><span class="sv" id="su">0s</span></div><div class="sr"><span class="sl">Agent Card</span><span class="sv"><a href="/.well-known/agent-card.json" style="color:#4da6ff">View JSON</a></span></div><div id="pl" style="margin-top:1rem;max-height:200px;overflow-y:auto"></div></div>
+<div class="card"><h2>Live Stats</h2><div class="sr"><span class="sl">Payment Events</span><span class="sv" id="sp">0</span></div><div class="sr"><span class="sl">Tasks</span><span class="sv" id="st">0</span></div><div class="sr"><span class="sl">Revenue</span><span class="sv" id="sr-rev" style="color:#4dff88">$0.0000</span></div><div class="sr"><span class="sl">Conversion Rate</span><span class="sv" id="sr-conv">N/A</span></div><div class="sr"><span class="sl">Uptime</span><span class="sv" id="su">0s</span></div><div class="sr"><span class="sl">Agent Card</span><span class="sv"><a href="/.well-known/agent-card.json" style="color:#4da6ff">View JSON</a></span></div><h3 style="color:#888;font-size:.9rem;margin-top:1rem;margin-bottom:.5rem">Recent Activity</h3><div id="pl" style="max-height:200px;overflow-y:auto"></div></div>
 </div>
 <div class="ts"><h2>Try It: Send A2A Message</h2><p style="color:#888;margin-bottom:1rem;font-size:.9rem">Free <b>Markdown to HTML</b> executes immediately. Paid skills return payment requirements.</p><div class="tf"><input type="text" id="ti" placeholder="Enter markdown or URL" value="# Hello from A2A&#10;&#10;This is a **test**."><button id="tb" onclick="go()">Send A2A Message</button></div><div id="result"></div></div>
 </div>
 <footer>Built by <a href="https://opspawn.com">OpSpawn</a> for the SF Agentic Commerce x402 Hackathon | x402 V2 + A2A v0.3 + SIWx + SKALE Europa | <a href="/x402">Catalog</a> | <a href="/.well-known/agent-card.json">Agent Card</a> | <a href="/api/siwx">SIWx Sessions</a></footer>
 <script>
-async function rf(){try{const r=await fetch('/api/info'),d=await r.json();document.getElementById('sp').textContent=d.stats.payments;document.getElementById('st').textContent=d.stats.tasks;const ss=document.getElementById('ss');if(ss)ss.textContent=d.stats.siwxSessions||0;const s=Math.round(d.stats.uptime),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;document.getElementById('su').textContent=h>0?h+'h '+m+'m':m>0?m+'m '+sec+'s':sec+'s'}catch(e){}try{const r=await fetch('/api/payments'),d=await r.json(),el=document.getElementById('pl');if(d.payments.length)el.innerHTML=d.payments.slice(-10).reverse().map(p=>'<div class="le"><span class="lt">'+(p.timestamp?.split('T')[1]?.split('.')[0]||'')+'</span> <span class="ly '+p.type+'">'+p.type+'</span> '+(p.skill||'')+'</div>').join('')}catch(e){}}rf();setInterval(rf,3000);
+async function rf(){try{const r=await fetch('/api/info'),d=await r.json();document.getElementById('sp').textContent=d.stats.payments;document.getElementById('st').textContent=d.stats.tasks;const ss=document.getElementById('ss');if(ss)ss.textContent=d.stats.siwxSessions||0;const s=Math.round(d.stats.uptime),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;document.getElementById('su').textContent=h>0?h+'h '+m+'m':m>0?m+'m '+sec+'s':sec+'s'}catch(e){}}async function rs(){try{const r=await fetch('/stats'),d=await r.json();const re=document.getElementById('sr-rev');if(re)re.textContent='$'+d.payments.revenue.total+' USDC';const cr=document.getElementById('sr-conv');if(cr)cr.textContent=d.payments.revenue.conversionRate||'N/A'}catch(e){}}async function rp(){try{const r=await fetch('/api/payments'),d=await r.json(),el=document.getElementById('pl');if(d.payments.length)el.innerHTML=d.payments.slice(-10).reverse().map(p=>'<div class="le"><span class="lt">'+(p.timestamp?.split('T')[1]?.split('.')[0]||'')+'</span> <span class="ly '+p.type+'">'+p.type+'</span> '+(p.skill||'')+'</div>').join('')}catch(e){}}rf();rs();rp();setInterval(()=>{rf();rs();rp()},3000);
 async function go(){const i=document.getElementById('ti').value,b=document.getElementById('tb'),r=document.getElementById('result');b.disabled=true;b.textContent='Sending...';r.style.display='block';r.textContent='Sending...';try{const body={jsonrpc:'2.0',id:crypto.randomUUID(),method:'message/send',params:{message:{messageId:crypto.randomUUID(),role:'user',parts:[{kind:'text',text:i}],kind:'message'},configuration:{blocking:true,acceptedOutputModes:['text/plain','text/html','application/json']}}};const resp=await fetch('/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await resp.json();r.textContent=JSON.stringify(d,null,2);rf()}catch(e){r.textContent='Error: '+e.message}b.disabled=false;b.textContent='Send A2A Message'}
 </script></body></html>`;
 }
@@ -526,6 +652,13 @@ function getDemoHtml() {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A2A x402 Gateway — Live Demo</title>
 <meta name="description" content="Watch AI agents discover, negotiate, and pay each other using A2A protocol + x402 V2 micropayments. Live interactive demo.">
+<meta property="og:title" content="A2A x402 Gateway — Pay-Per-Request Agent Services">
+<meta property="og:description" content="AI agents discover, negotiate, and pay each other for services using A2A + x402 V2 micropayments on Base and SKALE Europa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${publicUrl}/demo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A2A x402 Gateway — Agent Micropayments">
+<meta name="twitter:description" content="Live demo: AI agents paying agents with USDC micropayments via A2A protocol + x402 V2.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh;overflow-x:hidden}

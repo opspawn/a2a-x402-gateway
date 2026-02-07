@@ -2,7 +2,7 @@
 
 **Pay-per-request AI agent services via A2A protocol + x402 V2 micropayments**
 
-An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 V2 cryptocurrency micropayments on Base + SKALE networks. Features SIWx session authentication for repeat access.
+An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 V2 cryptocurrency micropayments on Base + SKALE Europa (gasless) networks. Features SIWx session authentication for repeat access.
 
 Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackathon](https://dorahacks.io/hackathon/x402).
 
@@ -78,7 +78,8 @@ Payment requirements are returned via A2A task metadata using x402 V2 with CAIP-
     "price": "$0.01"
   }, {
     "scheme": "exact",
-    "network": "eip155:324705682",
+    "network": "eip155:2046399126",
+    "asset": "0x5F795bb52dAC3085f578f4877D450e2929D2F13d",
     "gasless": true
   }]
 }
@@ -163,18 +164,18 @@ const { result: task } = await r1.json();
 └─────────────┘                      └──────────────┘             └──────────┘
                                            │
                                      x402 Payment
-                                           │
-                                    ┌──────────────┐
-                                    │ Base Network  │
-                                    │  (USDC)       │
-                                    └──────────────┘
+                                      ┌────┴────┐
+                                ┌──────────┐ ┌──────────────┐
+                                │  Base    │ │ SKALE Europa │
+                                │  (USDC)  │ │ (USDC, $0)   │
+                                └──────────┘ └──────────────┘
 ```
 
 ## Tech Stack
 
 - **Runtime**: Node.js 22
 - **Protocol**: A2A v0.3 (JSON-RPC 2.0 over HTTP)
-- **Payments**: x402 V2 (SDK v2.3.0) on Base + SKALE (USDC)
+- **Payments**: x402 V2 (SDK v2.3.0) on Base + SKALE Europa (USDC, gasless)
 - **Auth**: SIWx (CAIP-122 wallet sessions)
 - **Backend**: Express 5
 - **Facilitator**: PayAI (facilitator.payai.network)
@@ -187,13 +188,14 @@ npm start &
 npm test
 ```
 
-19 tests covering:
+22 tests covering:
 - Health check and agent card discovery
 - x402 service catalog
 - Free skill execution (markdown → HTML)
 - Paid skill payment requirements (screenshot, PDF)
 - Payment submission and service delivery
 - Task lifecycle (get, cancel)
+- SKALE Europa chain ID, USDC address, and gasless flag validation
 - Error handling (invalid requests, unknown methods)
 
 ## Configuration
