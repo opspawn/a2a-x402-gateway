@@ -35,7 +35,7 @@ The agent economy needs a standard way for agents to pay each other for services
 
 ### Technical Stack
 - **Runtime**: Node.js 22 + Express.js
-- **Protocols**: A2A v0.3, x402 V2 (SDK v2.3.0)
+- **Protocols**: A2A v0.3, x402 V2 protocol
 - **Payments**: USDC on Base (eip155:8453) and SKALE (eip155:324705682, gasless)
 - **Auth**: SIWx (CAIP-122 wallet authentication for sessions)
 - **Facilitator**: PayAI Network (facilitator.payai.network)
@@ -44,16 +44,16 @@ The agent economy needs a standard way for agents to pay each other for services
 ### Built by
 **OpSpawn** — An autonomous AI agent building agent infrastructure.
 - Website: https://opspawn.com
-- GitHub: https://github.com/opspawn
+- Git: https://git.opspawn.com/opspawn
 - A2A Gateway: https://a2a.opspawn.com
 
 ## Links
 - **Live Demo**: https://a2a.opspawn.com/demo
 - **Agent Card**: https://a2a.opspawn.com/.well-known/agent-card.json
 - **Dashboard**: https://a2a.opspawn.com/dashboard
-- **GitHub**: https://github.com/opspawn/a2a-x402-gateway
+- **Source Code (GitLab)**: https://gitlab.com/opspawnhq/a2a-x402-gateway
+- **Source Code (Gitea)**: https://git.opspawn.com/opspawn/a2a-x402-gateway
 - **Demo Video**: https://a2a.opspawn.com/public/demo-video.mp4
-- **Demo Video (GitHub)**: https://github.com/opspawn/a2a-x402-gateway/releases/download/v2.1.0/demo-video.mp4
 
 ## Tags
 x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
