@@ -26,9 +26,10 @@ const FACILITATOR_URL = 'https://facilitator.payai.network';
 const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 
 // x402 V2: CAIP-2 network identifiers
+const SKALE_USDC = '0x5F795bb52dAC3085f578f4877D450e2929D2F13d'; // Bridged USDC on SKALE Europa Hub
 const NETWORKS = {
   base: { caip2: 'eip155:8453', name: 'Base', chainId: 8453, usdc: BASE_USDC },
-  skale: { caip2: 'eip155:324705682', name: 'SKALE', chainId: 324705682, usdc: BASE_USDC, gasless: true },
+  skale: { caip2: 'eip155:2046399126', name: 'SKALE Europa', chainId: 2046399126, usdc: SKALE_USDC, gasless: true },
 };
 const DEFAULT_NETWORK = NETWORKS.base;
 
@@ -59,7 +60,7 @@ function hasSiwxAccess(walletAddress, skill) {
 // === Agent Card (A2A v0.3 + x402 V2) ===
 const agentCard = {
   name: 'OpSpawn Screenshot Agent',
-  description: 'AI agent providing screenshot, PDF, and document generation services via x402 V2 micropayments on Base + SKALE. Pay per request with USDC. Supports SIWx session-based auth for repeat access.',
+  description: 'AI agent providing screenshot, PDF, and document generation services via x402 V2 micropayments on Base + SKALE Europa (gasless). Pay per request with USDC. Supports SIWx session-based auth for repeat access.',
   url: `${PUBLIC_URL}/`,
   provider: { organization: 'OpSpawn', url: 'https://opspawn.com' },
   version: '2.0.0',
@@ -107,7 +108,7 @@ const agentCard = {
         version: '2.0',
         networks: [
           { network: NETWORKS.base.caip2, name: 'Base', token: 'USDC', tokenAddress: BASE_USDC, gasless: false },
-          { network: NETWORKS.skale.caip2, name: 'SKALE', token: 'USDC', tokenAddress: BASE_USDC, gasless: true },
+          { network: NETWORKS.skale.caip2, name: 'SKALE Europa', token: 'USDC', tokenAddress: SKALE_USDC, gasless: true },
         ],
         wallet: WALLET_ADDRESS,
         facilitator: FACILITATOR_URL,
@@ -222,7 +223,7 @@ function createPaymentRequired(skill) {
         network: NETWORKS.skale.caip2,
         price: p.price,
         payTo: WALLET_ADDRESS,
-        asset: BASE_USDC,
+        asset: SKALE_USDC,
         gasless: true,
       },
     ],
@@ -423,7 +424,7 @@ app.get('/api/siwx', (req, res) => {
 });
 app.get('/x402', (req, res) => res.json({
   service: 'OpSpawn A2A x402 Gateway', version: '2.0.0',
-  description: 'A2A-compliant agent with x402 V2 micropayment services on Base + SKALE',
+  description: 'A2A-compliant agent with x402 V2 micropayment services on Base + SKALE Europa (gasless)',
   provider: { name: 'OpSpawn', url: 'https://opspawn.com' },
   protocols: {
     a2a: { version: '0.3.0', agentCard: '/.well-known/agent-card.json', sendMessage: '/' },
@@ -459,6 +460,33 @@ app.get('/x402/pdf', (req, res) => {
   const payReq = createPaymentRequired('markdown-to-pdf');
   res.status(402).json(payReq);
 });
+// /stats endpoint for agent economy aggregation (Colony Economy Dashboard standard)
+app.get('/stats', (req, res) => {
+  const uptime = process.uptime();
+  const now = new Date().toISOString();
+  const byType = {
+    required: paymentLog.filter(p => p.type === 'payment-required').length,
+    received: paymentLog.filter(p => p.type === 'payment-received').length,
+    settled: paymentLog.filter(p => p.type === 'payment-settled').length,
+    siwxAccess: paymentLog.filter(p => p.type === 'siwx-access').length,
+  };
+  res.json({
+    agent: { name: 'OpSpawn Screenshot Agent', version: '2.0.0', url: PUBLIC_URL },
+    uptime: { seconds: Math.round(uptime), human: formatUptime(uptime) },
+    tasks: { total: tasks.size, completed: [...tasks.values()].filter(t => t.status.state === 'completed').length, failed: [...tasks.values()].filter(t => t.status.state === 'failed').length },
+    payments: { total: paymentLog.length, byType, revenue: { currency: 'USDC', estimated: (byType.settled * 0.01).toFixed(4) } },
+    sessions: { siwx: siwxSessions.size },
+    services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
+    networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
+    timestamp: now,
+  });
+});
+
+function formatUptime(s) {
+  const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+  return d > 0 ? `${d}d ${h}h ${m}m` : h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.listen(PORT, () => {
@@ -474,18 +502,18 @@ function getDashboardHtml() {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpSpawn A2A x402 Gateway</title>
 <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0}.hd{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);padding:2rem;text-align:center;border-bottom:2px solid #00d4ff}.hd h1{font-size:2rem;color:#00d4ff;margin-bottom:.5rem}.hd p{color:#8899aa;font-size:1.1rem}.badges{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}.badge{padding:.3rem .8rem;border-radius:12px;font-size:.8rem;font-weight:600}.b-a2a{background:#1a3a5c;color:#4da6ff;border:1px solid #4da6ff}.b-x4{background:#1a3c2c;color:#4dff88;border:1px solid #4dff88}.b-base{background:#2a2a1a;color:#ffcc00;border:1px solid #ffcc00}.ct{max-width:1200px;margin:0 auto;padding:2rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;margin-top:1.5rem}.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:1.5rem}.card h2{color:#00d4ff;font-size:1.2rem;margin-bottom:1rem}.sr{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #222}.sl{color:#888}.sv{color:#fff;font-weight:600}.sc{background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:1rem;margin-bottom:.75rem}.sn{font-weight:600;color:#00d4ff}.sp{float:right;font-weight:700}.sp.pd{color:#4dff88}.sp.fr{color:#888}.sd{color:#999;font-size:.9rem;margin-top:.3rem}.el{list-style:none}.el li{padding:.4rem 0;border-bottom:1px solid #1a1a1a;font-family:monospace;font-size:.85rem;color:#ccc}.el li span{color:#4da6ff;font-weight:600;margin-right:.5rem}.flow{text-align:center;padding:1rem 0}.fs{display:inline-block;padding:.5rem 1rem;border-radius:6px;font-size:.85rem;margin:.3rem}.fa{color:#4da6ff;font-size:1.2rem;vertical-align:middle}.fc{background:#1a2a3a;color:#4da6ff;border:1px solid #4da6ff}.fg{background:#1a3c2c;color:#4dff88;border:1px solid #4dff88}.fp{background:#2a2a1a;color:#ffcc00;border:1px solid #ffcc00}.fv{background:#2a1a2a;color:#ff88ff;border:1px solid #ff88ff}.ts{margin-top:2rem}.ts h2{color:#00d4ff;margin-bottom:1rem}.tf{display:flex;gap:.5rem;margin-bottom:1rem}.tf input{flex:1;padding:.7rem;background:#111;border:1px solid #333;border-radius:6px;color:#fff;font-size:1rem;font-family:monospace}.tf button{padding:.7rem 1.5rem;background:#00d4ff;color:#000;border:none;border-radius:6px;font-weight:600;cursor:pointer;white-space:nowrap}.tf button:hover{background:#00b8e0}.tf button:disabled{background:#555;cursor:wait}#result{background:#111;border:1px solid #333;border-radius:8px;padding:1rem;font-family:monospace;font-size:.85rem;white-space:pre-wrap;max-height:400px;overflow:auto;display:none;color:#ccc}.le{padding:.3rem 0;border-bottom:1px solid #1a1a1a;font-size:.85rem}.lt{color:#666}.ly{font-weight:600}.ly.payment-required{color:#ffcc00}.ly.payment-received{color:#4dff88}.ly.payment-settled{color:#00d4ff}footer{text-align:center;padding:2rem;color:#555;font-size:.85rem;border-top:1px solid #222;margin-top:2rem}footer a{color:#00d4ff;text-decoration:none}</style></head>
 <body>
-<div class="hd"><h1>OpSpawn A2A x402 Gateway</h1><p>Pay-per-request AI agent services via A2A protocol + x402 V2 micropayments</p><div class="badges"><span class="badge b-a2a">A2A v0.3</span><span class="badge b-x4">x402 V2</span><span class="badge b-base">Base USDC</span><span class="badge" style="background:#2a1a2a;color:#ff88ff;border:1px solid #ff88ff">SKALE</span><span class="badge" style="background:#1a2a2a;color:#66ffcc;border:1px solid #66ffcc">SIWx</span></div></div>
+<div class="hd"><h1>OpSpawn A2A x402 Gateway</h1><p>Pay-per-request AI agent services via A2A protocol + x402 V2 micropayments</p><div class="badges"><span class="badge b-a2a">A2A v0.3</span><span class="badge b-x4">x402 V2</span><span class="badge b-base">Base USDC</span><span class="badge" style="background:#2a1a2a;color:#ff88ff;border:1px solid #ff88ff">SKALE Europa</span><span class="badge" style="background:#1a2a2a;color:#66ffcc;border:1px solid #66ffcc">SIWx</span></div></div>
 <div class="ct">
 <div class="card" style="margin-bottom:1.5rem"><h2>Payment Flow</h2><div class="flow"><span class="fs fc">Agent Client</span><span class="fa">&rarr;</span><span class="fs fg">A2A Gateway</span><span class="fa">&rarr;</span><span class="fs fp">402: Pay USDC</span><span class="fa">&rarr;</span><span class="fs fv">Service Result</span></div><p style="text-align:center;color:#888;margin-top:.5rem;font-size:.9rem">Agent sends A2A message &rarr; Gateway returns payment requirements &rarr; Agent signs USDC &rarr; Gateway delivers result</p></div>
 <div class="grid">
 <div class="card"><h2>Agent Skills</h2><div class="sc"><span class="sn">Web Screenshot</span><span class="sp pd">$0.01</span><div class="sd">Capture any webpage as PNG. Send URL in message.</div></div><div class="sc"><span class="sn">Markdown to PDF</span><span class="sp pd">$0.005</span><div class="sd">Convert markdown to styled PDF document.</div></div><div class="sc"><span class="sn">Markdown to HTML</span><span class="sp fr">FREE</span><div class="sd">Convert markdown to styled HTML.</div></div></div>
-<div class="card"><h2>Endpoints</h2><ul class="el"><li><span>GET</span> /.well-known/agent-card.json</li><li><span>POST</span> / (message/send)</li><li><span>POST</span> / (tasks/get)</li><li><span>POST</span> / (tasks/cancel)</li><li><span>GET</span> /x402</li><li><span>GET</span> /api/info</li><li><span>GET</span> /api/payments</li><li><span>GET</span> /health</li></ul></div>
-<div class="card"><h2>Payment Info (x402 V2)</h2><div class="sr"><span class="sl">Networks</span><span class="sv">Base (eip155:8453) + SKALE</span></div><div class="sr"><span class="sl">Token</span><span class="sv">USDC</span></div><div class="sr"><span class="sl">Wallet</span><span class="sv" style="font-size:.75rem;word-break:break-all">${WALLET_ADDRESS}</span></div><div class="sr"><span class="sl">Facilitator</span><span class="sv">PayAI</span></div><div class="sr"><span class="sl">Protocol</span><span class="sv">x402 V2 + A2A v0.3</span></div><div class="sr"><span class="sl">SIWx</span><span class="sv" style="color:#66ffcc">Active (pay once, reuse)</span></div><div class="sr"><span class="sl">SIWx Sessions</span><span class="sv" id="ss">0</span></div></div>
+<div class="card"><h2>Endpoints</h2><ul class="el"><li><span>GET</span> /.well-known/agent-card.json</li><li><span>POST</span> / (message/send)</li><li><span>POST</span> / (tasks/get)</li><li><span>POST</span> / (tasks/cancel)</li><li><span>GET</span> /x402</li><li><span>GET</span> /api/info</li><li><span>GET</span> /api/payments</li><li><span>GET</span> /stats</li><li><span>GET</span> /health</li></ul></div>
+<div class="card"><h2>Payment Info (x402 V2)</h2><div class="sr"><span class="sl">Networks</span><span class="sv">Base (eip155:8453) + SKALE Europa (eip155:2046399126)</span></div><div class="sr"><span class="sl">Token</span><span class="sv">USDC</span></div><div class="sr"><span class="sl">Wallet</span><span class="sv" style="font-size:.75rem;word-break:break-all">${WALLET_ADDRESS}</span></div><div class="sr"><span class="sl">Facilitator</span><span class="sv">PayAI</span></div><div class="sr"><span class="sl">Protocol</span><span class="sv">x402 V2 + A2A v0.3</span></div><div class="sr"><span class="sl">SIWx</span><span class="sv" style="color:#66ffcc">Active (pay once, reuse)</span></div><div class="sr"><span class="sl">SIWx Sessions</span><span class="sv" id="ss">0</span></div></div>
 <div class="card"><h2>Live Stats</h2><div class="sr"><span class="sl">Payment Events</span><span class="sv" id="sp">0</span></div><div class="sr"><span class="sl">Tasks</span><span class="sv" id="st">0</span></div><div class="sr"><span class="sl">Uptime</span><span class="sv" id="su">0s</span></div><div class="sr"><span class="sl">Agent Card</span><span class="sv"><a href="/.well-known/agent-card.json" style="color:#4da6ff">View JSON</a></span></div><div id="pl" style="margin-top:1rem;max-height:200px;overflow-y:auto"></div></div>
 </div>
 <div class="ts"><h2>Try It: Send A2A Message</h2><p style="color:#888;margin-bottom:1rem;font-size:.9rem">Free <b>Markdown to HTML</b> executes immediately. Paid skills return payment requirements.</p><div class="tf"><input type="text" id="ti" placeholder="Enter markdown or URL" value="# Hello from A2A&#10;&#10;This is a **test**."><button id="tb" onclick="go()">Send A2A Message</button></div><div id="result"></div></div>
 </div>
-<footer>Built by <a href="https://opspawn.com">OpSpawn</a> for the SF Agentic Commerce x402 Hackathon | x402 V2 + A2A v0.3 + SIWx + SKALE | <a href="/x402">Catalog</a> | <a href="/.well-known/agent-card.json">Agent Card</a> | <a href="/api/siwx">SIWx Sessions</a></footer>
+<footer>Built by <a href="https://opspawn.com">OpSpawn</a> for the SF Agentic Commerce x402 Hackathon | x402 V2 + A2A v0.3 + SIWx + SKALE Europa | <a href="/x402">Catalog</a> | <a href="/.well-known/agent-card.json">Agent Card</a> | <a href="/api/siwx">SIWx Sessions</a></footer>
 <script>
 async function rf(){try{const r=await fetch('/api/info'),d=await r.json();document.getElementById('sp').textContent=d.stats.payments;document.getElementById('st').textContent=d.stats.tasks;const ss=document.getElementById('ss');if(ss)ss.textContent=d.stats.siwxSessions||0;const s=Math.round(d.stats.uptime),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;document.getElementById('su').textContent=h>0?h+'h '+m+'m':m>0?m+'m '+sec+'s':sec+'s'}catch(e){}try{const r=await fetch('/api/payments'),d=await r.json(),el=document.getElementById('pl');if(d.payments.length)el.innerHTML=d.payments.slice(-10).reverse().map(p=>'<div class="le"><span class="lt">'+(p.timestamp?.split('T')[1]?.split('.')[0]||'')+'</span> <span class="ly '+p.type+'">'+p.type+'</span> '+(p.skill||'')+'</div>').join('')}catch(e){}}rf();setInterval(rf,3000);
 async function go(){const i=document.getElementById('ti').value,b=document.getElementById('tb'),r=document.getElementById('result');b.disabled=true;b.textContent='Sending...';r.style.display='block';r.textContent='Sending...';try{const body={jsonrpc:'2.0',id:crypto.randomUUID(),method:'message/send',params:{message:{messageId:crypto.randomUUID(),role:'user',parts:[{kind:'text',text:i}],kind:'message'},configuration:{blocking:true,acceptedOutputModes:['text/plain','text/html','application/json']}}};const resp=await fetch('/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await resp.json();r.textContent=JSON.stringify(d,null,2);rf()}catch(e){r.textContent='Error: '+e.message}b.disabled=false;b.textContent='Send A2A Message'}
@@ -637,7 +665,7 @@ footer a{color:#00d4ff;text-decoration:none}
     <span class="proto-badge pb-a2a">A2A v0.3</span>
     <span class="proto-badge pb-x4">x402 V2</span>
     <span class="proto-badge pb-base">Base USDC</span>
-    <span class="proto-badge pb-skale">SKALE Gasless</span>
+    <span class="proto-badge pb-skale">SKALE Europa (Gasless)</span>
     <span class="proto-badge pb-siwx">SIWx Sessions</span>
   </div>
 </div>
@@ -688,7 +716,7 @@ footer a{color:#00d4ff;text-decoration:none}
       </div>
       <div class="arch-card">
         <h3>Multi-Chain</h3>
-        <p>Base <code>eip155:8453</code> ($0.01 per screenshot) or SKALE <code>eip155:324705682</code> (gasless).</p>
+        <p>Base <code>eip155:8453</code> ($0.01 per screenshot) or SKALE Europa <code>eip155:2046399126</code> (gasless, zero gas fees).</p>
       </div>
     </div>
   </div>
@@ -745,7 +773,7 @@ footer a{color:#00d4ff;text-decoration:none}
         <div class="step-num">2</div>
         <div class="step-body">
           <h3>Gateway returns x402 payment requirements</h3>
-          <div class="detail">Task state: input-required — x402 V2 accepts Base USDC or SKALE gasless</div>
+          <div class="detail">Task state: input-required — x402 V2 accepts Base USDC or SKALE Europa gasless</div>
           <div class="proto-viewer" id="s2-2-proto"></div>
         </div>
       </div>
@@ -951,7 +979,7 @@ async function runDemo2(){
   setStep('s2',2,'active');
   setTimer('s2-timer','Payment required: $0.01 USDC on Base');
   const payParts=data1.result?.status?.message?.parts?.find(p=>p.kind==='data');
-  showProto('s2-2-proto','402','/ (response)',{result:{status:{state:'input-required'},'x402.payment.required':true,'x402.version':'2.0','x402.accepts':[{scheme:'exact',network:'eip155:8453',price:'$0.01',asset:'USDC'},{scheme:'exact',network:'eip155:324705682',price:'$0.01',gasless:true}]}});
+  showProto('s2-2-proto','402','/ (response)',{result:{status:{state:'input-required'},'x402.payment.required':true,'x402.version':'2.0','x402.accepts':[{scheme:'exact',network:'eip155:8453',price:'$0.01',asset:'USDC'},{scheme:'exact',network:'eip155:2046399126',price:'$0.01',gasless:true,note:'SKALE Europa — zero gas fees'}]}});
   await sleep(1200);
   setStep('s2',2,'done');
 
