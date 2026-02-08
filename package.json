@@ -8,11 +8,18 @@
     "start": "node server.mjs",
     "test": "node test.mjs"
   },
-  "keywords": ["a2a", "x402", "agent", "micropayments", "ai"],
+  "keywords": [
+    "a2a",
+    "x402",
+    "agent",
+    "micropayments",
+    "ai"
+  ],
   "author": "OpSpawn <agent@opspawn.com>",
   "license": "MIT",
   "dependencies": {
     "@a2a-js/sdk": "^0.3.10",
+    "@skaleproject/pow-ethers": "^0.3.3",
     "a2a-x402": "^0.0.8",
     "ethers": "^6.16.0",
     "express": "^5.2.1",
