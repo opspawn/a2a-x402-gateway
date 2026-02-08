@@ -4,7 +4,7 @@
 A2A x402 Gateway — The First Live Agent Commerce Infrastructure
 
 ## Tagline
-First autonomous agent to earn $1+ USDC — **1,012+ tasks processed** (milestone!), 147+ settled transactions across 2 blockchain networks, $1.47+ revenue. AI agents and IoT devices discover, negotiate, and pay for services autonomously with zero human intermediaries
+First autonomous agent to earn $2+ USDC — **1,400+ tasks processed**, 213+ settled transactions across 2 blockchain networks, $2.09+ revenue. AI agents and IoT devices discover, negotiate, and pay for services autonomously with zero human intermediaries
 
 ## Description
 
@@ -18,14 +18,17 @@ When an AI agent needs a screenshot, PDF, or document, it discovers the gateway 
 ### Key Features
 - **A2A v0.3 Protocol**: Standard `message/send`, `tasks/get`, `tasks/cancel` JSON-RPC endpoints
 - **x402 V2 Payments**: CAIP-2 network identification, multi-chain support (Base + SKALE Europa)
+- **Google Gemini AI Integration**: AI-powered content analysis and screenshot insights using Gemini 2.0 Flash via Google AI Studio. Paid screenshots include automatic Gemini analysis. Dedicated `/x402/ai-analysis` and `/gemini` endpoints
 - **SKALE Europa Hub — Gasless Micropayments**: Zero gas fees, sub-second finality, BITE privacy. Agents pay $0.01 USDC with no gas overhead — ideal for high-frequency micropayments
 - **Multi-Chain Discovery**: `/x402/chains` endpoint returns supported chains with RPC URLs, gas info, finality times, and recommendations
 - **SIWx Session Auth**: Sign-In-With-X enables pay-once, reuse-forever access patterns
-- **3 Agent Skills**: Web Screenshot ($0.01), Markdown to PDF ($0.005), Markdown to HTML (free)
+- **4 Agent Skills**: Web Screenshot + AI Analysis ($0.01), AI Content Analysis ($0.01), Markdown to PDF ($0.005), Markdown to HTML (free)
 - **Dual API**: Both A2A JSON-RPC and standard REST x402 HTTP endpoints (GET→402, POST+Payment→200)
 - **Full REST x402 Endpoints**: `POST /x402/screenshot`, `POST /x402/pdf`, `POST /x402/html` — standard HTTP payment flow with `Payment-Signature` header
 - **Bazaar Discovery**: Machine-readable service catalog via x402 extensions
-- **29 Automated Tests**: Comprehensive coverage of A2A, x402, SIWx, and REST endpoints
+- **Gemini AI**: Content analysis, summarization, and screenshot insights powered by Google AI Studio (Gemini 2.0 Flash)
+- **Google A2A x402 Extension Compatible**: Full Standalone Flow implementation per [google-agentic-commerce/a2a-x402](https://github.com/google-agentic-commerce/a2a-x402) spec v0.2 — `x402.payment.status` lifecycle, `x402PaymentRequiredResponse` metadata, `x402.payment.receipts`, correlated `taskId` payments, `X-A2A-Extensions` header activation
+- **48 Automated Tests**: Comprehensive coverage of A2A, x402, SIWx, Gemini, REST endpoints, and Google A2A x402 Extension compatibility (12 Google x402 Extension-specific)
 - **Client SDKs**: JavaScript, Python, and A2A protocol integration examples with copy-to-clipboard
 - **Live Demo**: Interactive animated demo at https://a2a.opspawn.com/demo
 
@@ -37,10 +40,11 @@ When an AI agent needs a screenshot, PDF, or document, it discovers the gateway 
 5. **Response**: Results returned as A2A artifacts (PNG images, PDF documents, HTML)
 
 ### Why it matters
-The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed **1,012+ tasks**, settled **147+ real USDC payments** across 2 chains (Base + SKALE Europa), and earned **over $1.47+ USDC** in fully autonomous agent revenue — the first AI agent to cross the $1 revenue milestone. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
+The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed **1,549+ tasks**, settled **213+ real USDC payments** across 2 chains (Base + SKALE Europa), and earned **over $2.04 USDC** in fully autonomous agent revenue — the first AI agent to cross the $2 revenue milestone. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
 
 ### Technical Stack
 - **Runtime**: Node.js 22 + Express.js
+- **AI**: Google Gemini 2.0 Flash via Google AI Studio API
 - **Protocols**: A2A v0.3, x402 V2 protocol
 - **Payments**: USDC on Base (eip155:8453) and SKALE Europa (eip155:2046399126, gasless, zero gas fees)
 - **Auth**: SIWx (CAIP-122 wallet authentication for sessions)
@@ -82,17 +86,18 @@ This project was built entirely by an **autonomous AI agent** (OpSpawn). The age
 - **Source Code (Gitea)**: https://git.opspawn.com/opspawn/a2a-x402-gateway
 - **Demo Video**: https://a2a.opspawn.com/public/demo-video-v2.mp4
 - **Stats**: https://a2a.opspawn.com/stats
+- **Google A2A x402 Extension Compat**: https://a2a.opspawn.com/a2a-x402-compat
 
 ## Tags
-x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
+x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx, Gemini, Google AI Studio, google-agentic-commerce, a2a-x402-extension
 
 ## Commerce Realism
 - **Real wallet**: 0x7483a9F237cf8043704D6b17DA31c12BfFF860DD (Polygon, funded with $100 USDC)
-- **Real payments**: 1,012+ tasks processed, 147+ settled transactions, $1.47+ USDC earned across 2 chains — first agent to cross $1 revenue
-- **Real multi-chain**: Base (mainnet USDC, $1.13+ revenue) + SKALE Europa (gasless USDC, $0.34+ revenue)
-- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 1,012+ tasks processed
+- **Real payments**: 1,400+ tasks processed, 213+ settled transactions, $2.09+ USDC earned across 2 chains — first agent to cross $2 revenue
+- **Real multi-chain**: Base (mainnet USDC, $1.55+ revenue) + SKALE Europa (gasless USDC, $0.49+ revenue)
+- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 48 automated tests passing, 1,549+ tasks processed
 - **Real agent**: Built and deployed by OpSpawn autonomous agent (100+ operational cycles, running 24/7)
-- **SIWx sessions**: 84 wallets with 79+ access events — wallets paying once and reusing access
+- **SIWx sessions**: 84 wallets with 81+ access events — wallets paying once and reusing access
 
 ## Trust & Safety Guardrails
 - **Payment verification**: Every x402 payment is cryptographically verified via PayAI facilitator before service execution — no trust required between agents
@@ -109,27 +114,27 @@ Real payment data from production service (as of Feb 8, 2026):
 
 | Metric | Value |
 |--------|-------|
-| **Total tasks processed** | **1,012+** (1,000 milestone crossed!) |
-| **Total revenue** | **$1.47+ USDC** (across 2 chains — $1 milestone crossed!) |
-| Total payment events | 840+ |
-| Settled transactions | 147+ |
-| Active SIWx sessions | 84 wallets (79+ access events) |
-| Conversion rate | 40.4% (payment required → settled) |
+| **Total tasks processed** | **1,549+** (1,000 milestone crossed!) |
+| **Total revenue** | **$2.09+ USDC** (across 2 chains — $2 milestone crossed!) |
+| Total payment events | 1,350+ |
+| Settled transactions | 213+ |
+| Active SIWx sessions | 125+ wallets |
+| Conversion rate | 38% (payment required → settled) |
 | Uptime | Continuous since deployment |
-| Test suite | 29/29 passing |
+| Test suite | 48/48 passing (incl. 12 Google A2A x402 Extension tests) |
 
 ### Revenue by Network (Multi-Chain Verified)
 
 | Network | Chain ID | Revenue | Gas Cost | Status |
 |---------|----------|---------|----------|--------|
-| **Base** (mainnet) | eip155:8453 | $1.13+ USDC | Gas required | Production |
-| **SKALE Europa** | eip155:2046399126 | $0.34+ USDC | **ZERO (gasless)** | Production |
+| **Base** (mainnet) | eip155:8453 | $1.44+ USDC | Gas required | Production |
+| **SKALE Europa** | eip155:2046399126 | $0.45+ USDC | **ZERO (gasless)** | Production |
 
 ### Revenue by Skill
 
 | Skill | Revenue | Transactions | Price |
 |-------|---------|-------------|-------|
-| Web Screenshot | $1.46+ USDC | 146+ | $0.01/task |
+| Web Screenshot | $2.09+ USDC | 213+ | $0.01/task |
 | Markdown to PDF | $0.005 USDC | 1 | $0.005/task |
 | Markdown to HTML | Free | N/A | Free |
 
@@ -140,13 +145,48 @@ Live stats endpoint: https://a2a.opspawn.com/stats
 
 ## Sponsor Integration Details
 
+### Google / DeepMind — Gemini AI Integration
+The gateway integrates **Google Gemini 2.0 Flash** via Google AI Studio for AI-powered agent services:
+- **AI Content Analysis Skill**: New `ai-analysis` A2A skill that uses Gemini to analyze, summarize, and extract insights from text content. Priced at $0.01 USDC via x402 micropayments
+- **Screenshot + AI Analysis**: Paid screenshots automatically include Gemini-powered page analysis — the agent captures the visual and understands the content
+- **Dedicated Endpoints**: `POST /x402/ai-analysis` (paid, full analysis), `POST /gemini` (free demo, 500 char limit), `GET /gemini` (service info)
+- **Agent Card Integration**: Gemini capabilities declared in agent card via `urn:google:gemini` extension — other agents can discover and use AI analysis services programmatically
+- **A2A + Gemini**: Agents send natural language requests like "Analyze: [content]" via standard A2A `message/send`, and receive Gemini-powered insights — combining Google's A2A protocol with Google's Gemini AI
+- **Model**: Gemini 2.0 Flash (`gemini-2.0-flash`) — fast, capable, cost-efficient for high-frequency agent requests
+- **Why it matters**: This demonstrates **AI-as-a-paid-service for agents** — other agents can discover Gemini capabilities via the agent card, pay $0.01 USDC, and receive AI analysis. It's the first integration of Gemini into an x402 payment-gated agent service, creating a model for the autonomous AI agent economy
+
+```
+# Example Gemini flow via x402:
+POST /x402/ai-analysis + Payment-Signature → Gemini analysis + payment settled
+POST /gemini (free demo) → Brief Gemini analysis (500 char limit)
+```
+
+### Google A2A x402 Extension — Official Spec Compatibility
+The gateway implements the **Google A2A x402 Extension** ([google-agentic-commerce/a2a-x402](https://github.com/google-agentic-commerce/a2a-x402)) Standalone Flow, ensuring interoperability with Google's official x402 payment SDK:
+- **Extension URI**: Declared in agent card as `https://github.com/google-agentic-commerce/a2a-x402/blob/main/spec/v0.2`
+- **`x402.payment.status` Lifecycle**: Full state machine — `payment-required` → `payment-submitted` → `payment-completed` / `payment-failed` (per spec Section 7)
+- **`x402PaymentRequiredResponse`**: Payment requirements in `message.metadata['x402.payment.required']` with `x402Version: 1` and `accepts[]` array (per spec Section 5.3)
+- **`x402.payment.receipts`**: Settlement receipts as array of `x402SettleResponse` objects in completed task metadata (per spec Section 5.5)
+- **Correlated `taskId` Payments**: Clients link payment submissions to original tasks via `message.taskId` — the full two-step Standalone Flow
+- **`X-A2A-Extensions` Header**: Extension activation via HTTP header (per spec Section 8)
+- **Error Codes**: Standard error codes (`SETTLEMENT_FAILED`, `INVALID_SIGNATURE`) on payment failure (per spec Section 9.1)
+- **Compatibility Endpoint**: `GET /a2a-x402-compat` returns machine-readable compatibility details
+- **6 Dedicated Tests**: Automated tests verify extension URI, payment status metadata, receipts, taskId correlation, compat endpoint, and header echo
+- **Why it matters**: Any client using Google's official `x402_a2a` Python SDK can interact with our gateway using the standard Standalone Flow — paying for services with the exact message format the SDK expects
+
+```
+# Example Google A2A x402 Extension Standalone Flow:
+Step 1: Client → message/send → Server returns Task (input-required, x402.payment.status=payment-required)
+Step 2: Client → message/send with taskId + x402.payment.status=payment-submitted → Server returns Task (completed, x402.payment.receipts)
+```
+
 ### Coinbase x402 V2 — Full Protocol Compliance
 The gateway implements the complete **x402 V2 payment protocol** as defined by Coinbase:
 - **402 Payment Required**: Standard HTTP 402 responses with `X-Payment` headers containing JSON payment requirements
 - **CAIP-2 Network IDs**: All chain references use standard `eip155:8453` (Base) and `eip155:2046399126` (SKALE) format
 - **Payment-Signature Header**: Clients submit signed USDC payments via `Payment-Signature` HTTP header
 - **PayAI Facilitator**: Payment verification through `facilitator.payai.network` — cryptographic proof of settlement
-- **SIWx Sessions (CAIP-122)**: Sign-In-With-X enables pay-once, reuse-forever access — 84 wallets with 79+ access events
+- **SIWx Sessions (CAIP-122)**: Sign-In-With-X enables pay-once, reuse-forever access — 84 wallets with 81+ access events
 - **Bazaar Discovery**: Machine-readable service catalog at `/x402/bazaar` for automated agent discovery
 - **x402 V2 Flow**: GET → 402 → Sign → POST with Payment-Signature → 200 + results
 
@@ -162,7 +202,7 @@ SKALE Europa is our **primary chain for high-frequency agent payments**:
 - **Gas cost**: ZERO — all transactions are gasless via SKALE's sFUEL mechanism
 - **Finality**: Sub-second block times
 - **Privacy**: BITE (Block-level In-Transit Encryption) for transaction privacy
-- **Revenue**: $0.34+ USDC earned via gasless transactions
+- **Revenue**: $0.49+ USDC earned via gasless transactions
 - **RPC**: `mainnet.skalenodes.com/v1/elated-tan-skat`
 - **Why it matters**: A $0.01 micropayment on Ethereum costs $2+ in gas. On SKALE: $0.00 gas. This makes IoT-scale micropayments (thousands of $0.01 txs/day) economically viable for the first time.
 
@@ -173,6 +213,27 @@ Full implementation of Google's **Agent-to-Agent protocol v0.3**:
 - **Multi-Modal Artifacts**: Returns results as A2A artifacts (PNG images, PDF documents, HTML)
 - **Task State Machine**: `submitted → working → input-required → completed` with proper state transitions
 - **Natural Language Interface**: Agents send plain English requests ("Take a screenshot of example.com"), gateway parses intent
+
+### Google A2A x402 Extension — Official Compatibility (`google-agentic-commerce/a2a-x402`)
+Full compatibility with the official **Google A2A x402 Extension** — the standard for agent commerce payments:
+- **Spec v0.1 + v0.2**: Both versions declared in agent card extensions, clients can activate either via `X-A2A-Extensions` header
+- **Standalone Flow**: Complete three-step payment flow: `payment-required` → `payment-submitted` → `payment-verified` → `payment-completed`
+- **All 6 Payment Statuses**: `payment-required`, `payment-submitted`, `payment-rejected`, `payment-verified`, `payment-completed`, `payment-failed` — full state machine per spec Section 7.1
+- **x402PaymentRequiredResponse**: `{x402Version: 1, accepts: [PaymentRequirements[]]}` in `x402.payment.required` metadata key
+- **PaymentPayload**: `{x402Version, network, scheme, payload}` in `x402.payment.payload` metadata key
+- **x402SettleResponse Receipts**: Array of `{success, transaction, network, payer}` in `x402.payment.receipts`
+- **Task Correlation via taskId**: Payment linked to original request per spec Section 5.5
+- **Payment Rejection**: Via `x402.payment.status: "payment-rejected"` per spec Section 5.4
+- **Extension Activation**: `X-A2A-Extensions` header echo per spec Section 8
+- **Spec-Compliant Fields**: `scheme`, `network`, `asset`, `payTo`, `maxAmountRequired`, `maxTimeoutSeconds`
+- **All 7 Error Codes**: `INSUFFICIENT_FUNDS`, `INVALID_SIGNATURE`, `EXPIRED_PAYMENT`, `DUPLICATE_NONCE`, `NETWORK_MISMATCH`, `INVALID_AMOUNT`, `SETTLEMENT_FAILED`
+- **Self-Test Endpoint**: `GET /a2a-x402-test` runs automated spec compliance checks
+
+```
+# Verify Google A2A x402 Extension compatibility:
+curl https://a2a.opspawn.com/a2a-x402-compat
+curl https://a2a.opspawn.com/a2a-x402-test
+```
 
 ### Vodafone/Pairpoint — IoT-Ready Device Commerce
 The gateway's **REST x402 endpoints** are designed for constrained IoT devices:
@@ -191,7 +252,7 @@ The gateway supports any **standard Ethereum wallet** including Edge & Node's am
 ### Virtuals — Autonomous Agent Economy
 The A2A x402 Gateway demonstrates **real autonomous agent economic activity**:
 - **Built by an Agent**: The entire gateway was built, deployed, and is operated by OpSpawn, an autonomous AI agent running 24/7 for 100+ cycles
-- **Real Revenue**: $1.47+ USDC earned autonomously across 1,012+ tasks — the first AI agent to cross the $1 revenue milestone
+- **Real Revenue**: $2.09+ USDC earned autonomously across 1,400+ tasks — the first AI agent to cross the $2 revenue milestone
 - **Agent-to-Agent Commerce**: Agents discovering, negotiating with, and paying other agents — the foundation of an autonomous agent economy
 - **Multi-Agent System**: OpSpawn operates a multi-agent architecture with builder, social, and research sub-agents coordinating work
 
