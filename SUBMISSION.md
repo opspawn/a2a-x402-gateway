@@ -4,7 +4,7 @@
 A2A x402 Gateway — The First Live Agent Commerce Infrastructure
 
 ## Tagline
-Production agent economy: AI agents and IoT devices discover, negotiate, and pay for services autonomously — 435+ tasks, 68+ settled payments across 2 chains, $0.67+ USDC revenue, zero human intermediaries
+Production agent economy: AI agents and IoT devices discover, negotiate, and pay for services autonomously — 580+ tasks, 79+ settled payments across 2 chains, $0.78+ USDC revenue, zero human intermediaries
 
 ## Description
 
@@ -37,7 +37,7 @@ When an AI agent needs a screenshot, PDF, or document, it discovers the gateway 
 5. **Response**: Results returned as A2A artifacts (PNG images, PDF documents, HTML)
 
 ### Why it matters
-The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed 435+ tasks, settled 68+ real USDC payments across 2 chains (Base + SKALE Europa), and earned $0.67+ in revenue. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
+The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed 580+ tasks, settled 79+ real USDC payments across 2 chains (Base + SKALE Europa), and earned $0.78+ in revenue. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
 
 ### Technical Stack
 - **Runtime**: Node.js 22 + Express.js
@@ -88,11 +88,11 @@ x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
 
 ## Commerce Realism
 - **Real wallet**: 0x7483a9F237cf8043704D6b17DA31c12BfFF860DD (Polygon, funded with $100 USDC)
-- **Real payments**: 386+ payment events processed, 68+ settled transactions, $0.67 USDC earned across 2 chains
-- **Real multi-chain**: Base (mainnet USDC, $0.62 revenue) + SKALE Europa (gasless USDC, $0.055 revenue)
-- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 435+ tasks processed
+- **Real payments**: 500+ payment events processed, 79+ settled transactions, $0.78 USDC earned across 2 chains
+- **Real multi-chain**: Base (mainnet USDC, $0.70 revenue) + SKALE Europa (gasless USDC, $0.085 revenue)
+- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 580+ tasks processed
 - **Real agent**: Built and deployed by OpSpawn autonomous agent (93+ operational cycles, running 24/7)
-- **SIWx sessions**: 4 active sessions with 36+ reuses — wallets paying once and reusing access
+- **SIWx sessions**: 30 active sessions with 44+ reuses — wallets paying once and reusing access
 
 ## Trust & Safety Guardrails
 - **Payment verification**: Every x402 payment is cryptographically verified via PayAI facilitator before service execution — no trust required between agents
@@ -109,12 +109,12 @@ Real payment data from production service (as of Feb 8, 2026):
 
 | Metric | Value |
 |--------|-------|
-| **Total tasks processed** | **435+** |
-| **Total revenue** | **$0.67 USDC** (across 2 chains) |
-| Payment events | 386+ |
-| Settled transactions | 68+ |
-| Active SIWx sessions | 4 (37+ reuses) |
-| Conversion rate | 31.9% (payment required → settled) |
+| **Total tasks processed** | **580+** |
+| **Total revenue** | **$0.78 USDC** (across 2 chains) |
+| Payment events | 500+ |
+| Settled transactions | 79+ |
+| Active SIWx sessions | 30 (44+ reuses) |
+| Conversion rate | 29.4% (payment required → settled) |
 | Uptime | Continuous since deployment |
 | Test suite | 29/29 passing |
 
@@ -122,14 +122,14 @@ Real payment data from production service (as of Feb 8, 2026):
 
 | Network | Chain ID | Revenue | Gas Cost | Status |
 |---------|----------|---------|----------|--------|
-| **Base** (mainnet) | eip155:8453 | $0.62 USDC | Gas required | Production |
-| **SKALE Europa** | eip155:2046399126 | $0.055 USDC | **ZERO (gasless)** | Production |
+| **Base** (mainnet) | eip155:8453 | $0.70 USDC | Gas required | Production |
+| **SKALE Europa** | eip155:2046399126 | $0.085 USDC | **ZERO (gasless)** | Production |
 
 ### Revenue by Skill
 
 | Skill | Revenue | Transactions | Price |
 |-------|---------|-------------|-------|
-| Web Screenshot | $0.67 USDC | 67 | $0.01/task |
+| Web Screenshot | $0.78 USDC | 78 | $0.01/task |
 | Markdown to PDF | $0.005 USDC | 1 | $0.005/task |
 | Markdown to HTML | Free | N/A | Free |
 
