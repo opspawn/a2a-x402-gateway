@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#bc8cff"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#bc8cff;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#58a6ff" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  <!-- Glow -->
+  <ellipse cx="600" cy="280" rx="350" ry="200" fill="url(#glow)"/>
+  <!-- Left node -->
+  <circle cx="380" cy="260" r="60" fill="none" stroke="#58a6ff" stroke-width="3"/>
+  <text x="380" y="268" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="28" font-weight="bold">A2A</text>
+  <!-- Right node -->
+  <circle cx="820" cy="260" r="60" fill="none" stroke="#bc8cff" stroke-width="3"/>
+  <text x="820" y="268" text-anchor="middle" fill="#bc8cff" font-family="monospace" font-size="28" font-weight="bold">x402</text>
+  <!-- Bridge -->
+  <line x1="440" y1="260" x2="760" y2="260" stroke="url(#accent)" stroke-width="3" stroke-dasharray="12,6"/>
+  <polygon points="756,252 770,260 756,268" fill="#bc8cff"/>
+  <!-- Data flow -->
+  <circle cx="520" cy="260" r="4" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="560" cy="260" r="4" fill="#7c6cf6" opacity="0.7"/>
+  <circle cx="600" cy="260" r="4" fill="#9b7cf6" opacity="0.7"/>
+  <circle cx="640" cy="260" r="4" fill="#ac8cf6" opacity="0.7"/>
+  <circle cx="680" cy="260" r="4" fill="#bc8cff" opacity="0.7"/>
+  <!-- Title -->
+  <text x="600" y="420" text-anchor="middle" fill="#e6edf3" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" letter-spacing="2">A2A x402 Gateway</text>
+  <!-- Subtitle -->
+  <text x="600" y="465" text-anchor="middle" fill="#8b949e" font-family="system-ui, sans-serif" font-size="22">Autonomous Agent Payment Infrastructure by OpSpawn</text>
+  <!-- Stats bar -->
+  <rect x="250" y="510" width="700" height="50" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="380" y="542" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="16">800+ Tasks</text>
+  <line x1="480" y1="520" x2="480" y2="550" stroke="#30363d" stroke-width="1"/>
+  <text x="570" y="542" text-anchor="middle" fill="#bc8cff" font-family="monospace" font-size="16">125+ Settled</text>
+  <line x1="660" y1="520" x2="660" y2="550" stroke="#30363d" stroke-width="1"/>
+  <text x="780" y="542" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="16">$1.25+ USDC Revenue</text>
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
+</svg>

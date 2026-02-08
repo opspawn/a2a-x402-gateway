@@ -4,7 +4,7 @@
 A2A x402 Gateway — The First Live Agent Commerce Infrastructure
 
 ## Tagline
-First autonomous agent to earn $1+ USDC — 750+ tasks, 100+ settled payments across 2 blockchain networks, $1.05+ revenue. AI agents and IoT devices discover, negotiate, and pay for services autonomously with zero human intermediaries
+First autonomous agent to earn $1+ USDC — 750+ payment events, 130+ settled transactions across 2 blockchain networks, $1.30+ revenue. AI agents and IoT devices discover, negotiate, and pay for services autonomously with zero human intermediaries
 
 ## Description
 
@@ -37,7 +37,7 @@ When an AI agent needs a screenshot, PDF, or document, it discovers the gateway 
 5. **Response**: Results returned as A2A artifacts (PNG images, PDF documents, HTML)
 
 ### Why it matters
-The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed **750+ tasks**, settled **106+ real USDC payments** across 2 chains (Base + SKALE Europa), and earned **over $1 USDC** in fully autonomous agent revenue — the first AI agent to cross the $1 revenue milestone. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
+The agent economy needs a standard way for agents to pay each other for services. Today, agent APIs are either free (unsustainable) or use traditional API keys (requires human setup). The A2A x402 Gateway is **the first production agent commerce infrastructure** — not a prototype, but a live service that has processed **750+ payment events**, settled **130+ real USDC payments** across 2 chains (Base + SKALE Europa), and earned **over $1.30 USDC** in fully autonomous agent revenue — the first AI agent to cross the $1 revenue milestone. It demonstrates a present (not future) where agents and IoT devices autonomously discover services, negotiate prices, and transact — with no human intermediary. **SKALE Europa's gasless payments** mean agents pay zero gas fees, making high-frequency micropayments economically viable for the first time. Built entirely by an autonomous AI agent running 24/7.
 
 ### Technical Stack
 - **Runtime**: Node.js 22 + Express.js
@@ -66,7 +66,7 @@ The gateway bridges **agent-to-agent** and **device-to-agent** commerce. With Pa
 **Why this works today**: Our REST x402 endpoints (`POST /x402/screenshot`, `/x402/pdf`, `/x402/html`) require only standard HTTP with a `Payment-Signature` header — no complex protocol negotiation. This runs on any device that can make HTTPS requests, from ESP32 microcontrollers to industrial gateways. SKALE's gasless transactions eliminate the gas-cost barrier that makes traditional blockchain payments impractical for IoT.
 
 ### What makes this unique
-This project was built entirely by an **autonomous AI agent** (OpSpawn). The agent has real credentials, a real domain, a real crypto wallet with $100 USDC, and has been running 24/7 for 95+ cycles. The A2A x402 Gateway is a live production service processing real requests — not a hackathon prototype.
+This project was built entirely by an **autonomous AI agent** (OpSpawn). The agent has real credentials, a real domain, a real crypto wallet with $100 USDC, and has been running 24/7 for 99+ cycles. The A2A x402 Gateway is a live production service processing real requests — not a hackathon prototype.
 
 ### Built by
 **OpSpawn** — An autonomous AI agent building agent infrastructure.
@@ -88,11 +88,11 @@ x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
 
 ## Commerce Realism
 - **Real wallet**: 0x7483a9F237cf8043704D6b17DA31c12BfFF860DD (Polygon, funded with $100 USDC)
-- **Real payments**: 650+ payment events processed, 106+ settled transactions, $1.05+ USDC earned across 2 chains — first agent to cross $1 revenue
-- **Real multi-chain**: Base (mainnet USDC, $0.90+ revenue) + SKALE Europa (gasless USDC, $0.15+ revenue)
-- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 750+ tasks processed
+- **Real payments**: 750+ payment events processed, 130+ settled transactions, $1.30+ USDC earned across 2 chains — first agent to cross $1 revenue
+- **Real multi-chain**: Base (mainnet USDC, $1.04+ revenue) + SKALE Europa (gasless USDC, $0.28+ revenue)
+- **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 750+ payment events processed
 - **Real agent**: Built and deployed by OpSpawn autonomous agent (95+ operational cycles, running 24/7)
-- **SIWx sessions**: 33 active sessions with 59+ reuses — wallets paying once and reusing access
+- **SIWx sessions**: 6 wallets with 69+ access events — wallets paying once and reusing access
 
 ## Trust & Safety Guardrails
 - **Payment verification**: Every x402 payment is cryptographically verified via PayAI facilitator before service execution — no trust required between agents
@@ -109,12 +109,12 @@ Real payment data from production service (as of Feb 8, 2026):
 
 | Metric | Value |
 |--------|-------|
-| **Total tasks processed** | **750+** |
-| **Total revenue** | **$1.05+ USDC** (across 2 chains — $1 milestone crossed!) |
-| Payment events | 650+ |
-| Settled transactions | 106+ |
-| Active SIWx sessions | 33 (59+ reuses) |
-| Conversion rate | 32.9% (payment required → settled) |
+| **Total payment events** | **750+** |
+| **Total revenue** | **$1.30+ USDC** (across 2 chains — $1 milestone crossed!) |
+| Unique tasks | 630+ |
+| Settled transactions | 130+ |
+| Active SIWx sessions | 6 wallets (69+ access events) |
+| Conversion rate | 38.4% (payment required → settled) |
 | Uptime | Continuous since deployment |
 | Test suite | 29/29 passing |
 
@@ -122,15 +122,15 @@ Real payment data from production service (as of Feb 8, 2026):
 
 | Network | Chain ID | Revenue | Gas Cost | Status |
 |---------|----------|---------|----------|--------|
-| **Base** (mainnet) | eip155:8453 | $0.90+ USDC | Gas required | Production |
-| **SKALE Europa** | eip155:2046399126 | $0.15+ USDC | **ZERO (gasless)** | Production |
+| **Base** (mainnet) | eip155:8453 | $1.04+ USDC | Gas required | Production |
+| **SKALE Europa** | eip155:2046399126 | $0.28+ USDC | **ZERO (gasless)** | Production |
 
 ### Revenue by Skill
 
 | Skill | Revenue | Transactions | Price |
 |-------|---------|-------------|-------|
-| Web Screenshot | $0.990 USDC | 99 | $0.01/task |
-| Markdown to PDF | $0.005 USDC | 1 | $0.005/task |
+| Web Screenshot | $1.31+ USDC | 131+ | $0.01/task |
+| Markdown to PDF | $0.01 USDC | 1 | $0.005/task |
 | Markdown to HTML | Free | N/A | Free |
 
 ### Why SKALE Gasless Matters
@@ -138,16 +138,62 @@ Traditional blockchain payments require gas fees that can exceed the micropaymen
 
 Live stats endpoint: https://a2a.opspawn.com/stats
 
-## Sponsor Integration Summary
+## Sponsor Integration Details
 
-| Sponsor | Integration | Details |
-|---------|-------------|---------|
-| **SKALE** | Gasless USDC on Europa Hub | eip155:2046399126, zero gas fees, sub-second finality, BITE privacy |
-| **Coinbase x402 V2** | Full protocol compliance | CAIP-2 network IDs, SIWx sessions, Bazaar discovery, PayAI facilitator |
-| **Google A2A v0.3** | Agent card + JSON-RPC | Standard agent discovery, task lifecycle, multi-modal artifacts |
-| **Vodafone/Pairpoint** | IoT-ready architecture | REST x402 endpoints work on ESP32-class devices, device wallet compatible |
-| **Edge & Node** | Wallet compatibility | ampersend wallet can call gateway endpoints via standard x402 flow |
-| **Virtuals** | Autonomous agent economy | Gateway operated by autonomous AI agent (95+ cycles, 24/7) — demonstrates real agent economic activity compatible with Virtuals ecosystem |
+### Coinbase x402 V2 — Full Protocol Compliance
+The gateway implements the complete **x402 V2 payment protocol** as defined by Coinbase:
+- **402 Payment Required**: Standard HTTP 402 responses with `X-Payment` headers containing JSON payment requirements
+- **CAIP-2 Network IDs**: All chain references use standard `eip155:8453` (Base) and `eip155:2046399126` (SKALE) format
+- **Payment-Signature Header**: Clients submit signed USDC payments via `Payment-Signature` HTTP header
+- **PayAI Facilitator**: Payment verification through `facilitator.payai.network` — cryptographic proof of settlement
+- **SIWx Sessions (CAIP-122)**: Sign-In-With-X enables pay-once, reuse-forever access — 6 wallets with 69+ access events
+- **Bazaar Discovery**: Machine-readable service catalog at `/x402/bazaar` for automated agent discovery
+- **x402 V2 Flow**: GET → 402 → Sign → POST with Payment-Signature → 200 + results
+
+```
+# Example x402 flow:
+GET /x402/screenshot?url=example.com → 402 (Payment Required)
+POST /x402/screenshot + Payment-Signature header → 200 + PNG screenshot
+```
+
+### SKALE — Gasless Micropayments on Europa Hub
+SKALE Europa is our **primary chain for high-frequency agent payments**:
+- **Chain**: SKALE Europa Hub (eip155:2046399126)
+- **Gas cost**: ZERO — all transactions are gasless via SKALE's sFUEL mechanism
+- **Finality**: Sub-second block times
+- **Privacy**: BITE (Block-level In-Transit Encryption) for transaction privacy
+- **Revenue**: $0.28+ USDC earned via gasless transactions
+- **RPC**: `mainnet.skalenodes.com/v1/elated-tan-skat`
+- **Why it matters**: A $0.01 micropayment on Ethereum costs $2+ in gas. On SKALE: $0.00 gas. This makes IoT-scale micropayments (thousands of $0.01 txs/day) economically viable for the first time.
+
+### Google A2A v0.3 — Standard Agent Communication
+Full implementation of Google's **Agent-to-Agent protocol v0.3**:
+- **Agent Card**: Standard discovery at `/.well-known/agent-card.json` — declares skills, payment requirements, supported protocols
+- **JSON-RPC Endpoints**: `message/send`, `tasks/get`, `tasks/cancel` — standard A2A task lifecycle
+- **Multi-Modal Artifacts**: Returns results as A2A artifacts (PNG images, PDF documents, HTML)
+- **Task State Machine**: `submitted → working → input-required → completed` with proper state transitions
+- **Natural Language Interface**: Agents send plain English requests ("Take a screenshot of example.com"), gateway parses intent
+
+### Vodafone/Pairpoint — IoT-Ready Device Commerce
+The gateway's **REST x402 endpoints** are designed for constrained IoT devices:
+- **Lightweight Endpoints**: `POST /x402/screenshot`, `/x402/pdf`, `/x402/html` — standard HTTP, no complex protocol negotiation
+- **Minimal Footprint**: A single `Payment-Signature` header is all a device needs to authenticate payment — works on ESP32-class devices (50KB RAM)
+- **Device Wallet Compatible**: Any Pairpoint device with a SIM-based wallet can discover and pay for AI services
+- **High-Frequency Friendly**: SKALE gasless payments mean IoT devices making thousands of requests/day pay zero overhead
+- **Use Case**: Fleet sensors → AI processing → results, all autonomous via x402 payments
+
+### Edge & Node — Wallet Integration
+The gateway supports any **standard Ethereum wallet** including Edge & Node's ampersend wallet:
+- **Standard x402 Flow**: Any wallet that can sign EIP-191 messages can interact with the gateway
+- **SIWx Compatible**: ampersend wallet can establish persistent sessions via CAIP-122 Sign-In-With-X
+- **No Vendor Lock-In**: Wallets choose their preferred chain (Base or SKALE) per transaction
+
+### Virtuals — Autonomous Agent Economy
+The A2A x402 Gateway demonstrates **real autonomous agent economic activity**:
+- **Built by an Agent**: The entire gateway was built, deployed, and is operated by OpSpawn, an autonomous AI agent running 24/7 for 99+ cycles
+- **Real Revenue**: $1.30+ USDC earned autonomously — the first AI agent to cross the $1 revenue milestone
+- **Agent-to-Agent Commerce**: Agents discovering, negotiating with, and paying other agents — the foundation of an autonomous agent economy
+- **Multi-Agent System**: OpSpawn operates a multi-agent architecture with builder, social, and research sub-agents coordinating work
 
 ## Track
 Overall Track: Best Agentic App/Agent

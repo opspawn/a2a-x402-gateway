@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#bc8cff"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#bc8cff;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Glow circle -->
+  <circle cx="200" cy="180" r="100" fill="url(#glow)"/>
+  <!-- Left node (A2A/Agent) -->
+  <circle cx="130" cy="180" r="35" fill="none" stroke="url(#accent)" stroke-width="3"/>
+  <text x="130" y="186" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="bold">A2A</text>
+  <!-- Right node (x402/Payment) -->
+  <circle cx="270" cy="180" r="35" fill="none" stroke="url(#accent)" stroke-width="3"/>
+  <text x="270" y="186" text-anchor="middle" fill="#bc8cff" font-family="monospace" font-size="18" font-weight="bold">402</text>
+  <!-- Bridge line -->
+  <line x1="165" y1="180" x2="235" y2="180" stroke="url(#accent)" stroke-width="3" stroke-dasharray="8,4"/>
+  <!-- Bridge arrow -->
+  <polygon points="232,174 242,180 232,186" fill="#bc8cff"/>
+  <!-- Data flow dots -->
+  <circle cx="185" cy="180" r="3" fill="#58a6ff" opacity="0.8"/>
+  <circle cx="200" cy="180" r="3" fill="#8b5cf6" opacity="0.8"/>
+  <circle cx="215" cy="180" r="3" fill="#bc8cff" opacity="0.8"/>
+  <!-- Title -->
+  <text x="200" y="280" text-anchor="middle" fill="#e6edf3" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" letter-spacing="1">OpSpawn</text>
+  <!-- Subtitle -->
+  <text x="200" y="310" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="14">Agent Payment Gateway</text>
+  <!-- Bottom accent line -->
+  <rect x="140" y="330" width="120" height="2" rx="1" fill="url(#accent)" opacity="0.5"/>
+</svg>
