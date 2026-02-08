@@ -5,33 +5,33 @@
         "url": "https://a2a.opspawn.com"
     },
     "uptime": {
-        "seconds": 4805,
-        "human": "1h 20m"
+        "seconds": 6312,
+        "human": "1h 45m"
     },
     "tasks": {
-        "total": 3351,
-        "thisSession": 1789,
-        "completed": 921,
-        "failed": 265,
-        "errorRate": "14.8%"
+        "total": 4464,
+        "thisSession": 2734,
+        "completed": 1425,
+        "failed": 391,
+        "errorRate": "14.3%"
     },
     "payments": {
-        "total": 3090,
+        "total": 4182,
         "byType": {
-            "required": 1055,
-            "received": 818,
-            "settled": 519,
-            "siwxAccess": 300
+            "required": 1370,
+            "received": 1091,
+            "settled": 708,
+            "siwxAccess": 405
         },
         "revenue": {
             "currency": "USDC",
-            "total": "5.1550",
-            "avgPerTask": "0.0099",
-            "avgPaymentInterval": "160s",
+            "total": "7.0450",
+            "avgPerTask": "0.0100",
+            "avgPaymentInterval": "120s",
             "bySkill": {
                 "screenshot": {
-                    "amount": "5.1300",
-                    "count": 513
+                    "amount": "7.0200",
+                    "count": 702
                 },
                 "markdown-to-pdf": {
                     "amount": "0.0250",
@@ -44,21 +44,21 @@
             },
             "byNetwork": {
                 "eip155:8453": {
-                    "amount": "3.6300",
+                    "amount": "4.8900",
                     "gasless": false
                 },
                 "eip155:2046399126": {
-                    "amount": "1.5250",
+                    "amount": "2.1550",
                     "gasless": true
                 }
             },
-            "conversionRate": "49.2%"
+            "conversionRate": "51.7%"
         }
     },
     "sessions": {
         "siwx": 88,
-        "reuseCount": 300,
-        "savingsEstimate": "3.0000"
+        "reuseCount": 405,
+        "savingsEstimate": "4.0500"
     },
     "services": [
         {
@@ -99,61 +99,61 @@
             "type": "payment-settled",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:20.387Z"
+            "timestamp": "2026-02-08T12:35:02.743Z"
         },
         {
             "type": "payment-settled",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:18.838Z"
+            "timestamp": "2026-02-08T12:35:02.156Z"
         },
         {
             "type": "payment-settled",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:18.555Z"
+            "timestamp": "2026-02-08T12:35:00.823Z"
         },
         {
             "type": "payment-received",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:10.964Z"
+            "timestamp": "2026-02-08T12:34:52.510Z"
         },
         {
             "type": "payment-received",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:10.963Z"
+            "timestamp": "2026-02-08T12:34:52.509Z"
         },
         {
             "type": "payment-received",
             "skill": "screenshot",
             "network": "eip155:8453",
-            "timestamp": "2026-02-08T12:10:10.962Z"
+            "timestamp": "2026-02-08T12:34:52.508Z"
         },
         {
             "type": "payment-required",
             "skill": "markdown-to-pdf",
             "network": null,
-            "timestamp": "2026-02-08T12:10:10.930Z"
+            "timestamp": "2026-02-08T12:34:52.481Z"
         },
         {
             "type": "payment-required",
             "skill": "markdown-to-pdf",
             "network": null,
-            "timestamp": "2026-02-08T12:10:10.929Z"
+            "timestamp": "2026-02-08T12:34:52.480Z"
         },
         {
             "type": "payment-required",
             "skill": "markdown-to-pdf",
             "network": null,
-            "timestamp": "2026-02-08T12:10:10.928Z"
+            "timestamp": "2026-02-08T12:34:52.480Z"
         },
         {
             "type": "payment-required",
             "skill": "markdown-to-pdf",
             "network": null,
-            "timestamp": "2026-02-08T12:10:10.927Z"
+            "timestamp": "2026-02-08T12:34:52.478Z"
         }
     ],
     "protocol": {
@@ -175,5 +175,5 @@
             ]
         }
     },
-    "timestamp": "2026-02-08T12:12:42.725Z"
+    "timestamp": "2026-02-08T12:37:49.833Z"
 }
