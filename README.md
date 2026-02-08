@@ -11,7 +11,8 @@ Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackat
 - **Demo Page**: https://a2a.opspawn.com/demo
 - **Agent Card**: https://a2a.opspawn.com/.well-known/agent-card.json
 - **Dashboard**: https://a2a.opspawn.com/dashboard
-- **Demo Video**: https://a2a.opspawn.com/public/demo-video.mp4
+- **Live Stats**: https://a2a.opspawn.com/stats
+- **Demo Video**: https://a2a.opspawn.com/public/demo-video-v2.mp4
 
 ## How It Works
 
@@ -19,9 +20,9 @@ Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackat
 Agent Client → A2A Gateway → 402: Pay USDC → Service Delivery
 ```
 
-1. **Agent sends A2A message** (JSON-RPC over HTTP)
+1. **Agent sends A2A message** (JSON-RPC over HTTP) or REST request to `/x402/*`
 2. **Gateway returns payment requirements** (x402 payment details for paid skills)
-3. **Agent signs USDC transfer** on Base network
+3. **Agent signs USDC transfer** on Base or SKALE Europa (gasless)
 4. **Gateway delivers result** (screenshot, PDF, or HTML)
 
 ## Agent Skills
@@ -46,7 +47,12 @@ Server starts on `http://localhost:4002`
 - `GET /.well-known/agent-card.json` — A2A agent discovery
 - `POST /` — A2A JSON-RPC endpoint (message/send, tasks/get, tasks/cancel)
 - `GET /x402` — x402 service catalog
+- `GET /x402/chains` — Multi-chain discovery (Base + SKALE Europa)
+- `POST /x402/screenshot` — REST x402 screenshot (402 → pay → 200)
+- `POST /x402/pdf` — REST x402 PDF generation (402 → pay → 200)
+- `POST /x402/html` — REST x402 HTML conversion (free)
 - `GET /dashboard` — Web dashboard
+- `GET /stats` — Live payment stats and revenue
 - `GET /api/info` — Agent info + payment details
 - `GET /api/payments` — Payment event log
 
@@ -188,7 +194,7 @@ npm start &
 npm test
 ```
 
-22 tests covering:
+29 tests covering:
 - Health check and agent card discovery
 - x402 service catalog
 - Free skill execution (markdown → HTML)
@@ -196,6 +202,7 @@ npm test
 - Payment submission and service delivery
 - Task lifecycle (get, cancel)
 - SKALE Europa chain ID, USDC address, and gasless flag validation
+- REST x402 endpoints (screenshot, PDF, HTML with payment flow)
 - Error handling (invalid requests, unknown methods)
 
 ## Configuration
