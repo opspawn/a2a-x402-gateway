@@ -22,11 +22,11 @@ import { dirname, join } from 'node:path';
 // === Configuration ===
 const PORT = parseInt(process.env.PORT || '4002', 10);
 const SNAPAPI_URL = process.env.SNAPAPI_URL || 'http://localhost:3001';
-const SNAPAPI_KEY = process.env.SNAPAPI_API_KEY || 'demo-key-001';
+const SNAPAPI_KEY = process.env.SNAPAPI_API_KEY || 'demo_a974a17d1faf618789b49ae9fd51f221';
 const WALLET_ADDRESS = '0x7483a9F237cf8043704D6b17DA31c12BfFF860DD';
 const BASE_USDC = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 const FACILITATOR_URL = 'https://facilitator.payai.network';
-const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
+const PUBLIC_URL = process.env.PUBLIC_URL || 'https://a2a.opspawn.com';
 
 // x402 V2: CAIP-2 network identifiers
 const SKALE_USDC = '0x5F795bb52dAC3085f578f4877D450e2929D2F13d'; // Bridged USDC on SKALE Europa Hub
@@ -657,6 +657,43 @@ app.get('/x402/chains', (req, res) => {
     })),
     recommended: 'skale',
     recommendedReason: 'Zero gas fees + sub-second finality — ideal for micropayments',
+  });
+});
+
+// /x402/bazaar — machine-readable service catalog for automated agent discovery
+app.get('/x402/bazaar', (req, res) => {
+  res.json({
+    provider: { name: 'OpSpawn Screenshot Agent', url: PUBLIC_URL, wallet: WALLET_ADDRESS },
+    services: [
+      {
+        id: 'screenshot', name: 'Web Screenshot', description: 'Capture any webpage as PNG image',
+        price: { amount: '0.01', currency: 'USDC' },
+        input: { type: 'application/json', schema: { url: { type: 'string', required: true, description: 'URL to capture' } } },
+        output: { type: 'image/png' },
+        endpoints: { a2a: '/a2a', rest: '/x402/screenshot' },
+      },
+      {
+        id: 'markdown-to-pdf', name: 'Markdown to PDF', description: 'Convert markdown text to PDF document',
+        price: { amount: '0.005', currency: 'USDC' },
+        input: { type: 'application/json', schema: { markdown: { type: 'string', required: true, description: 'Markdown content' } } },
+        output: { type: 'application/pdf' },
+        endpoints: { a2a: '/a2a', rest: '/x402/pdf' },
+      },
+      {
+        id: 'markdown-to-html', name: 'Markdown to HTML', description: 'Convert markdown text to HTML (free)',
+        price: { amount: '0', currency: 'USDC' },
+        input: { type: 'application/json', schema: { markdown: { type: 'string', required: true, description: 'Markdown content' } } },
+        output: { type: 'text/html' },
+        endpoints: { a2a: '/a2a', rest: '/x402/html' },
+      },
+    ],
+    payment: {
+      protocol: 'x402', version: '2.0',
+      networks: Object.entries(NETWORKS).map(([key, n]) => ({ id: key, caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
+      facilitator: FACILITATOR_URL, token: 'USDC',
+      features: ['siwx', 'payment-identifier', 'bazaar-discovery', 'multi-chain'],
+    },
+    discovery: { agentCard: `${PUBLIC_URL}/.well-known/agent-card.json`, stats: `${PUBLIC_URL}/stats`, chains: `${PUBLIC_URL}/x402/chains` },
   });
 });
 
