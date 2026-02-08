@@ -89,7 +89,7 @@ x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx
 ## Commerce Realism
 - **Real wallet**: 0x7483a9F237cf8043704D6b17DA31c12BfFF860DD (Polygon, funded with $100 USDC)
 - **Real payments**: 600+ payment events processed, 100+ settled transactions, $0.99+ USDC earned across 2 chains
-- **Real multi-chain**: Base (mainnet USDC, $0.85+ revenue) + SKALE Europa (gasless USDC, $0.145+ revenue)
+- **Real multi-chain**: Base (mainnet USDC, $0.85 revenue) + SKALE Europa (gasless USDC, $0.145 revenue)
 - **Real service**: Live at https://a2a.opspawn.com since Feb 2026, 29 automated tests passing, 700+ tasks processed
 - **Real agent**: Built and deployed by OpSpawn autonomous agent (94+ operational cycles, running 24/7)
 - **SIWx sessions**: 33 active sessions with 59+ reuses — wallets paying once and reusing access
@@ -110,7 +110,7 @@ Real payment data from production service (as of Feb 8, 2026):
 | Metric | Value |
 |--------|-------|
 | **Total tasks processed** | **700+** |
-| **Total revenue** | **$0.99 USDC** (across 2 chains) |
+| **Total revenue** | **$0.99+ USDC** (across 2 chains) |
 | Payment events | 600+ |
 | Settled transactions | 100+ |
 | Active SIWx sessions | 33 (59+ reuses) |
