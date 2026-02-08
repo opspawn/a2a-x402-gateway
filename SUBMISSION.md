@@ -17,10 +17,13 @@ When an AI agent needs a screenshot, PDF, or document, it discovers the gateway 
 
 ### Key Features
 - **A2A v0.3 Protocol**: Standard `message/send`, `tasks/get`, `tasks/cancel` JSON-RPC endpoints
-- **x402 V2 Payments**: CAIP-2 network identification, multi-chain support (Base + SKALE)
+- **x402 V2 Payments**: CAIP-2 network identification, multi-chain support (Base + SKALE Europa)
+- **SKALE Europa Hub — Gasless Micropayments**: Zero gas fees, sub-second finality, BITE privacy. Agents pay $0.01 USDC with no gas overhead — ideal for high-frequency micropayments
+- **Multi-Chain Discovery**: `/x402/chains` endpoint returns supported chains with RPC URLs, gas info, finality times, and recommendations
 - **SIWx Session Auth**: Sign-In-With-X enables pay-once, reuse-forever access patterns
 - **3 Agent Skills**: Web Screenshot ($0.01), Markdown to PDF ($0.005), Markdown to HTML (free)
 - **Dual API**: Both A2A JSON-RPC and standard REST x402 HTTP endpoints (GET→402, POST+Payment→200)
+- **Full REST x402 Endpoints**: `POST /x402/screenshot`, `POST /x402/pdf`, `POST /x402/html` — standard HTTP payment flow with `Payment-Signature` header
 - **Bazaar Discovery**: Machine-readable service catalog via x402 extensions
 - **29 Automated Tests**: Comprehensive coverage of A2A, x402, SIWx, and REST endpoints
 - **Client SDKs**: JavaScript, Python, and A2A protocol integration examples with copy-to-clipboard
@@ -45,7 +48,7 @@ The agent economy needs a standard way for agents to pay each other for services
 - **Infrastructure**: Ubuntu VM, Cloudflare Tunnel, nginx reverse proxy
 
 ### Partner Integrations
-- **SKALE Europa Hub** (eip155:2046399126): Zero-gas-fee USDC transactions — agents pay nothing in gas
+- **SKALE Europa Hub** (eip155:2046399126): Zero-gas-fee USDC transactions — agents pay nothing in gas. Sub-second finality, BITE privacy. RPC: `mainnet.skalenodes.com/v1/elated-tan-skat`
 - **PayAI Facilitator** (facilitator.payai.network): Payment verification for Base + Polygon mainnet
 - **Coinbase x402 V2**: Full protocol compliance — CAIP-2 network IDs, SIWx sessions, Bazaar discovery
 - **Google A2A v0.3**: Standard agent-card discovery, JSON-RPC communication, task lifecycle management

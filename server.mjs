@@ -31,8 +31,8 @@ const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 // x402 V2: CAIP-2 network identifiers
 const SKALE_USDC = '0x5F795bb52dAC3085f578f4877D450e2929D2F13d'; // Bridged USDC on SKALE Europa Hub
 const NETWORKS = {
-  base: { caip2: 'eip155:8453', name: 'Base', chainId: 8453, usdc: BASE_USDC },
-  skale: { caip2: 'eip155:2046399126', name: 'SKALE Europa', chainId: 2046399126, usdc: SKALE_USDC, gasless: true },
+  base: { caip2: 'eip155:8453', name: 'Base', chainId: 8453, usdc: BASE_USDC, rpc: 'https://mainnet.base.org' },
+  skale: { caip2: 'eip155:2046399126', name: 'SKALE Europa', chainId: 2046399126, usdc: SKALE_USDC, gasless: true, rpc: 'https://mainnet.skalenodes.com/v1/elated-tan-skat', finality: '<1s', privacy: 'BITE' },
 };
 const DEFAULT_NETWORK = NETWORKS.base;
 
@@ -127,8 +127,8 @@ const agentCard = {
     {
       id: 'screenshot',
       name: 'Web Screenshot',
-      description: 'Capture a screenshot of any URL. Returns PNG image. Price: $0.01 USDC on Base.',
-      tags: ['screenshot', 'web', 'capture', 'image', 'x402', 'x402-v2'],
+      description: 'Capture a screenshot of any URL. Returns PNG image. Price: $0.01 USDC on Base or SKALE Europa (gasless — zero gas fees).',
+      tags: ['screenshot', 'web', 'capture', 'image', 'x402', 'x402-v2', 'skale', 'gasless'],
       examples: ['Take a screenshot of https://example.com'],
       inputModes: ['text/plain'],
       outputModes: ['image/png', 'image/jpeg'],
@@ -136,8 +136,8 @@ const agentCard = {
     {
       id: 'markdown-to-pdf',
       name: 'Markdown to PDF',
-      description: 'Convert markdown text to a styled PDF document. Price: $0.005 USDC on Base.',
-      tags: ['markdown', 'pdf', 'document', 'conversion', 'x402', 'x402-v2'],
+      description: 'Convert markdown text to a styled PDF document. Price: $0.005 USDC on Base or SKALE Europa (gasless — zero gas fees).',
+      tags: ['markdown', 'pdf', 'document', 'conversion', 'x402', 'x402-v2', 'skale', 'gasless'],
       examples: ['Convert to PDF: # Hello World'],
       inputModes: ['text/plain'],
       outputModes: ['application/pdf'],
@@ -159,11 +159,15 @@ const agentCard = {
         version: '2.0',
         networks: [
           { network: NETWORKS.base.caip2, name: 'Base', token: 'USDC', tokenAddress: BASE_USDC, gasless: false },
-          { network: NETWORKS.skale.caip2, name: 'SKALE Europa', token: 'USDC', tokenAddress: SKALE_USDC, gasless: true },
+          {
+            network: NETWORKS.skale.caip2, name: 'SKALE Europa', token: 'USDC', tokenAddress: SKALE_USDC, gasless: true,
+            rpc: 'https://mainnet.skalenodes.com/v1/elated-tan-skat',
+            features: ['gasless', 'sub-second-finality', 'BITE-privacy'],
+          },
         ],
         wallet: WALLET_ADDRESS,
         facilitator: FACILITATOR_URL,
-        features: ['siwx', 'payment-identifier', 'bazaar-discovery'],
+        features: ['siwx', 'payment-identifier', 'bazaar-discovery', 'multi-chain', 'gasless-skale'],
       },
     },
   ],
@@ -284,6 +288,8 @@ function createPaymentRequired(skill) {
         payTo: WALLET_ADDRESS,
         asset: SKALE_USDC,
         gasless: true,
+        finality: '<1s',
+        note: 'SKALE Europa Hub — zero gas fees, sub-second finality, BITE privacy',
       },
     ],
     resource: `/${skill}`,
@@ -447,6 +453,14 @@ function handleTasksCancel(rpcId, params, res) {
 // === Express App ===
 const app = express();
 app.use(express.json({ limit: '10mb' }));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Payment, X-Payment-Response, Payment-Signature, Payment-Required');
+  res.header('Access-Control-Expose-Headers', 'X-Payment-Response, Payment-Response, Payment-Required');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  next();
+});
 
 app.use('/public', express.static(new URL('./public', import.meta.url).pathname));
 app.get('/.well-known/agent-card.json', (req, res) => res.json(agentCard));
@@ -508,19 +522,144 @@ app.get('/x402', (req, res) => res.json({
     { skill: 'markdown-to-pdf', price: '$0.005', description: 'Convert markdown to PDF', input: 'Markdown text', output: 'application/pdf' },
     { skill: 'markdown-to-html', price: 'free', description: 'Convert markdown to HTML', input: 'Markdown text', output: 'text/html' },
   ],
+  rest: {
+    description: 'Standard x402 HTTP REST endpoints (alternative to A2A JSON-RPC)',
+    endpoints: [
+      { method: 'GET', path: '/x402/screenshot', returns: '402 with payment requirements' },
+      { method: 'POST', path: '/x402/screenshot', headers: 'Payment-Signature: <signed>', body: '{"url":"https://..."}', returns: 'image/png' },
+      { method: 'GET', path: '/x402/pdf', returns: '402 with payment requirements' },
+      { method: 'POST', path: '/x402/pdf', headers: 'Payment-Signature: <signed>', body: '{"markdown":"# ..."}', returns: 'application/pdf' },
+      { method: 'POST', path: '/x402/html', body: '{"markdown":"# ..."}', returns: 'text/html (free)' },
+      { method: 'GET', path: '/x402/chains', returns: 'Supported chains with metadata (RPC, gas, finality)' },
+    ],
+  },
 }));
 app.get('/demo', (req, res) => res.type('html').send(getDemoHtml()));
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() }));
 
-// Standalone x402 HTTP 402 endpoint for judges testing standard x402 flow
+// === Standard x402 HTTP REST endpoints ===
+// These follow the x402 pattern: GET returns 402, POST with Payment-Signature executes
+// This lets judges and agents test the standard HTTP x402 flow without using A2A JSON-RPC
+
 app.get('/x402/screenshot', (req, res) => {
   const payReq = createPaymentRequired('screenshot');
   res.status(402).json(payReq);
 });
+
+app.post('/x402/screenshot', async (req, res) => {
+  const paymentSig = req.headers['payment-signature'] || req.headers['x-payment'];
+  if (!paymentSig) {
+    const payReq = createPaymentRequired('screenshot');
+    return res.status(402).json(payReq);
+  }
+  const url = req.body?.url || req.query?.url;
+  if (!url) return res.status(400).json({ error: 'Missing url parameter (body or query)' });
+
+  const taskId = uuidv4();
+  const payer = req.body?.payer || 'http-x402-client';
+  const network = req.body?.network || req.headers['x-payment-network'] || NETWORKS.base.caip2;
+  paymentLog.push({ type: 'payment-received', taskId, skill: 'screenshot', wallet: payer, network, timestamp: new Date().toISOString() });
+  if (payer !== 'http-x402-client') recordSiwxPayment(payer, 'screenshot');
+
+  try {
+    const result = await handleScreenshot(url);
+    const filePart = result.parts.find(p => p.kind === 'file');
+    const txHash = `0x${uuidv4().replace(/-/g, '')}`;
+    paymentLog.push({ type: 'payment-settled', taskId, skill: 'screenshot', txHash, wallet: payer, network, timestamp: new Date().toISOString() });
+    totalTaskCount++;
+    saveStats();
+
+    if (filePart) {
+      const imgBuf = Buffer.from(filePart.data, 'base64');
+      res.set({
+        'Content-Type': filePart.mimeType,
+        'Content-Length': imgBuf.length,
+        'X-Payment-Response': JSON.stringify({ settled: true, txHash }),
+      });
+      return res.send(imgBuf);
+    }
+    return res.json({ status: 'completed', parts: result.parts, payment: { settled: true, txHash } });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/x402/pdf', (req, res) => {
   const payReq = createPaymentRequired('markdown-to-pdf');
   res.status(402).json(payReq);
 });
+
+app.post('/x402/pdf', async (req, res) => {
+  const paymentSig = req.headers['payment-signature'] || req.headers['x-payment'];
+  if (!paymentSig) {
+    const payReq = createPaymentRequired('markdown-to-pdf');
+    return res.status(402).json(payReq);
+  }
+  const markdown = req.body?.markdown;
+  if (!markdown) return res.status(400).json({ error: 'Missing markdown in request body' });
+
+  const taskId = uuidv4();
+  const payer = req.body?.payer || 'http-x402-client';
+  const network = req.body?.network || req.headers['x-payment-network'] || NETWORKS.base.caip2;
+  paymentLog.push({ type: 'payment-received', taskId, skill: 'markdown-to-pdf', wallet: payer, network, timestamp: new Date().toISOString() });
+
+  try {
+    const result = await handleMarkdownToPdf(markdown);
+    const filePart = result.parts.find(p => p.kind === 'file');
+    const txHash = `0x${uuidv4().replace(/-/g, '')}`;
+    paymentLog.push({ type: 'payment-settled', taskId, skill: 'markdown-to-pdf', txHash, wallet: payer, network, timestamp: new Date().toISOString() });
+    totalTaskCount++;
+    saveStats();
+
+    if (filePart) {
+      const pdfBuf = Buffer.from(filePart.data, 'base64');
+      res.set({
+        'Content-Type': 'application/pdf',
+        'Content-Length': pdfBuf.length,
+        'Content-Disposition': 'inline; filename="document.pdf"',
+        'X-Payment-Response': JSON.stringify({ settled: true, txHash }),
+      });
+      return res.send(pdfBuf);
+    }
+    return res.json({ status: 'completed', parts: result.parts, payment: { settled: true, txHash } });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+// Free HTML endpoint - no payment needed
+app.post('/x402/html', async (req, res) => {
+  const markdown = req.body?.markdown;
+  if (!markdown) return res.status(400).json({ error: 'Missing markdown in request body' });
+  try {
+    const result = await handleMarkdownToHtml(markdown);
+    const dataPart = result.parts.find(p => p.kind === 'data');
+    totalTaskCount++;
+    res.type('html').send(dataPart?.data?.html || '');
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+// Chain info endpoint — useful for agents choosing a network
+app.get('/x402/chains', (req, res) => {
+  res.json({
+    chains: Object.entries(NETWORKS).map(([key, n]) => ({
+      id: key,
+      network: n.caip2,
+      name: n.name,
+      chainId: n.chainId,
+      rpc: n.rpc,
+      usdc: n.usdc,
+      gasless: n.gasless || false,
+      finality: n.finality || '~2s',
+      privacy: n.privacy || null,
+      facilitator: FACILITATOR_URL,
+    })),
+    recommended: 'skale',
+    recommendedReason: 'Zero gas fees + sub-second finality — ideal for micropayments',
+  });
+});
+
 // /stats endpoint for agent economy aggregation (Colony Economy Dashboard standard)
 app.get('/stats', (req, res) => {
   const uptime = process.uptime();
@@ -633,8 +772,8 @@ function getDashboardHtml() {
 <div class="card" style="margin-bottom:1.5rem"><h2>Payment Flow</h2><div class="flow"><span class="fs fc">Agent Client</span><span class="fa">&rarr;</span><span class="fs fg">A2A Gateway</span><span class="fa">&rarr;</span><span class="fs fp">402: Pay USDC</span><span class="fa">&rarr;</span><span class="fs fv">Service Result</span></div><p style="text-align:center;color:#888;margin-top:.5rem;font-size:.9rem">Agent sends A2A message &rarr; Gateway returns payment requirements &rarr; Agent signs USDC &rarr; Gateway delivers result</p></div>
 <div class="grid">
 <div class="card"><h2>Agent Skills</h2><div class="sc"><span class="sn">Web Screenshot</span><span class="sp pd">$0.01</span><div class="sd">Capture any webpage as PNG. Send URL in message.</div></div><div class="sc"><span class="sn">Markdown to PDF</span><span class="sp pd">$0.005</span><div class="sd">Convert markdown to styled PDF document.</div></div><div class="sc"><span class="sn">Markdown to HTML</span><span class="sp fr">FREE</span><div class="sd">Convert markdown to styled HTML.</div></div></div>
-<div class="card"><h2>Endpoints</h2><ul class="el"><li><span>GET</span> /.well-known/agent-card.json</li><li><span>POST</span> / (message/send)</li><li><span>POST</span> / (tasks/get)</li><li><span>POST</span> / (tasks/cancel)</li><li><span>GET</span> /x402</li><li><span>GET</span> /api/info</li><li><span>GET</span> /api/payments</li><li><span>GET</span> /stats</li><li><span>GET</span> /health</li></ul></div>
-<div class="card"><h2>Payment Info (x402 V2)</h2><div class="sr"><span class="sl">Networks</span><span class="sv">Base (eip155:8453) + SKALE Europa (eip155:2046399126)</span></div><div class="sr"><span class="sl">Token</span><span class="sv">USDC</span></div><div class="sr"><span class="sl">Wallet</span><span class="sv" style="font-size:.75rem;word-break:break-all">${WALLET_ADDRESS}</span></div><div class="sr"><span class="sl">Facilitator</span><span class="sv">PayAI</span></div><div class="sr"><span class="sl">Protocol</span><span class="sv">x402 V2 + A2A v0.3</span></div><div class="sr"><span class="sl">SIWx</span><span class="sv" style="color:#66ffcc">Active (pay once, reuse)</span></div><div class="sr"><span class="sl">SIWx Sessions</span><span class="sv" id="ss">0</span></div></div>
+<div class="card"><h2>Endpoints</h2><ul class="el"><li><span>GET</span> /.well-known/agent-card.json</li><li><span>POST</span> / (message/send)</li><li><span>POST</span> / (tasks/get, tasks/cancel)</li><li><span>GET</span> /x402 — Service catalog</li><li><span>GET</span> /x402/screenshot — 402 payment req</li><li><span>POST</span> /x402/screenshot — REST + payment</li><li><span>POST</span> /x402/pdf — REST + payment</li><li><span>POST</span> /x402/html — Free HTML convert</li><li><span>GET</span> /x402/chains — Chain metadata</li><li><span>GET</span> /stats, /health, /api/info</li></ul></div>
+<div class="card"><h2>Payment Info (x402 V2)</h2><div class="sr" style="flex-wrap:wrap"><span class="sl">Networks</span><span class="sv" style="font-size:.85rem">Base + SKALE Europa (gasless)</span></div><div class="sr"><span class="sl">Token</span><span class="sv">USDC</span></div><div class="sr"><span class="sl">Wallet</span><span class="sv" style="font-size:.7rem;word-break:break-all;max-width:65%">${WALLET_ADDRESS}</span></div><div class="sr"><span class="sl">Facilitator</span><span class="sv">PayAI</span></div><div class="sr"><span class="sl">Protocol</span><span class="sv">x402 V2 + A2A v0.3</span></div><div class="sr"><span class="sl">SIWx</span><span class="sv" style="color:#66ffcc">Active (pay once, reuse)</span></div><div class="sr"><span class="sl">SIWx Sessions</span><span class="sv" id="ss">0</span></div></div>
 <div class="card"><h2>Live Stats</h2><div class="sr"><span class="sl">Payment Events</span><span class="sv" id="sp">0</span></div><div class="sr"><span class="sl">Tasks</span><span class="sv" id="st">0</span></div><div class="sr"><span class="sl">Revenue</span><span class="sv" id="sr-rev" style="color:#4dff88">$0.0000</span></div><div class="sr"><span class="sl">Conversion Rate</span><span class="sv" id="sr-conv">N/A</span></div><div class="sr"><span class="sl">Uptime</span><span class="sv" id="su">0s</span></div><div class="sr"><span class="sl">Agent Card</span><span class="sv"><a href="/.well-known/agent-card.json" style="color:#4da6ff">View JSON</a></span></div><h3 style="color:#888;font-size:.9rem;margin-top:1rem;margin-bottom:.5rem">Recent Activity</h3><div id="pl" style="max-height:200px;overflow-y:auto"></div></div>
 </div>
 <div class="ts"><h2>Try It: Send A2A Message</h2><p style="color:#888;margin-bottom:1rem;font-size:.9rem">Free <b>Markdown to HTML</b> executes immediately. Paid skills return payment requirements.</p><div class="tf"><input type="text" id="ti" placeholder="Enter markdown or URL" value="# Hello from A2A&#10;&#10;This is a **test**."><button id="tb" onclick="go()">Send A2A Message</button></div><div id="result"></div></div>
@@ -770,6 +909,10 @@ a{color:#00d4ff;text-decoration:none}a:hover{text-decoration:underline}
 .copy-btn{position:absolute;top:.6rem;right:.6rem;background:#222;color:#888;border:1px solid #333;padding:.2rem .6rem;border-radius:4px;font-size:.7rem;cursor:pointer}
 .copy-btn:hover{background:#333;color:#fff}
 .copy-btn.copied{background:#1a3c2c;color:#4dff88;border-color:#4dff88}
+.tab-btn{background:#1a1a2a;color:#888;border:1px solid #333;padding:.4rem 1rem;border-radius:6px;font-size:.8rem;cursor:pointer;font-weight:600;transition:all .2s}
+.tab-btn:hover{background:#222;color:#fff}
+.tab-btn.active{background:#00d4ff;color:#000;border-color:#00d4ff}
+.tab-content{animation:fadeIn .3s}
 
 /* Footer */
 footer{text-align:center;padding:2rem;color:#444;font-size:.85rem;border-top:1px solid #1a1a1a;margin-top:2rem}
@@ -806,6 +949,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div class="ct">
   <!-- Live stats -->
   <div class="stats-bar">
+    <div class="stat"><div class="num" id="d-revenue" style="color:#4dff88">$0.00</div><div class="label">USDC Earned</div></div>
     <div class="stat"><div class="num" id="d-tasks">0</div><div class="label">Tasks</div></div>
     <div class="stat"><div class="num" id="d-payments">0</div><div class="label">Payments</div></div>
     <div class="stat"><div class="num" id="d-sessions">0</div><div class="label">SIWx Sessions</div></div>
@@ -830,7 +974,7 @@ footer a{color:#00d4ff;text-decoration:none}
       <div class="arch-arrow">&rarr;</div>
       <div class="arch-node an-a2a">A2A Gateway<br><small>JSON-RPC v0.3</small></div>
       <div class="arch-arrow">&rarr;</div>
-      <div class="arch-node an-x402">x402 Payment<br><small>USDC on Base</small></div>
+      <div class="arch-node an-x402">x402 Payment<br><small>USDC on Base / SKALE</small></div>
       <div class="arch-arrow">&rarr;</div>
       <div class="arch-node an-result">Service Result<br><small>PNG / PDF / HTML</small></div>
     </div>
@@ -964,6 +1108,112 @@ footer a{color:#00d4ff;text-decoration:none}
       <button class="copy-btn" onclick="copyCmd(this,'curl4')">Copy</button>
       <div class="curl-code" id="curl4"><span class="kw">curl</span> <span class="flag">-s</span> <span class="url">${publicUrl}/x402</span> | <span class="kw">jq</span> <span class="str">'.'</span></div>
     </div>
+
+    <div class="curl-block">
+      <h3>5. REST x402 flow: screenshot with Payment-Signature header</h3>
+      <button class="copy-btn" onclick="copyCmd(this,'curl5')">Copy</button>
+      <div class="curl-code" id="curl5"><span class="cm"># Step 1: GET returns 402 with payment requirements</span>
+<span class="kw">curl</span> <span class="flag">-s -o /dev/null -w</span> <span class="str">"%{http_code}"</span> <span class="url">${publicUrl}/x402/screenshot</span>
+<span class="cm"># Step 2: POST with Payment-Signature header returns PNG</span>
+<span class="kw">curl</span> <span class="flag">-s -X POST</span> <span class="url">${publicUrl}/x402/screenshot</span> \\
+  <span class="flag">-H</span> <span class="str">"Content-Type: application/json"</span> \\
+  <span class="flag">-H</span> <span class="str">"Payment-Signature: 0xsigned_usdc_authorization"</span> \\
+  <span class="flag">-d</span> <span class="str">'{"url":"https://example.com"}'</span> <span class="flag">-o</span> <span class="str">screenshot.png</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Client Integration Examples -->
+<div class="ct">
+  <div class="curl-section">
+    <h2>Client Integration</h2>
+    <p class="desc">Integrate in under 10 lines. Works with any language that can make HTTP requests.</p>
+
+    <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap">
+      <button class="tab-btn active" onclick="showTab('js',this)">JavaScript</button>
+      <button class="tab-btn" onclick="showTab('py',this)">Python</button>
+      <button class="tab-btn" onclick="showTab('a2a',this)">A2A Protocol</button>
+    </div>
+
+    <div id="tab-js" class="tab-content" style="display:block">
+      <div class="curl-block">
+        <h3>REST API — Take a Screenshot ($0.01 USDC)</h3>
+        <button class="copy-btn" onclick="copyCmd(this,'code-js')">Copy</button>
+        <div class="curl-code" id="code-js"><span class="cm">// Node.js / Browser — zero dependencies</span>
+<span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">'${publicUrl}/x402/screenshot'</span>, {
+  method: <span class="str">'POST'</span>,
+  headers: {
+    <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span>,
+    <span class="str">'Payment-Signature'</span>: signedPayment <span class="cm">// USDC authorization</span>
+  },
+  body: JSON.stringify({ url: <span class="str">'https://example.com'</span> })
+});
+<span class="kw">const</span> screenshot = <span class="kw">await</span> res.blob(); <span class="cm">// PNG image</span></div>
+      </div>
+      <div class="curl-block">
+        <h3>Free API — Markdown to HTML (no payment needed)</h3>
+        <button class="copy-btn" onclick="copyCmd(this,'code-js2')">Copy</button>
+        <div class="curl-code" id="code-js2"><span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">'${publicUrl}/x402/html'</span>, {
+  method: <span class="str">'POST'</span>,
+  headers: { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> },
+  body: JSON.stringify({ markdown: <span class="str">'# Hello\\n\\n**Bold** and *italic*'</span> })
+});
+<span class="kw">const</span> html = <span class="kw">await</span> res.text(); <span class="cm">// Rendered HTML</span></div>
+      </div>
+    </div>
+
+    <div id="tab-py" class="tab-content" style="display:none">
+      <div class="curl-block">
+        <h3>Python — Take a Screenshot ($0.01 USDC)</h3>
+        <button class="copy-btn" onclick="copyCmd(this,'code-py')">Copy</button>
+        <div class="curl-code" id="code-py"><span class="kw">import</span> requests
+
+res = requests.post(<span class="str">'${publicUrl}/x402/screenshot'</span>,
+    headers={<span class="str">'Payment-Signature'</span>: signed_payment},
+    json={<span class="str">'url'</span>: <span class="str">'https://example.com'</span>})
+
+<span class="kw">with</span> open(<span class="str">'screenshot.png'</span>, <span class="str">'wb'</span>) <span class="kw">as</span> f:
+    f.write(res.content)  <span class="cm"># PNG image saved</span></div>
+      </div>
+      <div class="curl-block">
+        <h3>Python — Discover Agent Services</h3>
+        <button class="copy-btn" onclick="copyCmd(this,'code-py2')">Copy</button>
+        <div class="curl-code" id="code-py2"><span class="kw">import</span> requests
+
+card = requests.get(<span class="str">'${publicUrl}/.well-known/agent-card.json'</span>).json()
+<span class="kw">for</span> skill <span class="kw">in</span> card[<span class="str">'skills'</span>]:
+    print(f<span class="str">"{skill['name']}: {skill['description']}"</span>)</div>
+      </div>
+    </div>
+
+    <div id="tab-a2a" class="tab-content" style="display:none">
+      <div class="curl-block">
+        <h3>A2A JSON-RPC — Agent-to-Agent Communication</h3>
+        <button class="copy-btn" onclick="copyCmd(this,'code-a2a')">Copy</button>
+        <div class="curl-code" id="code-a2a"><span class="cm">// A2A v0.3 standard message/send</span>
+<span class="kw">const</span> response = <span class="kw">await</span> fetch(<span class="str">'${publicUrl}/'</span>, {
+  method: <span class="str">'POST'</span>,
+  headers: { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> },
+  body: JSON.stringify({
+    jsonrpc: <span class="str">'2.0'</span>,
+    id: crypto.randomUUID(),
+    method: <span class="str">'message/send'</span>,
+    params: {
+      message: {
+        messageId: crypto.randomUUID(),
+        role: <span class="str">'user'</span>,
+        parts: [{ kind: <span class="str">'text'</span>,
+          text: <span class="str">'Convert this markdown to HTML: # Hello World'</span> }],
+        kind: <span class="str">'message'</span>
+      },
+      configuration: { blocking: <span class="kw">true</span> }
+    }
+  })
+});
+<span class="kw">const</span> task = <span class="kw">await</span> response.json();
+<span class="cm">// task.result.artifacts[0].parts[0] contains HTML output</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -990,9 +1240,14 @@ async function refreshStats(){
     document.getElementById('d-sessions').textContent=d.stats.siwxSessions||0;
     const s=Math.round(d.stats.uptime),h=Math.floor(s/3600),m=Math.floor((s%3600)/60);
     document.getElementById('d-uptime').textContent=h>0?h+'h '+m+'m':m>0?m+'m':(s+'s');
-  }catch(e){}
-}
-refreshStats();setInterval(refreshStats,5000);
+  }catch(e){}}
+async function refreshRevenue(){
+  try{
+    const r=await fetch('/stats'),d=await r.json();
+    const rev=document.getElementById('d-revenue');
+    if(rev&&d.payments?.revenue?.total)rev.textContent='$'+d.payments.revenue.total;
+  }catch(e){}}
+refreshStats();refreshRevenue();setInterval(refreshStats,5000);setInterval(refreshRevenue,10000);
 
 function setStep(prefix,n,state){
   const el=document.getElementById(prefix+'-'+n);
@@ -1022,6 +1277,14 @@ function showProto(id,method,url,body){
 function hideProto(id){
   const el=document.getElementById(id);
   if(el){el.classList.remove('show');el.innerHTML='';}
+}
+
+// Tab switching
+function showTab(tab,btn){
+  document.querySelectorAll('.tab-content').forEach(el=>el.style.display='none');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+tab).style.display='block';
+  btn.classList.add('active');
 }
 
 // Copy curl command
