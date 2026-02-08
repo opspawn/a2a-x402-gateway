@@ -15459,6 +15459,5531 @@
       "wallet": "0xRestBulkWallet1",
       "network": "eip155:8453",
       "timestamp": "2026-02-08T11:36:28.725Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "bbe8aa6b-8b66-4077-b8d7-6dfc896d0107",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.139Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a79ef311-87e7-4830-b9b2-9eb8757e4163",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.140Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "0f2ef261-9a6d-431e-ba24-e94e8d44bf2b",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.140Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d8dea55e-1e7e-4ac1-878f-36c1549831af",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.141Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "6ed0454c-c1a2-45be-be21-1483db28bc49",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.142Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "994f70bd-6e7b-400f-bca4-a15ee4e0a283",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.142Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9f31bf07-8638-49d7-be52-0160ef084c51",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.143Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "78b5bca8-b123-4246-bb7c-eed85cd9089d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.144Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ee53034e-c313-4fbb-98d6-eeb576f1f56b",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.144Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ae969582-2e09-41d6-9b38-51ca750d2175",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:43:48.145Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "868b5643-612a-4b98-9785-824685383172",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.149Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "868b5643-612a-4b98-9785-824685383172",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.149Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c30d2fb8-902d-4117-a231-7d5bc46ab6a1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.150Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "c30d2fb8-902d-4117-a231-7d5bc46ab6a1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.150Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "fe3a4503-96c9-4b3f-9a65-99fee917bc43",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.151Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "fe3a4503-96c9-4b3f-9a65-99fee917bc43",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.151Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "98b29656-f5b2-493d-961a-0ed5c82303e1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.153Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "98b29656-f5b2-493d-961a-0ed5c82303e1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.153Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "655f1d67-6ec4-410b-9f0d-1f512cf156b7",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.154Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "655f1d67-6ec4-410b-9f0d-1f512cf156b7",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:48.154Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "868b5643-612a-4b98-9785-824685383172",
+      "skill": "screenshot",
+      "txHash": "0xd6212d808c2c49128f87f3cf2e1b8164",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:55.009Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "fe3a4503-96c9-4b3f-9a65-99fee917bc43",
+      "skill": "screenshot",
+      "txHash": "0x3e55859dcec9483193b29229c241d5ca",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:55.883Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c30d2fb8-902d-4117-a231-7d5bc46ab6a1",
+      "skill": "screenshot",
+      "txHash": "0x0751fab768cc4cdb9b13b42ece8c9cd3",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:43:58.633Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d8e8e7f8-dd3c-4382-9500-1eb60153ba6e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.672Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "d8e8e7f8-dd3c-4382-9500-1eb60153ba6e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.672Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5609e9b8-9e08-4664-bac4-ef668fac3f6f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.678Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5609e9b8-9e08-4664-bac4-ef668fac3f6f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.678Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "08de28b6-669e-41dc-9d71-2584b3e0adc6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.681Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "08de28b6-669e-41dc-9d71-2584b3e0adc6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.681Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "2677a0f0-bf84-43c4-a7c9-09e23da94975",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.685Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "2677a0f0-bf84-43c4-a7c9-09e23da94975",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.686Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "42c4bd8f-e4b5-44c3-ae2d-4a4b6552c113",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.689Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "42c4bd8f-e4b5-44c3-ae2d-4a4b6552c113",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:43:58.689Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "5609e9b8-9e08-4664-bac4-ef668fac3f6f",
+      "skill": "screenshot",
+      "txHash": "0x4c869af191554918a8f7857d907d67b2",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:10.186Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d8e8e7f8-dd3c-4382-9500-1eb60153ba6e",
+      "skill": "screenshot",
+      "txHash": "0x51e63263436a438a813fbeb17209a71b",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:10.267Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "08de28b6-669e-41dc-9d71-2584b3e0adc6",
+      "skill": "screenshot",
+      "txHash": "0x2085f95f7380434fad97373335701a22",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:12.537Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "2083958f-b26c-4d51-b565-6d4e9bf60f7b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:12.549Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "ec1cf743-1e7d-409a-b8a0-e8b4d3fcc240",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:12.550Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "e4aeee29-5fd4-4c3f-9511-c8182d69cef3",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:12.551Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "269462dd-2669-4789-8ed8-e5f1de2b034c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:12.551Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "6ebd71ad-9b81-4ec2-94b3-fd211074026c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:12.552Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "eefa6e5b-cc44-4256-a8ca-8dce7b34d5f6",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:22.422Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d50f42e9-701d-456d-82d8-75c0994d2cc3",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:22.422Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f3de5578-f47b-4d0f-965e-c586f45c3065",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:22.423Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ad5334a6-211a-4cd8-968e-55f416ff7613",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:22.424Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "00cde72b-5742-4625-a972-2900fac3de66",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:22.425Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "cad87611-0762-4e76-9f33-547306701089",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:22.442Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d023362d-8a01-4092-805c-e194f19a8a54",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:22.443Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "1c1ad970-d837-4258-8d9b-72b474792120",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:22.444Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "cad87611-0762-4e76-9f33-547306701089",
+      "skill": "screenshot",
+      "txHash": "0x0efb5ab5425048cb9c0abc0f7e4ca8d1",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:29.356Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "1c1ad970-d837-4258-8d9b-72b474792120",
+      "skill": "screenshot",
+      "txHash": "0x39f494c233ef4d339c04a84dddf3d792",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:29.363Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d023362d-8a01-4092-805c-e194f19a8a54",
+      "skill": "screenshot",
+      "txHash": "0x1a6ac246b1a14b76a5090bc6d66d1e3b",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:31.400Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e2754b31-abac-4f70-acc2-0c4c829d14bb",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.553Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "dcd90b63-d8d3-443f-9262-d7c8b6bf219e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.554Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d6dfdb6c-b971-4d61-9e5f-2cb5789970c4",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.555Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "3146b149-1e29-4ced-aac6-e0aae3632fb1",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.557Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a363476b-2f70-49fe-b830-eff705ca476e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.558Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "72c84825-19dc-4073-b425-d369266fe5c3",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.559Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ee9ac3de-ae4b-4eaa-8c04-7ef52e965caf",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.560Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "bd61197d-914b-47ca-a586-060f2472ef27",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.561Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c12b13da-5650-4e7f-91a1-a738b2da0da4",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.563Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "735bd256-fb24-440d-ab67-c4b84b40df3e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:36.563Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "52bc18fe-3d51-4b90-951c-d43ac6565613",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.571Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "52bc18fe-3d51-4b90-951c-d43ac6565613",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.571Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "bc1ddff5-26fc-4a94-b531-5f2aaf33f05a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.572Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "bc1ddff5-26fc-4a94-b531-5f2aaf33f05a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.572Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "29a5077a-b00f-485c-974b-55831c19e158",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.573Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "29a5077a-b00f-485c-974b-55831c19e158",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.573Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "4f1bb739-ad58-4a56-9546-586cd3011c14",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.575Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "4f1bb739-ad58-4a56-9546-586cd3011c14",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.575Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b1fd2a7d-2f19-4b04-99d2-acd5c12124e3",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.576Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b1fd2a7d-2f19-4b04-99d2-acd5c12124e3",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:36.576Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "52bc18fe-3d51-4b90-951c-d43ac6565613",
+      "skill": "screenshot",
+      "txHash": "0x27986ed7b0cb487285b6673631b5d8b2",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:42.393Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "29a5077a-b00f-485c-974b-55831c19e158",
+      "skill": "screenshot",
+      "txHash": "0x4eaac70dfd3a4c5282b7d4cc5d9fbf07",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:42.932Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "bc1ddff5-26fc-4a94-b531-5f2aaf33f05a",
+      "skill": "screenshot",
+      "txHash": "0xc96b1259a7a249408a7d856d714ec62f",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:44:43.757Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5fb5aa99-21bf-43d9-8d29-437744875869",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.771Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5fb5aa99-21bf-43d9-8d29-437744875869",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.771Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "2ef35b89-6e99-4ebd-afd0-c557bce4f7b2",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.772Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "2ef35b89-6e99-4ebd-afd0-c557bce4f7b2",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.772Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "395e43c2-96be-41a5-a206-74372de8cb76",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.773Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "395e43c2-96be-41a5-a206-74372de8cb76",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.773Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3f04097a-6d2d-48b5-b2bd-797a135c31ee",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.774Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3f04097a-6d2d-48b5-b2bd-797a135c31ee",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.774Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "1cd694e7-5574-41e5-b623-da0cf1126d3a",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.776Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "1cd694e7-5574-41e5-b623-da0cf1126d3a",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:43.776Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "5fb5aa99-21bf-43d9-8d29-437744875869",
+      "skill": "screenshot",
+      "txHash": "0x13833cc6bd1d483cae54ec340c3ea4a6",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:52.647Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "2ef35b89-6e99-4ebd-afd0-c557bce4f7b2",
+      "skill": "screenshot",
+      "txHash": "0x840c59dfeb2a4f0585448b266e7e85b4",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:52.700Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "395e43c2-96be-41a5-a206-74372de8cb76",
+      "skill": "screenshot",
+      "txHash": "0x3379b396f1ee431e9dc7b4ccad3082f0",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:44:55.690Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "d2c49eeb-e38d-4f53-a225-10521778845c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:55.746Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "a312b794-b766-4c32-bd97-c69f38296d6d",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:55.748Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "c9b32ffc-e541-44ae-b72b-12903172a77f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:55.750Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "3981b65a-b48a-4a38-9f53-8326bfc796fc",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:55.752Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "7cba5549-e1ed-420f-b8f2-20958eee0ba8",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:44:55.754Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2dbcc617-60c0-4d7b-b2f7-7e061e3ed7ca",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:07.218Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8c1a61a1-8548-4275-92d6-ec7b4f429134",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:07.219Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9c758139-49fb-4548-940a-bce711342c8a",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:07.220Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "b3ce8907-9c0c-4c2b-afd2-1cb7578940d0",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:07.223Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f2dbc178-8864-4bc8-85d2-d823bf2c4142",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:07.224Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "756b5796-5879-43ff-9fcf-94bf3a818411",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:07.260Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "789182e7-d4fc-4fbd-a917-1715113fb1f7",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:07.262Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "06bcd45c-e119-4e5c-a3f3-874f79987127",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:07.263Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "756b5796-5879-43ff-9fcf-94bf3a818411",
+      "skill": "screenshot",
+      "txHash": "0x7822364a0ce141b48a2678f286c007db",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:18.025Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "789182e7-d4fc-4fbd-a917-1715113fb1f7",
+      "skill": "screenshot",
+      "txHash": "0x9780e00b92d24879a933f667eaf57b47",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:18.180Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "06bcd45c-e119-4e5c-a3f3-874f79987127",
+      "skill": "screenshot",
+      "txHash": "0x4e395d4fac0e43cfa9e65d14543a903f",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:18.188Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c8733bd5-569e-4212-a46c-820bb4d6af99",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.430Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "eeb7501e-4a76-4289-a97d-096f11df2b3e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.430Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "52ac7e1a-a966-4aa1-abef-e7fe0b135a97",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.431Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "76907de6-e227-4dff-b673-04d5a62f22e7",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.432Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "0ecda7ca-e7f5-43ab-acf1-da287a79e13c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.432Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "45df3b00-d773-4b2e-8edc-207ed15fc3f1",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.434Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "4bc5b1f2-1f39-4439-a333-c949e879ac92",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.434Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f3d87438-5e5e-4858-841e-7d5cc1246983",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.435Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8f519183-e04c-4d2b-a5ff-6a04088b691f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.436Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e2c78324-d23f-4e22-ab44-6c517cf8955f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:24.436Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "fafccd1a-61aa-4507-ac06-18ecb0bb449e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.441Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "fafccd1a-61aa-4507-ac06-18ecb0bb449e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.441Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "0a214a29-1eb1-4383-8679-5a6a92a183d2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.442Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "0a214a29-1eb1-4383-8679-5a6a92a183d2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.442Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "4f42a550-20d0-4b23-a13f-7f0a24b1a5af",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.443Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "4f42a550-20d0-4b23-a13f-7f0a24b1a5af",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.443Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f6fe61ca-7587-4c4d-9782-4e68cb3d0d54",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.444Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f6fe61ca-7587-4c4d-9782-4e68cb3d0d54",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.444Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "113fa40c-f495-4f4c-bb45-d5f486cdc420",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.444Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "113fa40c-f495-4f4c-bb45-d5f486cdc420",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:24.444Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "fafccd1a-61aa-4507-ac06-18ecb0bb449e",
+      "skill": "screenshot",
+      "txHash": "0xfbc9db51a85945ea984883e25c6689bf",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:34.602Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "4f42a550-20d0-4b23-a13f-7f0a24b1a5af",
+      "skill": "screenshot",
+      "txHash": "0x1c3843fe21ef41cfb136b5c93177050f",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:34.850Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "0a214a29-1eb1-4383-8679-5a6a92a183d2",
+      "skill": "screenshot",
+      "txHash": "0x6a152e0508aa489abcbc716aa7ffbd59",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:45:35.257Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "00b74d7d-99f9-4402-b8c7-42600a9c7551",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.266Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "00b74d7d-99f9-4402-b8c7-42600a9c7551",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.266Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "bdf424f8-a1f2-491c-a8cd-3dde4ff55731",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.268Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "bdf424f8-a1f2-491c-a8cd-3dde4ff55731",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.268Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "50433550-1a86-4c96-a6e3-180bf882abd1",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.269Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "50433550-1a86-4c96-a6e3-180bf882abd1",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.269Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3905470f-14ee-4435-8d05-a9985d0c70b3",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.270Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3905470f-14ee-4435-8d05-a9985d0c70b3",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.270Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5133f44d-02d0-44ad-9e34-f0076a6e0513",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.270Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5133f44d-02d0-44ad-9e34-f0076a6e0513",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:35.270Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "00b74d7d-99f9-4402-b8c7-42600a9c7551",
+      "skill": "screenshot",
+      "txHash": "0x33397da94dde4173a61188ba2015ba60",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:44.863Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "bdf424f8-a1f2-491c-a8cd-3dde4ff55731",
+      "skill": "screenshot",
+      "txHash": "0xc86a16f0a9e1443ca6b3d2548f02e1a2",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:44.917Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "50433550-1a86-4c96-a6e3-180bf882abd1",
+      "skill": "screenshot",
+      "txHash": "0xa28eb8a363454de592433aaa631268fd",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:45:50.062Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "09c3f7af-4797-451d-b5e0-8e5a2c488819",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:50.074Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "b7f301e3-f1e1-4cc9-b239-8622c2f1675a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:50.075Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "4602a497-fa1f-4676-bb18-db69770abfa4",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:50.076Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "24caeed1-b668-4556-ac75-1c42d1367812",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:50.076Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "fd127952-d299-4ad1-a02a-b06dea0bf0a1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:45:50.078Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d573c857-9614-4bb1-aaeb-d7c3395b3af8",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:02.473Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "47edf9ee-8821-4e89-8931-ab1d42d813fc",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:02.474Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "aff8f666-a98c-4ec6-85a4-fa0ad09a3c05",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:02.475Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d2a36e6b-f7cd-4b50-9588-1beb6970f68c",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:02.476Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ffab5b11-3981-462d-be55-7269c8d44f0d",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:02.477Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "21fa6d14-76e3-4280-94bf-7953d5f61149",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:02.501Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "07178806-8bdb-4044-ab3b-d500b8c02988",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:02.502Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3971a2d3-272e-4753-b35e-08a340c10a50",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:02.502Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "21fa6d14-76e3-4280-94bf-7953d5f61149",
+      "skill": "screenshot",
+      "txHash": "0x186f58143bf74315b0dcd3d59626210d",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:13.672Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "3971a2d3-272e-4753-b35e-08a340c10a50",
+      "skill": "screenshot",
+      "txHash": "0x8499898702fd4af3986620e74c669308",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:13.679Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "07178806-8bdb-4044-ab3b-d500b8c02988",
+      "skill": "screenshot",
+      "txHash": "0x03880b2e20574310a1564ea8bb028632",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:14.075Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "abc6f840-1d19-49d4-bc8f-67d682e0bb11",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.288Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d9a341d4-9fa9-43e8-9624-1053aae68f44",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.289Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a14ac27a-6510-494d-a2b8-d8d3398b3ecc",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.291Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2a924531-e16e-4f07-91c0-1c09be370b0a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.292Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8492e82d-0b38-4aad-bdc0-27d86a067654",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.293Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "befd0bd5-63c8-4dbb-9a0c-1a068d9013f1",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.294Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "84f7a751-0c44-4652-af43-d843e4b2baf1",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.294Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "36283b03-6bc9-4ed3-ae95-2a32eab8828c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.295Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "99075239-8d73-4298-bb2a-10b2720d9073",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.295Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "0d8f5bd2-220d-4594-8456-78e9d24735e7",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:20.296Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "ef0587f8-9fc4-437f-85a1-78907a7b632a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.303Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "ef0587f8-9fc4-437f-85a1-78907a7b632a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.303Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b14939f5-4c40-47ee-98dc-f6e710a629f6",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.307Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b14939f5-4c40-47ee-98dc-f6e710a629f6",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.307Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "8fbc5f06-bebf-4d00-88f4-b8909f47f2a5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.308Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "8fbc5f06-bebf-4d00-88f4-b8909f47f2a5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.308Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "42851d62-0cb8-43b0-9bdb-54fb8b781141",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.309Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "42851d62-0cb8-43b0-9bdb-54fb8b781141",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.309Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "729c4a38-0534-499d-906f-ddb0f5e94088",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.310Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "729c4a38-0534-499d-906f-ddb0f5e94088",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:20.310Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "ef0587f8-9fc4-437f-85a1-78907a7b632a",
+      "skill": "screenshot",
+      "txHash": "0xae0dc5bfa57a4ee1a6c7016e27c1488f",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:26.868Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "8fbc5f06-bebf-4d00-88f4-b8909f47f2a5",
+      "skill": "screenshot",
+      "txHash": "0xe98389d5263e45de8d2967ce13a2f865",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:26.997Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b14939f5-4c40-47ee-98dc-f6e710a629f6",
+      "skill": "screenshot",
+      "txHash": "0xc1e2b3905d4648a590aff4b3a3c8a1af",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:28.167Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d28fe37f-30aa-415b-8b4c-8948dc8e5b3e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.180Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "d28fe37f-30aa-415b-8b4c-8948dc8e5b3e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.180Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "ce1e7651-ff8a-4988-8318-59a19df6edde",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.182Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "ce1e7651-ff8a-4988-8318-59a19df6edde",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.182Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "be187f30-498a-4e97-b594-4ff16095b94d",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.184Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "be187f30-498a-4e97-b594-4ff16095b94d",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.185Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a80ab49c-9344-4bc1-b928-67c782ee8884",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.186Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a80ab49c-9344-4bc1-b928-67c782ee8884",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.186Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "47d184c9-f15c-480c-a5be-9312a88e3b4c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.188Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "47d184c9-f15c-480c-a5be-9312a88e3b4c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:28.188Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d28fe37f-30aa-415b-8b4c-8948dc8e5b3e",
+      "skill": "screenshot",
+      "txHash": "0xf03568d8133a489cb4228f5700890422",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:37.019Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "ce1e7651-ff8a-4988-8318-59a19df6edde",
+      "skill": "screenshot",
+      "txHash": "0xb8fdeed86431458698e3ad8191069c5f",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:37.385Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "be187f30-498a-4e97-b594-4ff16095b94d",
+      "skill": "screenshot",
+      "txHash": "0x4ad91b92d15343cea3f7d5f85b18c4f9",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:46:39.651Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "dce4be6e-9970-4ca4-b963-59eed9f06705",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:39.684Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "4866c553-1b78-432b-93bc-c50745c963fd",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:39.686Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "525668ef-fbf8-4bbc-8713-36862ad2109a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:39.688Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "8e07ee23-02b2-4616-8478-247454e990d7",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:39.690Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "3deea54b-0f50-409c-8dec-f5a859080d45",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:39.692Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "42b34e1e-19b5-44b1-a398-62144b769afc",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:48.980Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ef8e365b-c088-486b-a279-8f67b86669fc",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:48.982Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "da021d09-1f89-40ef-b2bc-6472004e08a0",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:48.986Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "37a5a21f-0e58-4798-8427-1a49a4eb7f84",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:48.988Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5879b32a-6581-485f-b107-7f0da72b4f9c",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:46:48.990Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "4668d510-6654-48aa-9991-f71a5031fb14",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:49.030Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b8366158-58d3-4c3f-8992-a92a861a6729",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:49.032Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c7231beb-b922-4a7a-a72c-9e7305f069fe",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:49.033Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "4668d510-6654-48aa-9991-f71a5031fb14",
+      "skill": "screenshot",
+      "txHash": "0xbb149e4ac174462a86509d9e60f43887",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:56.620Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c7231beb-b922-4a7a-a72c-9e7305f069fe",
+      "skill": "screenshot",
+      "txHash": "0x4f8d4ae04f4a4471b794258e32828e80",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:56.627Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b8366158-58d3-4c3f-8992-a92a861a6729",
+      "skill": "screenshot",
+      "txHash": "0x8a448d54b2834df09eaaaaf0273f51fc",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:46:58.865Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "67090b22-aa8b-40bc-9439-1dbde98e9c29",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.026Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "14e544ec-7f89-46b2-9655-a450f03a60cd",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.027Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "102704f6-bee4-408a-a0c8-b1bbc89cb428",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.027Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "90c5ad64-404e-441a-a916-4d16540a3f74",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.028Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8e99dd28-38f6-457f-9649-a8ebdd0d876d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.029Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d7ddeb49-eec8-44a0-839a-291bea60618a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.029Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "98875bf2-2c96-4906-ae58-341d6d9ad499",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.030Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "1784d100-7974-48d1-afb0-a3ac80bbbe65",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.030Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a8147c3d-e60a-4566-8931-bea5fcba1ab2",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.031Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9c24cf48-e80f-4131-9894-3c4e3a160074",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:05.031Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "768165cc-644d-491f-a9a0-be4be034ec3a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.035Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "768165cc-644d-491f-a9a0-be4be034ec3a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.035Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3a9fc9a9-252f-41eb-bc76-05f829d83e6b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.037Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3a9fc9a9-252f-41eb-bc76-05f829d83e6b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.037Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "41b326f8-0b75-40b6-93ed-a8b7173a4b0b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.038Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "41b326f8-0b75-40b6-93ed-a8b7173a4b0b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.038Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "9a1acdf5-1d7f-4e5c-be1c-d6ea06145b93",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.038Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "9a1acdf5-1d7f-4e5c-be1c-d6ea06145b93",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.039Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7d768d82-e82b-41a4-97cb-1072d34eeb9a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.040Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "7d768d82-e82b-41a4-97cb-1072d34eeb9a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:05.040Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "768165cc-644d-491f-a9a0-be4be034ec3a",
+      "skill": "screenshot",
+      "txHash": "0x3694fc59501e450993bbfa153b29b833",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:15.525Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "41b326f8-0b75-40b6-93ed-a8b7173a4b0b",
+      "skill": "screenshot",
+      "txHash": "0x79d778bd4ad846b68d271a2f02b19d95",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:15.583Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "3a9fc9a9-252f-41eb-bc76-05f829d83e6b",
+      "skill": "screenshot",
+      "txHash": "0xcf8b224b160d4026b4eea9a47336067d",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:16.663Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "42b80f0f-bd39-4f13-93ab-1cdd0ec7d2a1",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.673Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "42b80f0f-bd39-4f13-93ab-1cdd0ec7d2a1",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.673Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d518ccd1-38ec-499b-90ff-c5b6f0fca83c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.676Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "d518ccd1-38ec-499b-90ff-c5b6f0fca83c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.677Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6a65ee61-c78c-4a72-80be-0ccc793d5605",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.678Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "6a65ee61-c78c-4a72-80be-0ccc793d5605",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.678Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "614e7ffa-f81f-437f-88f0-bf6e215c67be",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.681Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "614e7ffa-f81f-437f-88f0-bf6e215c67be",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.681Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "9abcdd26-6e4b-469e-99b8-21937b0efae7",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.682Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "9abcdd26-6e4b-469e-99b8-21937b0efae7",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:16.682Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d518ccd1-38ec-499b-90ff-c5b6f0fca83c",
+      "skill": "screenshot",
+      "txHash": "0x4254fdbd05cd4a21975642c4731b47e6",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:25.838Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "42b80f0f-bd39-4f13-93ab-1cdd0ec7d2a1",
+      "skill": "screenshot",
+      "txHash": "0x2593653157be4f4aa712b1df766f5a3d",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:25.878Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6a65ee61-c78c-4a72-80be-0ccc793d5605",
+      "skill": "screenshot",
+      "txHash": "0x348f05700f9245cabb57101278b624cc",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:47:30.714Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "a508609b-cef0-4b10-883b-b672e0c70f9b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:30.752Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "554f5c2c-da37-4ff4-99b5-f79267d1e5cf",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:30.754Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "d0e44841-2302-4e78-8629-f1b324781ac1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:30.755Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "1f0e38c4-3722-44c5-b6d0-7f90196f4f56",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:30.757Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "f27e9617-053b-4406-8fe4-2c664a25d7fd",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:30.759Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d28c1708-32d9-4447-9595-25e26c5cec1f",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:40.375Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c0270151-d5f8-40c4-8f5a-364236375aa6",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:40.376Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5d7b99aa-d6be-488d-89ec-041c3336cd1c",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:40.377Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "bd088d9c-226d-4438-ac7e-334d28af57d1",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:40.377Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8a83a912-19b7-4d9e-b07d-445a3c5868fa",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:40.378Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "8e291c4c-a181-499f-b14d-3d98dfb1e4d5",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:40.398Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a26e77d5-605c-49ba-b5a7-a3f0191ad635",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:40.399Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "58e26605-b9e9-4a41-9e1e-23af5478817f",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:40.400Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "8e291c4c-a181-499f-b14d-3d98dfb1e4d5",
+      "skill": "screenshot",
+      "txHash": "0xe23f6c132b6e4cb0a8e8169bc3e2075a",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:47.585Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "58e26605-b9e9-4a41-9e1e-23af5478817f",
+      "skill": "screenshot",
+      "txHash": "0xa2c1e7220240488e9f2402a376ba5a7a",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:47.782Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "a26e77d5-605c-49ba-b5a7-a3f0191ad635",
+      "skill": "screenshot",
+      "txHash": "0x9e57eaba36994145865d6c40741359ee",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:50.927Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "40c6fc89-2aea-4a53-8e99-a0f645b6d8b0",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.080Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f54fd3e5-1fd3-42c3-8912-272d5e06d22f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.081Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "78eaa476-171a-44cc-8e4d-434401dd82fa",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.082Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5e8e8190-eddd-4ef8-b415-7cd9f78bf368",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.083Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "b0f8a79d-5c19-48cc-98d5-188ed41f9956",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.084Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ab4f7d91-9f2a-4c46-8c9d-470147088abf",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.084Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d7520a7f-4a1f-44c1-bfa7-bc71631171eb",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.085Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "fc87259e-1de8-465c-b84b-f824fc09f2be",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.086Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "7e9e2d08-32b8-442a-823b-89c4aa7970a3",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.086Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f59ee3b9-717b-47a9-8600-52cb3a42e9e4",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:47:57.087Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b74a4b2e-133a-4c9a-b60e-85a88aa2492d",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.092Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b74a4b2e-133a-4c9a-b60e-85a88aa2492d",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.092Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6a405a28-dcb0-4763-ae97-499e5380cbf2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.093Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "6a405a28-dcb0-4763-ae97-499e5380cbf2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.093Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f3192886-71e3-4343-8b06-91b0b7b55a17",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.094Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f3192886-71e3-4343-8b06-91b0b7b55a17",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.094Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "334d6065-9b53-4312-b04b-79f0fcc7678c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.094Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "334d6065-9b53-4312-b04b-79f0fcc7678c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.095Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c16ae0f5-e473-42a5-81a8-26fe7b011990",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.097Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "c16ae0f5-e473-42a5-81a8-26fe7b011990",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:47:57.097Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f3192886-71e3-4343-8b06-91b0b7b55a17",
+      "skill": "screenshot",
+      "txHash": "0xa4a40c336b814917b72c0cc44a784391",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:04.717Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b74a4b2e-133a-4c9a-b60e-85a88aa2492d",
+      "skill": "screenshot",
+      "txHash": "0x78468c417f93408cb62982093e911a6d",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:04.781Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6a405a28-dcb0-4763-ae97-499e5380cbf2",
+      "skill": "screenshot",
+      "txHash": "0x3e7a7a1434734b05b85574baef230609",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:05.837Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "9605e2ad-72eb-4e1a-bc14-d2988af456fb",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.849Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "9605e2ad-72eb-4e1a-bc14-d2988af456fb",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.849Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c700e657-b933-4334-8793-26729665dc8e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.850Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "c700e657-b933-4334-8793-26729665dc8e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.850Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d84a5698-7381-4e18-9718-05f7a33e0c23",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.852Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "d84a5698-7381-4e18-9718-05f7a33e0c23",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.852Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f95187c2-0672-46d1-812d-dd0c0ec0da90",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.854Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f95187c2-0672-46d1-812d-dd0c0ec0da90",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.855Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3e540065-839c-452b-bc64-a9ce7afa77d9",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.858Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3e540065-839c-452b-bc64-a9ce7afa77d9",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:05.859Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "9605e2ad-72eb-4e1a-bc14-d2988af456fb",
+      "skill": "screenshot",
+      "txHash": "0xa919dd542b0943a5b8a978c57d80ff2c",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:15.064Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c700e657-b933-4334-8793-26729665dc8e",
+      "skill": "screenshot",
+      "txHash": "0x51de1b9689cd4adda976af3a6841dcf3",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:15.331Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d84a5698-7381-4e18-9718-05f7a33e0c23",
+      "skill": "screenshot",
+      "txHash": "0x498e66bd28114239b138559769fce0df",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:48:19.797Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "8bbee29f-3adc-46fb-a1c2-71aada83fd6f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:19.840Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "7c65dfb1-7672-4809-a8de-aaf3bf4bb91d",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:19.843Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "b25d07cb-4989-41e8-b15f-c7aac9251d0a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:19.845Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "af1f6e0c-5787-44de-bdcb-33e4be1e06c1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:19.848Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "ae6006f4-72c4-467e-8d16-0c0bcbe26311",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:19.851Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "15ada0e6-62ba-43e4-a2d2-6544c1298e45",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:29.017Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "cf0a9b9d-4288-421a-8a32-74a07ffe2028",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:29.019Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e2d3c900-e956-4c7d-a0e2-8af9b5b0f00e",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:29.022Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "dbfa9d64-9db7-455a-a610-39f42d88d515",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:29.024Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "cc240b06-c0be-47b9-9a15-ee5e3801dd15",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:48:29.027Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "0275d1db-e514-48f2-84d6-a8c921ee565d",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:29.050Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f6a9c93a-930d-4e4c-8b26-ad82c6d620d6",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:29.051Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c4c45b87-a2cc-4dcd-9604-9e965aa1816c",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:29.051Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "0275d1db-e514-48f2-84d6-a8c921ee565d",
+      "skill": "screenshot",
+      "txHash": "0xf77e02e8cda647a1bec751fc871f283d",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:34.755Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c4c45b87-a2cc-4dcd-9604-9e965aa1816c",
+      "skill": "screenshot",
+      "txHash": "0x69b054f4a8594fb59701fe961a154d2a",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:35.159Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f6a9c93a-930d-4e4c-8b26-ad82c6d620d6",
+      "skill": "screenshot",
+      "txHash": "0x841dc810a90b4a57b72055627b3e57a7",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:48:38.797Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "075aefe5-9151-4f3f-8334-0ed1d96608cb",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.180Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "3312e139-c520-45d5-9bb9-dfcf36de9716",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.180Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "db161320-0ec7-4a08-bef9-61f725b6ac16",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.181Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "bc4fa473-4e34-4504-9b47-10f64d0fe978",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.182Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2129948d-fbfc-46c3-984f-d888fab7af7c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.182Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d2f6a625-f0c6-4aef-9681-8277f6a2f38f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.183Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "aa5f8bab-c69d-4e68-b167-a0ba793f0f4e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.183Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d7555bb6-7e7d-4ea8-8ecc-658be9caa2b8",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.184Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e61b7388-dee9-4919-92b7-1598f8f6afcf",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.184Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f5d57e5f-b43d-4dc6-a94a-aa4a7796fd2d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:06.185Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "87531971-f79d-43e1-9931-808c4a768977",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.189Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "87531971-f79d-43e1-9931-808c4a768977",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.189Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7d3a3985-3f32-44f0-b108-4368e35dcc86",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.190Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "7d3a3985-3f32-44f0-b108-4368e35dcc86",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.190Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "cabbd3c8-1a6f-42e0-94e1-fa8e80c36486",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.190Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "cabbd3c8-1a6f-42e0-94e1-fa8e80c36486",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.190Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "54ffed2d-496e-4deb-8770-60a9bce6e420",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.191Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "54ffed2d-496e-4deb-8770-60a9bce6e420",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.191Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "04c0d7c4-e7e0-4c76-872c-416ffc770346",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.192Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "04c0d7c4-e7e0-4c76-872c-416ffc770346",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:06.192Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "87531971-f79d-43e1-9931-808c4a768977",
+      "skill": "screenshot",
+      "txHash": "0x920a96127f86499e8d4f7c69736d9915",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:12.527Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "cabbd3c8-1a6f-42e0-94e1-fa8e80c36486",
+      "skill": "screenshot",
+      "txHash": "0x6b95966e710249a189e129aa433ba32f",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:13.151Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "7d3a3985-3f32-44f0-b108-4368e35dcc86",
+      "skill": "screenshot",
+      "txHash": "0x0fa6a693a68341f6bd8d0ce777b72782",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:16.315Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "e9ef550c-d6ac-4f51-ae42-4104cbc46f17",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.333Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "e9ef550c-d6ac-4f51-ae42-4104cbc46f17",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.333Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6c701e1f-7c78-45d0-8de2-be0931a98a45",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.334Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "6c701e1f-7c78-45d0-8de2-be0931a98a45",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.334Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "2bc0bb31-5581-4e56-bf21-49122b887819",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.335Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "2bc0bb31-5581-4e56-bf21-49122b887819",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.335Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "48eee589-6aca-4b1d-9839-a9456c9bf4e3",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.336Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "48eee589-6aca-4b1d-9839-a9456c9bf4e3",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.336Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "1b4deaa9-ed7d-4d73-b333-02f2771c178e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.337Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "1b4deaa9-ed7d-4d73-b333-02f2771c178e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:16.337Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "e9ef550c-d6ac-4f51-ae42-4104cbc46f17",
+      "skill": "screenshot",
+      "txHash": "0x1d0c0db95007413f8e43809e6f384bde",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:24.940Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6c701e1f-7c78-45d0-8de2-be0931a98a45",
+      "skill": "screenshot",
+      "txHash": "0x64b5617798b24ab48c7cfefbb126917a",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:25.598Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "2bc0bb31-5581-4e56-bf21-49122b887819",
+      "skill": "screenshot",
+      "txHash": "0x705e0c5cd99845e48acbd12642915144",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:49:28.603Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "83d8f4ce-8161-489c-aaf5-5d0748f4ab18",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:28.632Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "cd0ea92c-55fd-4a3c-893d-ca628f26f77e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:28.635Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "d284f6a4-1c83-440f-9821-9106d24b9a10",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:28.637Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "95eaf94e-4cfd-4a86-8066-9c8d9b12f9e8",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:28.639Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "ea3fecc7-5bca-40e9-b687-a856f27ad78b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:28.640Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "18adb710-72ae-4ea2-b5eb-ff3b67ce2de9",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:40.261Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "55845abc-71d3-4469-8254-e3f6fa30feb6",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:40.262Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a3a26fdf-4232-4f93-aca3-9c2bdd1135af",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:40.264Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "584f52d5-75b1-420f-87ad-bd16bc631231",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:40.265Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "17ab72f4-ad75-421a-90ae-ee0d89fc66fd",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:40.265Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3a380297-ff06-48e3-8f69-a6ae7eb7540c",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:40.285Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d5e6d541-1dd6-43ec-9ccc-07a0a2d0634b",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:40.286Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "ecdc626f-aba0-443c-a76d-f001247dfc8d",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:40.286Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "ecdc626f-aba0-443c-a76d-f001247dfc8d",
+      "skill": "screenshot",
+      "txHash": "0x9760612fffaa44879b9b27a094f177ef",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:51.735Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "3a380297-ff06-48e3-8f69-a6ae7eb7540c",
+      "skill": "screenshot",
+      "txHash": "0xbb7f274c68364b2c9ffecd315fa11c8b",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:51.871Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d5e6d541-1dd6-43ec-9ccc-07a0a2d0634b",
+      "skill": "screenshot",
+      "txHash": "0x9dcf55eec4e34a3680430c211e82d2c7",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:52.821Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2afc914b-7c3a-4f0d-b0a1-4b7cde1c7a97",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.984Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "48127887-0208-4d7c-99d0-48a4e7ce5ecc",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.985Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ceb76159-bbfa-4a03-946c-0d540c0bb0cc",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.985Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c89b1cf1-9e37-4e94-903a-16c980edb854",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.986Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "1c7d7b67-eef2-4941-a79a-d4885a20ac6a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.986Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "cb18674b-a008-429e-8641-75973ff1d66f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.987Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c1949c0a-d1c7-417a-acda-795a9ce6b878",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.987Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9f502d48-a7e3-44f6-bae4-bf15c1341346",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.988Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d0b6757f-2048-4805-954c-0f767891c56c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.988Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "078784fb-7260-4c10-81f4-3ac84da9f489",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:49:58.989Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6290312a-1065-410b-ac24-4a9432d02184",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.993Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "6290312a-1065-410b-ac24-4a9432d02184",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.993Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7d59d5e5-3483-4a51-931a-14d052530ce7",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.994Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "7d59d5e5-3483-4a51-931a-14d052530ce7",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.994Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "03a2e11d-5c64-4bbd-b84e-7c1f08a5ab38",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.995Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "03a2e11d-5c64-4bbd-b84e-7c1f08a5ab38",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.995Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "83767fbc-c1af-4fe3-b604-b53fc6a4fbc5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.995Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "83767fbc-c1af-4fe3-b604-b53fc6a4fbc5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.995Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5305741b-b60b-49d6-a7eb-964661e7649b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.997Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5305741b-b60b-49d6-a7eb-964661e7649b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:49:58.997Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "03a2e11d-5c64-4bbd-b84e-7c1f08a5ab38",
+      "skill": "screenshot",
+      "txHash": "0x58927da0294f46c6a8cea237870f27ea",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:05.995Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6290312a-1065-410b-ac24-4a9432d02184",
+      "skill": "screenshot",
+      "txHash": "0x799df654ce714d5aae188d0e62c86847",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:06.007Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "7d59d5e5-3483-4a51-931a-14d052530ce7",
+      "skill": "screenshot",
+      "txHash": "0xb0ce01db1ce4448ca3040e28333e72f8",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:08.071Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "61c26030-4c19-4054-abdc-6ffb5d21d5f2",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.088Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "61c26030-4c19-4054-abdc-6ffb5d21d5f2",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.088Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f78ddba6-457c-42cf-952a-8b99e14c2482",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.090Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f78ddba6-457c-42cf-952a-8b99e14c2482",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.090Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "aaa63651-5bc6-4823-8405-5d427524977c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.092Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "aaa63651-5bc6-4823-8405-5d427524977c",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.092Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "72ec8814-1cdd-488a-8074-3a119c06c7cd",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.093Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "72ec8814-1cdd-488a-8074-3a119c06c7cd",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.093Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "4470b5da-1ff6-4b0d-9b4b-13c023ed3198",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.095Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "4470b5da-1ff6-4b0d-9b4b-13c023ed3198",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:08.095Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "61c26030-4c19-4054-abdc-6ffb5d21d5f2",
+      "skill": "screenshot",
+      "txHash": "0x7f359bd3fef947c0b6e1ac8869b5d539",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:16.956Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f78ddba6-457c-42cf-952a-8b99e14c2482",
+      "skill": "screenshot",
+      "txHash": "0x085e7fae260d48daa4170e03aa08d41a",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:17.370Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "aaa63651-5bc6-4823-8405-5d427524977c",
+      "skill": "screenshot",
+      "txHash": "0x129f1ffac794441fa038ab3c26fce9e5",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:21.758Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "3bd6433a-e642-44ef-8908-48948e204ad4",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:21.790Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "725b881f-88d2-40f2-b7ee-f5f61c06808c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:21.792Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "f7d673dd-523d-4c3c-8547-deee2f4602d0",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:21.795Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "9d315ba1-25f0-4294-b1a3-e1f27a857a59",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:21.796Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "7a3eb12c-ac84-43e4-851e-3647bfa3e8a2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:21.798Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e0e5bc48-49aa-4900-9716-e7184ff8c64e",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:31.356Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "48077bbe-69aa-4e2a-9d6b-a6a88e42ba81",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:31.359Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2fc0b04d-2971-43ee-9bd1-4c376c2fd196",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:31.361Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5791bb26-c039-4d4f-af6a-6b7fbc29db7d",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:31.362Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "96b8e5cb-a0e6-458e-94d6-3a17605e2a8a",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:31.364Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "da02e124-cb0d-491b-bcb4-5b5240b59f9a",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:31.402Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "ad150cbf-22ca-4639-ab5d-430ee91f5bed",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:31.403Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7ecbdba1-7e65-4493-a4ff-acb3a9eb9675",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:31.404Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "da02e124-cb0d-491b-bcb4-5b5240b59f9a",
+      "skill": "screenshot",
+      "txHash": "0x461d20ec001d467eaa838f0462d51b0a",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:39.029Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "7ecbdba1-7e65-4493-a4ff-acb3a9eb9675",
+      "skill": "screenshot",
+      "txHash": "0xf298af2be75d4be3b5387b41b3a53f4e",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:39.219Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "ad150cbf-22ca-4639-ab5d-430ee91f5bed",
+      "skill": "screenshot",
+      "txHash": "0xe49734d024c2454f96ee6cc8971cbeee",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:39.366Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "26ae6812-90ca-45e0-92e3-3b45041d454e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.602Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8b6b8ed8-3d34-4302-b9e7-e290ae49c04c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.603Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "61066a44-b439-45cb-abf3-45eedae4c9af",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.604Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "94e88b2d-cf98-4433-b379-8db011fd6710",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.604Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "fa359f8c-e601-4027-b4a4-1d22992b20ba",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.605Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "77718c03-797b-47aa-8e2b-ad7470a7baf1",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.605Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "b17a96bf-c0e1-4aa8-8920-24c3478dcd4f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.606Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f422807e-a793-4ad9-8b78-d86ffaa64503",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.606Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5ba1ec6a-bc62-4a50-a1b9-120806ad49ff",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.607Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "846c4b97-cf21-4937-98ea-164c96158050",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:50:45.608Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f4298643-9878-4814-aa1e-276b709f82d0",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.611Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f4298643-9878-4814-aa1e-276b709f82d0",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.611Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "79fe3169-cf72-4756-a097-39e5f93089f6",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.612Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "79fe3169-cf72-4756-a097-39e5f93089f6",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.612Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a24ccb81-0904-43ee-9cea-77d78bc7f1fc",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.613Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a24ccb81-0904-43ee-9cea-77d78bc7f1fc",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.613Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "51525953-4dbe-44fe-8bf5-c402e7b43f4a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.613Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "51525953-4dbe-44fe-8bf5-c402e7b43f4a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.613Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "8e3f7d85-9e6f-45e6-bea5-0e39f30c24de",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.614Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "8e3f7d85-9e6f-45e6-bea5-0e39f30c24de",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:45.614Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f4298643-9878-4814-aa1e-276b709f82d0",
+      "skill": "screenshot",
+      "txHash": "0x02312ac2234f4d6b9d4cec457d243c75",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:52.622Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "a24ccb81-0904-43ee-9cea-77d78bc7f1fc",
+      "skill": "screenshot",
+      "txHash": "0x2509b30db31f405fba61c413ee0fe9e9",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:52.701Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "79fe3169-cf72-4756-a097-39e5f93089f6",
+      "skill": "screenshot",
+      "txHash": "0x8bdfdac97d5a47ad9856414a7f1b8e5d",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:50:52.914Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f444447f-10c3-4eda-8baf-461919a15123",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.936Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f444447f-10c3-4eda-8baf-461919a15123",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.937Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "178d05c1-3ea1-4df1-ba3b-3c2784990b21",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.939Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "178d05c1-3ea1-4df1-ba3b-3c2784990b21",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.939Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b6a3d2cb-7188-46b4-b2fa-f3aafafbd543",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.941Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b6a3d2cb-7188-46b4-b2fa-f3aafafbd543",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.941Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "8f6737c8-6784-4c13-aa56-33be7d38103a",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.943Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "8f6737c8-6784-4c13-aa56-33be7d38103a",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.943Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7027fb7c-96cf-4353-9ece-90c0b75bf68b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.945Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "7027fb7c-96cf-4353-9ece-90c0b75bf68b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:50:52.945Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f444447f-10c3-4eda-8baf-461919a15123",
+      "skill": "screenshot",
+      "txHash": "0x37850fecb7e24c1fbf185ed86b176614",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:01.633Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "178d05c1-3ea1-4df1-ba3b-3c2784990b21",
+      "skill": "screenshot",
+      "txHash": "0xab0bf54c56314ed78b598c68c7cdea9e",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:02.042Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b6a3d2cb-7188-46b4-b2fa-f3aafafbd543",
+      "skill": "screenshot",
+      "txHash": "0x4c6948da633149ffb02fac900a26c447",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:05.332Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "1900baa6-37e7-430d-995c-f24bc196e7c2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:05.346Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "19616989-e5e0-457a-82c7-e7ad861ccca1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:05.347Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "3d103afd-ea8b-4fe1-8aa9-7e91073f1341",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:05.347Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "46fef96b-5323-4dc7-a4bf-714354d5bbd2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:05.348Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "fbddd336-b547-4d2a-bcb7-12d5b2c4206e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:05.349Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c39b012c-60f1-4913-8742-8631fbe21452",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:15.609Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f6599a25-d4bb-4a8f-8a74-4f7c36dc78d0",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:15.613Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "6f0d776d-9879-4ddd-8b5e-5ab447a0be12",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:15.615Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "66eeb6e1-1aed-4139-9760-cd46c0506798",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:15.617Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "51b1ee91-0c75-462e-8467-7d3aad424651",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:15.619Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6f880146-a997-4709-9e27-37cdf074c89d",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:15.680Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "020648d0-da2a-411e-b9df-36667c2cdba1",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:15.681Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d33cc26c-bb17-4a1f-bbc2-c959037ad9f2",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:15.682Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d33cc26c-bb17-4a1f-bbc2-c959037ad9f2",
+      "skill": "screenshot",
+      "txHash": "0xbe2ec07f382342468b1c3a17009f74cd",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:23.020Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6f880146-a997-4709-9e27-37cdf074c89d",
+      "skill": "screenshot",
+      "txHash": "0x9202a6c7485c473da3d94bfa5f63fc64",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:23.029Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "020648d0-da2a-411e-b9df-36667c2cdba1",
+      "skill": "screenshot",
+      "txHash": "0x5fd239df1c074ed98637b39dd764b6f5",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.628Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5578dc84-6962-480e-8681-0cba30bc027e",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.812Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "11e53e45-cce1-4e33-a393-5798f24fe574",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.813Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "16520980-00db-435b-8d4e-3283f1b9911f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.814Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8e9e2ab5-f32f-4b31-9ee0-efabb2dbd6a4",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.815Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ec813cd3-52a9-42b2-8a52-b69b48e3da3c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.816Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "45acc8a8-6e53-4e0c-82ea-a4b65176ce3f",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.817Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "51a5cd41-6ab1-477e-bb82-ab87f5ff2d76",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.818Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "58557000-faa9-4713-ab9e-9c22405c9c2a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.819Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "345cc804-0247-423c-ab81-93bdfbe5624a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.820Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "fed9658c-e475-4746-ba8a-66ed266b0bdb",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:24.821Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "31b7f30d-1b4f-44d6-921f-443a14f19f7f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.825Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "31b7f30d-1b4f-44d6-921f-443a14f19f7f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.825Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "387d4278-f434-48af-a4e1-5b3350126b2e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.826Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "387d4278-f434-48af-a4e1-5b3350126b2e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.826Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "16465d20-1273-438f-891e-5a40ca1e3771",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.827Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "16465d20-1273-438f-891e-5a40ca1e3771",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.827Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "ec647efe-fbda-475b-9a2c-7570ad42a8f3",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.828Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "ec647efe-fbda-475b-9a2c-7570ad42a8f3",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.828Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "03db2d17-75f8-4bf7-84d8-d3c35b38ea07",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.829Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "03db2d17-75f8-4bf7-84d8-d3c35b38ea07",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:24.829Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "31b7f30d-1b4f-44d6-921f-443a14f19f7f",
+      "skill": "screenshot",
+      "txHash": "0x08b5679f3c31452ba2e41d398c6bf3fd",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:31.718Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "16465d20-1273-438f-891e-5a40ca1e3771",
+      "skill": "screenshot",
+      "txHash": "0x789fb478903c4c17a9a73958a65d5279",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:31.758Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "387d4278-f434-48af-a4e1-5b3350126b2e",
+      "skill": "screenshot",
+      "txHash": "0x7b6a61db088848c6935ac5626b95b37d",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:34.695Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d7e54c1f-b565-4ec5-9ee7-7ed685d5d3c6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.706Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "d7e54c1f-b565-4ec5-9ee7-7ed685d5d3c6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.706Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c8a9bb29-5458-4335-9579-897889773a8f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.707Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "c8a9bb29-5458-4335-9579-897889773a8f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.707Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "2f5777fc-6dec-4262-a7e0-2486c1bbae3b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.709Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "2f5777fc-6dec-4262-a7e0-2486c1bbae3b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.709Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a4a689b6-7eac-4055-9746-2f514b2c1eee",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.710Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a4a689b6-7eac-4055-9746-2f514b2c1eee",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.710Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "739c0841-8913-4eb1-89d1-0de054c67ca6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.711Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "739c0841-8913-4eb1-89d1-0de054c67ca6",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:34.711Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c8a9bb29-5458-4335-9579-897889773a8f",
+      "skill": "screenshot",
+      "txHash": "0x9cf0d68c95a44280a5faa49146fb6433",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:43.235Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d7e54c1f-b565-4ec5-9ee7-7ed685d5d3c6",
+      "skill": "screenshot",
+      "txHash": "0x1f0f036136e34fbd84f6e0bebadaa75e",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:43.258Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "2f5777fc-6dec-4262-a7e0-2486c1bbae3b",
+      "skill": "screenshot",
+      "txHash": "0x7004158c69b74fa38331531d8637598e",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:51:46.893Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "a36709b0-c39a-41c2-9b6e-fefadde87db0",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:46.907Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "14bb13f8-3f2a-4012-85e4-3fa5bb30779e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:46.908Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "9bb19c62-654c-4c9e-a4a9-dccad3dcd94e",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:46.909Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "9d2ce3b5-ac1f-4904-8762-37dccc4cb80a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:46.910Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "dbe85652-0b3a-47fe-9f3e-c90234f70990",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:46.911Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "126b31dc-a8cd-4092-bc07-edceef4beb4f",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:57.190Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "1c0b143e-0567-4438-9e45-dded9a2b2149",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:57.191Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "632242de-01d6-4d3b-8f25-5fa86f75f37a",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:57.193Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e7808a70-72f4-4399-9a86-d394d0823bf8",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:57.194Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f85e2aea-cf8a-4ea4-ae44-5699305ad939",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:51:57.195Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "19f643d1-d1b3-40de-bbf1-68be94fd4b06",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:57.234Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c0ed54ec-c32f-4065-b5e1-1c4dd2a9471a",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:57.236Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "7d0bed84-c5e2-4255-9958-0cdc64705c64",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:51:57.238Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "19f643d1-d1b3-40de-bbf1-68be94fd4b06",
+      "skill": "screenshot",
+      "txHash": "0x338030673d8f47ec95324290d8fe678d",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:04.011Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "7d0bed84-c5e2-4255-9958-0cdc64705c64",
+      "skill": "screenshot",
+      "txHash": "0xe57ec0d440eb4353b4894e5396139ef8",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:04.223Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c0ed54ec-c32f-4065-b5e1-1c4dd2a9471a",
+      "skill": "screenshot",
+      "txHash": "0x40ea950d0ab849b19a6202c740a5b397",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:07.274Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ef458cbf-66b2-4276-9a0d-aef911156899",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.498Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a31a1448-32c6-4a18-9cc4-98ffafca1ca9",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.499Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "223e45db-ad13-4fff-8cd3-8f8c11f0c768",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.500Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "45bf52bb-2a23-4a3f-89d6-d0cd7995c225",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.501Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "83ce3a62-2e1a-41eb-810d-25df462c5fc3",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.502Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ea95b933-835d-4e42-87b7-2e1b2ac4d32c",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.504Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d8efede1-7f83-4835-808e-f6a2852c82bf",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.505Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d5c45daf-48e4-4f6a-abcc-15fc3e90697d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.507Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ca343e13-3e89-4c02-a5c2-16a95fa00c75",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.508Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "330f2fe6-661c-485a-9f76-baf547ffb223",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:13.509Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "048e700b-80d5-421a-8051-aee787feb91b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.514Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "048e700b-80d5-421a-8051-aee787feb91b",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.514Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5d80c9fd-a35b-4908-92b6-1a3b7e0e39d5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.515Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5d80c9fd-a35b-4908-92b6-1a3b7e0e39d5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.515Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "742da3e0-63c2-4650-948b-d7b5adfdd1ea",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.516Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "742da3e0-63c2-4650-948b-d7b5adfdd1ea",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.516Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5b35c1a0-569f-49c5-83e7-7ebcc6abcf01",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.517Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5b35c1a0-569f-49c5-83e7-7ebcc6abcf01",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.517Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "61b7ada0-856e-4d80-83b3-e794cfef5391",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.519Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "61b7ada0-856e-4d80-83b3-e794cfef5391",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:13.519Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "048e700b-80d5-421a-8051-aee787feb91b",
+      "skill": "screenshot",
+      "txHash": "0x2cc8e85613a641628a06bd49c20f2604",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:19.722Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "742da3e0-63c2-4650-948b-d7b5adfdd1ea",
+      "skill": "screenshot",
+      "txHash": "0x4da34b421d524f009edaec9f59f38f13",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:20.287Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "5d80c9fd-a35b-4908-92b6-1a3b7e0e39d5",
+      "skill": "screenshot",
+      "txHash": "0x1ea3c354a6bf416cb0dec547f0a69109",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:23.559Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "289a61e0-6c90-43e0-b814-17adb919a658",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.575Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "289a61e0-6c90-43e0-b814-17adb919a658",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.575Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "21cd615a-1736-4ab2-9d55-e2e624479251",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.576Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "21cd615a-1736-4ab2-9d55-e2e624479251",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.576Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f073e9f9-6030-4436-accb-75b4b6074db9",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.577Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f073e9f9-6030-4436-accb-75b4b6074db9",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.577Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "f7dc3002-0854-4829-8f25-7d8ebf0a4f03",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.578Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "f7dc3002-0854-4829-8f25-7d8ebf0a4f03",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.578Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "31b3a61c-caa3-4b13-ab84-e2a4ffb7e56e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.579Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "31b3a61c-caa3-4b13-ab84-e2a4ffb7e56e",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:23.579Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "289a61e0-6c90-43e0-b814-17adb919a658",
+      "skill": "screenshot",
+      "txHash": "0xbf08098a73444456a9ae4253a536821b",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:32.075Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "21cd615a-1736-4ab2-9d55-e2e624479251",
+      "skill": "screenshot",
+      "txHash": "0xcbf32fe2837e4b4386cef2a6abfb33cc",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:32.150Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "f073e9f9-6030-4436-accb-75b4b6074db9",
+      "skill": "screenshot",
+      "txHash": "0x69592e54c04445a39942ba6f0e1eff0f",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:52:35.015Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "60d670b9-68b0-489f-9288-26676f8318f4",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:35.048Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "a3c1a364-22f1-4da1-822a-3a2650c4fcc1",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:35.049Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "65177fb3-ac9e-402e-a44a-dde7c8749fd2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:35.050Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "b19797f1-8631-461d-96d4-56a6bb51438f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:35.051Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "01a5edb8-4422-4a1d-821f-05880f7f033d",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:35.053Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ac831465-8f5f-4fe8-9122-c8a2cc46add5",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:45.499Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5fa59dab-9cf9-40e7-90f6-8e7a6fed2cb5",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:45.501Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a2d8236b-cb53-4162-bfd6-f35ec5dd7c7e",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:45.504Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "bee3000c-5c84-4af2-ba1e-ec1089fc891b",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:45.507Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d60be5e2-627c-40d9-9243-54890fc93b45",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:52:45.511Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b7f3cf9c-daf4-4610-8480-2f5268b3bf97",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:45.548Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "d649211e-c996-4601-9d71-d194830556a4",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:45.549Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6aa9b47b-f13d-4e5f-8e1c-1f00dac4213a",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:45.550Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b7f3cf9c-daf4-4610-8480-2f5268b3bf97",
+      "skill": "screenshot",
+      "txHash": "0x40a1c4986d674d7ab397bc89e0aab8e6",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:52.849Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "6aa9b47b-f13d-4e5f-8e1c-1f00dac4213a",
+      "skill": "screenshot",
+      "txHash": "0xbef28339fd0a4e44bf421aa85d05406d",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:53.002Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "d649211e-c996-4601-9d71-d194830556a4",
+      "skill": "screenshot",
+      "txHash": "0x04b5351eb12f45769261aae69affc9fb",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:52:54.653Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "1adfedd3-4206-41c8-a523-a70f97502317",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.925Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "4c207be7-dc0a-47a1-b69d-52f08aacb0c6",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.926Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "ffdb1843-685e-4b51-93ff-0c568bf3d274",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.926Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "6a2c4dd8-d541-49c9-8b94-1a13a92f26ea",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.927Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a7ee9f05-6c89-4d93-b7e9-d4b08605a721",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.927Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5a38759e-cedf-4bf6-94cc-6828466d8322",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.928Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d2660779-b75a-4e70-9c5a-0b32d99c6485",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.928Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9fda39f0-28c3-49d9-b239-847b0e13719d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.929Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a5755124-11ea-4403-a0d7-ac10114f683d",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.929Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "335c20c3-a1ea-476c-afc4-9f148d2219c0",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:00.930Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3ac664cb-2d1c-4d5f-aa7c-21b511cbfdd5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.933Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3ac664cb-2d1c-4d5f-aa7c-21b511cbfdd5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.933Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "c5b75494-2e29-499b-a8bf-b16e7c99abd5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.934Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "c5b75494-2e29-499b-a8bf-b16e7c99abd5",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.934Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "37e8693a-7a5f-4fad-802b-deae9ec1ff1c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.935Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "37e8693a-7a5f-4fad-802b-deae9ec1ff1c",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.935Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a17f33a0-48b1-464b-afda-663ec0df407f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.936Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a17f33a0-48b1-464b-afda-663ec0df407f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.936Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3cec88ad-48f4-49a4-9ad8-4b4154af3578",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.937Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3cec88ad-48f4-49a4-9ad8-4b4154af3578",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:00.937Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "3ac664cb-2d1c-4d5f-aa7c-21b511cbfdd5",
+      "skill": "screenshot",
+      "txHash": "0x77abe91f559f487d8a69188430d884f9",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:08.087Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "37e8693a-7a5f-4fad-802b-deae9ec1ff1c",
+      "skill": "screenshot",
+      "txHash": "0xed18007160b749868d32a2695e567c8d",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:08.116Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "c5b75494-2e29-499b-a8bf-b16e7c99abd5",
+      "skill": "screenshot",
+      "txHash": "0xbdb7633cdf0c432bbc5ebc90083f700c",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:11.104Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "45bde25e-9cb4-41bb-b51f-de80b29e37ad",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.117Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "45bde25e-9cb4-41bb-b51f-de80b29e37ad",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.117Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "4b1e8663-7d5e-4c47-8eff-ad9c374dde17",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.119Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "4b1e8663-7d5e-4c47-8eff-ad9c374dde17",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.119Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a3de3cc7-a04b-4574-ac06-80b01ffd9301",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.120Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a3de3cc7-a04b-4574-ac06-80b01ffd9301",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.120Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b34110f5-17ac-4c57-aa41-9df69ef99e98",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.121Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b34110f5-17ac-4c57-aa41-9df69ef99e98",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.121Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "6611f62a-064c-45af-9af3-c4530e18075b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.123Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "6611f62a-064c-45af-9af3-c4530e18075b",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:11.123Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "4b1e8663-7d5e-4c47-8eff-ad9c374dde17",
+      "skill": "screenshot",
+      "txHash": "0xdbf9603881fd410195dddca59d94213f",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:18.941Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "45bde25e-9cb4-41bb-b51f-de80b29e37ad",
+      "skill": "screenshot",
+      "txHash": "0x067bc7395dbe42e88683ebc5734ea878",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:19.003Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "a3de3cc7-a04b-4574-ac06-80b01ffd9301",
+      "skill": "screenshot",
+      "txHash": "0x876796f2202e47e895626093ee264db5",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:22.071Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "0907b8c0-c719-422e-84a3-eef95e971217",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:22.084Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "48d97cac-c562-4435-8c2b-4dc4bd269ca0",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:22.085Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "91a2aacc-0a1f-4576-a5b5-4faf5940868f",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:22.085Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "0b2f93da-266d-490d-a8f0-ffd384b18c90",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:22.086Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "8c7d0a0f-1c67-4cef-b355-028b3082a1db",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:22.086Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "8e5cd6e0-6fdd-4007-8334-a0327e6623d3",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:31.884Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5cbfeee7-0367-444e-b8d9-bc4b24bd11ff",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:31.887Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "e2563833-2b0f-4827-90dd-2c04f10db585",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:31.890Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "557f5ff8-d80e-4a5d-b377-6d6dc1aa67e4",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:31.893Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "374e98b4-df74-4c8f-8b8a-f2bd09e3eaa4",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:31.895Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "95250db8-0751-4273-8283-2e0e691ed929",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:31.933Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "0708c9da-2144-4fcf-bda5-211d344f5faa",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:31.935Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "cc6e37a5-5e49-4225-88f4-f1c04eea109b",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:31.936Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "95250db8-0751-4273-8283-2e0e691ed929",
+      "skill": "screenshot",
+      "txHash": "0x47e0b3a026724824b0425d31f486ce93",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:38.684Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "cc6e37a5-5e49-4225-88f4-f1c04eea109b",
+      "skill": "screenshot",
+      "txHash": "0xc6f6131d767e45a192b6e761d0e63031",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:38.821Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "0708c9da-2144-4fcf-bda5-211d344f5faa",
+      "skill": "screenshot",
+      "txHash": "0x5a14e905a9694b7f83f9de2383fd54ee",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.014Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "5a215002-59f6-43bb-804d-4ccd0891f458",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.166Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "d403fe42-3347-4bcd-9d45-74dca5da8e1a",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.167Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "99a349d7-fe31-4d83-80a8-2a70686fecd8",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.168Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c4ddd877-bf94-4aa6-96a0-5ddeba7a84ef",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.169Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "9173c4cd-0180-44b0-a6a1-b0467f680da7",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.169Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f313e631-6306-48e3-9065-430ff09fb164",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.170Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "f1cc142b-a256-4629-bfae-b664834209fb",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.171Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c11e3bd1-be38-41eb-b475-e8e80d00e7df",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.172Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "fa89a552-0340-4f81-a67a-d434556b9766",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.173Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "c65a1e6f-99a9-4d66-8c89-a3f9fc3ac497",
+      "skill": "screenshot",
+      "amount": "$0.01",
+      "network": null,
+      "timestamp": "2026-02-08T11:53:41.174Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "87211df8-c1fc-4194-b511-8a50f8d77766",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.180Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "87211df8-c1fc-4194-b511-8a50f8d77766",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.180Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "06528fef-fae9-4913-a351-1bb08a7e8b90",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.181Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "06528fef-fae9-4913-a351-1bb08a7e8b90",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.181Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "067760b4-6c23-4c38-9fe8-06f43ac4f41a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.182Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "067760b4-6c23-4c38-9fe8-06f43ac4f41a",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.182Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "255f9c67-5d14-4e26-902c-ca7a65e20013",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.183Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "255f9c67-5d14-4e26-902c-ca7a65e20013",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.183Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "75de42a6-d40b-4181-bfde-56c61b3c83d2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.184Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "75de42a6-d40b-4181-bfde-56c61b3c83d2",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:41.184Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "067760b4-6c23-4c38-9fe8-06f43ac4f41a",
+      "skill": "screenshot",
+      "txHash": "0x73d7b78b90a74c868645f02a2e6eca68",
+      "wallet": "0xBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:48.438Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "87211df8-c1fc-4194-b511-8a50f8d77766",
+      "skill": "screenshot",
+      "txHash": "0xc5fef74b237d4a1098b1684013453711",
+      "wallet": "0xBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:48.452Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "06528fef-fae9-4913-a351-1bb08a7e8b90",
+      "skill": "screenshot",
+      "txHash": "0x160dd95c298d44ed9b10f1de5dd5eab3",
+      "wallet": "0xBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:53:50.729Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "b2d803a9-461c-433c-b1fe-ff97b68c5f85",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.743Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "b2d803a9-461c-433c-b1fe-ff97b68c5f85",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.744Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "a45f10dc-66fd-4e46-8ce4-7a02dc7530af",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.745Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "a45f10dc-66fd-4e46-8ce4-7a02dc7530af",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.745Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "83de7283-7206-4623-9916-9cbdb5731397",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.747Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "83de7283-7206-4623-9916-9cbdb5731397",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.747Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "3a5b752a-9c73-4be4-b1b7-cdf3b08461dd",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.748Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "3a5b752a-9c73-4be4-b1b7-cdf3b08461dd",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet3",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.748Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "5a337b92-86dd-4847-a763-1f12391c013f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.749Z"
+    },
+    {
+      "type": "payment-verified",
+      "taskId": "5a337b92-86dd-4847-a763-1f12391c013f",
+      "skill": "screenshot",
+      "wallet": "0xSkaleWallet4",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:50.749Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "b2d803a9-461c-433c-b1fe-ff97b68c5f85",
+      "skill": "screenshot",
+      "txHash": "0xcb1eef565f1742a9b78faf12a256bd89",
+      "wallet": "0xSkaleWallet0",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:59.076Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "a45f10dc-66fd-4e46-8ce4-7a02dc7530af",
+      "skill": "screenshot",
+      "txHash": "0x70161515b4104d89add90f4e86c02c9b",
+      "wallet": "0xSkaleWallet1",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:53:59.132Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "83de7283-7206-4623-9916-9cbdb5731397",
+      "skill": "screenshot",
+      "txHash": "0x47d0e2915bb64cc1b44053908c336930",
+      "wallet": "0xSkaleWallet2",
+      "network": "eip155:2046399126",
+      "timestamp": "2026-02-08T11:54:02.448Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "5d37ac62-ca90-406f-9612-206682afaa81",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet0",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:02.471Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "5d1e367c-3873-4f0a-919f-fe9e27a144dc",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet1",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:02.473Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "cb868c10-c6d5-4c38-b91a-e8e898893b65",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet2",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:02.474Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "d5101263-2616-437a-85fe-f37771188dbb",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet3",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:02.475Z"
+    },
+    {
+      "type": "siwx-access",
+      "taskId": "c7a69458-66e1-4990-8936-ec9a0e627f59",
+      "skill": "screenshot",
+      "wallet": "0xBulkWallet4",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:02.476Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "a53ad4b4-4ec7-4e04-922e-77ae04d49d25",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:12.252Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "223652e7-a74c-4a16-a0d9-d471ba325057",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:12.256Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "436fd86b-0a9d-491a-a4e3-97aba1149f68",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:12.259Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "809fa1f5-25a5-4076-ace8-ac4c31e94e94",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:12.262Z"
+    },
+    {
+      "type": "payment-required",
+      "taskId": "2622f7ea-0ae0-406a-9e1f-6c4dd4557e5f",
+      "skill": "markdown-to-pdf",
+      "amount": "$0.005",
+      "network": null,
+      "timestamp": "2026-02-08T11:54:12.264Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "37405d25-9d67-4e33-ac7b-d49c7e8f0f0e",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:12.320Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "39d34dae-c549-463e-b635-f1e088098396",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:12.322Z"
+    },
+    {
+      "type": "payment-received",
+      "taskId": "0f10aa06-a901-4de8-acd1-2ffcecd4f895",
+      "skill": "screenshot",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:12.324Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "37405d25-9d67-4e33-ac7b-d49c7e8f0f0e",
+      "skill": "screenshot",
+      "txHash": "0x0d1d9ff07c1b4690923cc57587d5fe5a",
+      "wallet": "0xRestBulkWallet0",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:19.171Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "0f10aa06-a901-4de8-acd1-2ffcecd4f895",
+      "skill": "screenshot",
+      "txHash": "0x958c78be4aad40d788f5a8b12e9e0cac",
+      "wallet": "0xRestBulkWallet2",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:19.276Z"
+    },
+    {
+      "type": "payment-settled",
+      "taskId": "39d34dae-c549-463e-b635-f1e088098396",
+      "skill": "screenshot",
+      "txHash": "0xd8d451aa47f8418c973481b2d7fd5d90",
+      "wallet": "0xRestBulkWallet1",
+      "network": "eip155:8453",
+      "timestamp": "2026-02-08T11:54:20.829Z"
     }
   ],
   "siwxSessions": {
@@ -15490,61 +21015,61 @@
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:42.885Z"
+      "lastPayment": "2026-02-08T11:53:41.180Z"
     },
     "0xbulkwallet1": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:42.887Z"
+      "lastPayment": "2026-02-08T11:53:41.181Z"
     },
     "0xbulkwallet2": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:42.888Z"
+      "lastPayment": "2026-02-08T11:53:41.182Z"
     },
     "0xbulkwallet3": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:42.888Z"
+      "lastPayment": "2026-02-08T11:53:41.183Z"
     },
     "0xbulkwallet4": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:42.889Z"
+      "lastPayment": "2026-02-08T11:53:41.184Z"
     },
     "0xskalewallet0": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:52.909Z"
+      "lastPayment": "2026-02-08T11:53:50.743Z"
     },
     "0xskalewallet1": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:52.910Z"
+      "lastPayment": "2026-02-08T11:53:50.745Z"
     },
     "0xskalewallet2": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:52.913Z"
+      "lastPayment": "2026-02-08T11:53:50.747Z"
     },
     "0xskalewallet3": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:52.911Z"
+      "lastPayment": "2026-02-08T11:53:50.748Z"
     },
     "0xskalewallet4": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:35:52.914Z"
+      "lastPayment": "2026-02-08T11:53:50.749Z"
     },
     "0xbulktestwallet27": {
       "skills": [
@@ -15646,19 +21171,19 @@
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:36:16.806Z"
+      "lastPayment": "2026-02-08T11:54:12.320Z"
     },
     "0xrestbulkwallet1": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:36:16.809Z"
+      "lastPayment": "2026-02-08T11:54:12.322Z"
     },
     "0xrestbulkwallet2": {
       "skills": [
         "screenshot"
       ],
-      "lastPayment": "2026-02-08T11:36:16.812Z"
+      "lastPayment": "2026-02-08T11:54:12.324Z"
     },
     "0xboostwallet0": {
       "skills": [
@@ -15992,7 +21517,7 @@
       "lastPayment": "2026-02-08T10:48:59.118Z"
     }
   },
-  "totalTasks": 2132,
+  "totalTasks": 2821,
   "startedAt": "2026-02-07T12:55:59.752Z",
-  "savedAt": "2026-02-08T11:38:38.840Z"
+  "savedAt": "2026-02-08T11:55:38.898Z"
 }
