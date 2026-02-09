@@ -1119,6 +1119,7 @@ app.get('/x402/bazaar', (req, res) => {
       {
         id: 'screenshot', name: 'Web Screenshot', description: 'Capture any webpage as PNG image',
         price: { amount: '0.01', currency: 'USDC' },
+        chains: Object.values(NETWORKS).map(n => ({ caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
         input: { type: 'application/json', schema: { url: { type: 'string', required: true, description: 'URL to capture' } } },
         output: { type: 'image/png' },
         endpoints: { a2a: '/a2a', rest: '/x402/screenshot' },
@@ -1126,6 +1127,7 @@ app.get('/x402/bazaar', (req, res) => {
       {
         id: 'markdown-to-pdf', name: 'Markdown to PDF', description: 'Convert markdown text to PDF document',
         price: { amount: '0.005', currency: 'USDC' },
+        chains: Object.values(NETWORKS).map(n => ({ caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
         input: { type: 'application/json', schema: { markdown: { type: 'string', required: true, description: 'Markdown content' } } },
         output: { type: 'application/pdf' },
         endpoints: { a2a: '/a2a', rest: '/x402/pdf' },
@@ -1133,6 +1135,7 @@ app.get('/x402/bazaar', (req, res) => {
       {
         id: 'ai-analysis', name: 'AI Content Analysis (Gemini)', description: 'Analyze or summarize content using Google Gemini 2.0 Flash',
         price: { amount: '0.01', currency: 'USDC' },
+        chains: Object.values(NETWORKS).map(n => ({ caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
         input: { type: 'application/json', schema: { content: { type: 'string', required: true, description: 'Text to analyze' } } },
         output: { type: 'application/json' },
         endpoints: { a2a: '/a2a', rest: '/x402/ai-analysis', free: '/gemini' },
@@ -1141,6 +1144,7 @@ app.get('/x402/bazaar', (req, res) => {
       {
         id: 'markdown-to-html', name: 'Markdown to HTML', description: 'Convert markdown text to HTML (free)',
         price: { amount: '0', currency: 'USDC' },
+        chains: [{ caip2: 'none', name: 'Free (no payment required)', gasless: true }],
         input: { type: 'application/json', schema: { markdown: { type: 'string', required: true, description: 'Markdown content' } } },
         output: { type: 'text/html' },
         endpoints: { a2a: '/a2a', rest: '/x402/html' },

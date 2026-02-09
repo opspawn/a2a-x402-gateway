@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; width: 400px; height: 400px; display: flex; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; overflow: hidden; }
+  .container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  /* Subtle radial glow */
+  .glow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+  /* Icon: two overlapping hexagons representing A2A interop */
+  .icon-wrap {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 24px;
+  }
+  .hex {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2.5px solid #6366f1;
+    border-radius: 16px;
+    transform: rotate(45deg);
+  }
+  .hex-1 {
+    top: 10px;
+    left: 12px;
+    background: rgba(99,102,241,0.08);
+  }
+  .hex-2 {
+    top: 30px;
+    left: 44px;
+    background: rgba(99,102,241,0.12);
+    border-color: #818cf8;
+  }
+  /* Dollar sign in the overlap */
+  .dollar {
+    position: absolute;
+    top: 38px;
+    left: 42px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #a5b4fc;
+    z-index: 2;
+  }
+  /* Arrow between hexagons */
+  .arrow {
+    position: absolute;
+    top: 58px;
+    left: 78px;
+    width: 24px;
+    height: 2px;
+    background: #6366f1;
+    z-index: 2;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    border: 5px solid transparent;
+    border-left: 6px solid #6366f1;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    z-index: 1;
+  }
+  .title .a2a { color: #e0e7ff; }
+  .title .x { color: #6366f1; margin: 0 4px; font-weight: 400; }
+  .title .four { color: #a5b4fc; }
+  .subtitle {
+    font-size: 14px;
+    color: #64748b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="glow"></div>
+    <div class="icon-wrap">
+      <div class="hex hex-1"></div>
+      <div class="hex hex-2"></div>
+      <div class="dollar">$</div>
+      <div class="arrow"></div>
+    </div>
+    <div class="title">
+      <span class="a2a">A2A</span><span class="x">x</span><span class="four">402</span>
+    </div>
+    <div class="subtitle">Gateway</div>
+  </div>
+</body>
+</html>
