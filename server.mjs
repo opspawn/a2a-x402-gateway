@@ -51,9 +51,11 @@ const GOOGLE_X402_EXTENSION_URI = GOOGLE_X402_EXTENSION_URI_V02; // default to l
 
 // x402 V2: CAIP-2 network identifiers
 const SKALE_USDC = '0x5F795bb52dAC3085f578f4877D450e2929D2F13d'; // Bridged USDC on SKALE Europa Hub
+const ARBITRUM_USDC = '0xaf88d065e77c8cC2239327C5EDb3A432268e5831'; // Native USDC on Arbitrum One
 const NETWORKS = {
   base: { caip2: 'eip155:8453', name: 'Base', chainId: 8453, usdc: BASE_USDC, rpc: 'https://mainnet.base.org' },
   skale: { caip2: 'eip155:2046399126', name: 'SKALE Europa', chainId: 2046399126, usdc: SKALE_USDC, gasless: true, rpc: 'https://mainnet.skalenodes.com/v1/elated-tan-skat', finality: '<1s', privacy: 'BITE' },
+  arbitrum: { caip2: 'eip155:42161', name: 'Arbitrum One', chainId: 42161, usdc: ARBITRUM_USDC, rpc: 'https://arb1.arbitrum.io/rpc' },
 };
 const DEFAULT_NETWORK = NETWORKS.base;
 
@@ -132,7 +134,7 @@ function hasSiwxAccess(walletAddress, skill) {
 // === Agent Card (A2A v0.3 + x402 V2) ===
 const agentCard = {
   name: 'OpSpawn AI Agent',
-  description: 'AI agent providing screenshot, PDF, document generation, and Gemini-powered AI analysis services via x402 V2 micropayments on Base + SKALE Europa (gasless). Pay per request with USDC. Powered by Google AI Studio (Gemini 2.0 Flash). Supports SIWx session-based auth for repeat access.',
+  description: 'AI agent providing screenshot, PDF, document generation, and Gemini-powered AI analysis services via x402 V2 micropayments on Base + SKALE Europa (gasless) + Arbitrum One. Pay per request with USDC. Powered by Google AI Studio (Gemini 2.0 Flash). Supports SIWx session-based auth for repeat access.',
   url: `${PUBLIC_URL}/`,
   provider: { organization: 'OpSpawn', url: 'https://opspawn.com' },
   version: '2.2.0',
@@ -859,7 +861,7 @@ app.get('/api/siwx', (req, res) => {
 });
 app.get('/x402', (req, res) => res.json({
   service: 'OpSpawn A2A x402 Gateway', version: '2.2.0',
-  description: 'A2A-compliant agent with x402 V2 micropayment services on Base + SKALE Europa (gasless)',
+  description: 'A2A-compliant agent with x402 V2 micropayment services on Base + SKALE Europa (gasless) + Arbitrum One',
   provider: { name: 'OpSpawn', url: 'https://opspawn.com' },
   protocols: {
     a2a: { version: '0.3.0', agentCard: '/.well-known/agent-card.json', sendMessage: '/' },
