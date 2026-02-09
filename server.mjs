@@ -18,6 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { getCredentialSync } from '/home/agent/lib/credentials.mjs';
 
 // === Configuration ===
 const PORT = parseInt(process.env.PORT || '4002', 10);
@@ -29,21 +30,19 @@ const WALLET_ADDRESS = '0x7483a9F237cf8043704D6b17DA31c12BfFF860DD';
 let GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 try {
   if (!GEMINI_API_KEY) {
-    const credPath = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'credentials', 'gemini.json');
-    if (existsSync(credPath)) {
-      const cred = JSON.parse(readFileSync(credPath, 'utf8'));
-      GEMINI_API_KEY = cred.apiKey || cred.api_key || '';
-      console.log('[gemini] Loaded API key from credentials/gemini.json');
-    }
+    const cred = getCredentialSync('gemini', 'builder');
+    GEMINI_API_KEY = cred.apiKey || cred.api_key || '';
+    if (GEMINI_API_KEY) console.log('[gemini] Loaded API key from credential vault');
   }
 } catch (e) {
-  console.log('[gemini] No credentials file found, will use free tier');
+  console.log('[gemini] No credentials found in vault, will use free tier');
 }
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 const BASE_USDC = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 const FACILITATOR_URL = 'https://facilitator.payai.network';
 const PUBLIC_URL = process.env.PUBLIC_URL || 'https://a2a.opspawn.com';
+const STATS_API_KEY = process.env.STATS_API_KEY || '';
 
 // Google A2A x402 Extension spec URIs (for compatibility with google-agentic-commerce/a2a-x402)
 const GOOGLE_X402_EXTENSION_URI_V02 = 'https://github.com/google-agentic-commerce/a2a-x402/blob/main/spec/v0.2';
@@ -375,12 +374,12 @@ async function handleAiAnalysis(input) {
     console.error('[gemini] API error:', err.message);
     return {
       parts: [
-        { kind: 'text', text: `AI Analysis requested for: "${input.slice(0, 200)}..."\n\nGemini API is currently unavailable. Configure GEMINI_API_KEY or credentials/gemini.json to enable Gemini-powered analysis.\n\nThis skill uses Google AI Studio's Gemini 2.0 Flash model for content analysis, summarization, and insights.` },
+        { kind: 'text', text: `AI Analysis requested for: "${input.slice(0, 200)}..."\n\nGemini API is currently unavailable. Configure GEMINI_API_KEY env var or add gemini credentials to the vault to enable Gemini-powered analysis.\n\nThis skill uses Google AI Studio's Gemini 2.0 Flash model for content analysis, summarization, and insights.` },
         { kind: 'data', data: {
           model: GEMINI_MODEL,
           provider: 'Google AI Studio (Gemini)',
           status: 'api_key_required',
-          note: 'Set GEMINI_API_KEY env var or add credentials/gemini.json',
+          note: 'Set GEMINI_API_KEY env var or add gemini to credential vault',
         }},
       ],
     };
@@ -1159,8 +1158,28 @@ app.get('/x402/bazaar', (req, res) => {
 
 // /stats endpoint for agent economy aggregation (Colony Economy Dashboard standard)
 app.get('/stats', (req, res) => {
+  const apiKey = req.headers['x-api-key'] || (req.headers['authorization'] || '').replace(/^Bearer\s+/i, '');
+  const authenticated = STATS_API_KEY && apiKey === STATS_API_KEY;
+
   const uptime = process.uptime();
   const now = new Date().toISOString();
+
+  // Public response: basic health + service info only
+  if (STATS_API_KEY && !authenticated) {
+    return res.json({
+      agent: { name: 'OpSpawn AI Agent', version: '2.2.0', url: PUBLIC_URL },
+      uptime: { seconds: Math.round(uptime), human: formatUptime(uptime) },
+      services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
+      networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
+      protocol: {
+        a2a: { version: '0.3.0', methods: ['message/send', 'tasks/get', 'tasks/cancel'] },
+        x402: { version: '2.0', features: ['siwx', 'payment-identifier', 'bazaar-discovery', 'multi-chain'] },
+      },
+      timestamp: now,
+    });
+  }
+
+  // Authenticated (or no key configured): full stats
   const byType = {
     required: paymentLog.filter(p => p.type === 'payment-required').length,
     received: paymentLog.filter(p => p.type === 'payment-received').length,
@@ -1188,9 +1207,7 @@ app.get('/stats', (req, res) => {
     },
     services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
     networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
-    recentActivity: paymentLog.slice(-10).reverse().map(p => ({
-      type: p.type, skill: p.skill, network: p.network, timestamp: p.timestamp,
-    })),
+    recentActivity: { count: Math.min(paymentLog.length, 10), note: 'Detailed activity log removed for security' },
     protocol: {
       a2a: { version: '0.3.0', methods: ['message/send', 'tasks/get', 'tasks/cancel'] },
       x402: { version: '2.0', features: ['siwx', 'payment-identifier', 'bazaar-discovery', 'multi-chain'] },
