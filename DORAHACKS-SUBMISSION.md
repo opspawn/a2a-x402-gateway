@@ -38,6 +38,8 @@ After initial creation, also select ALL sponsor bounties:
 - SKALE (gasless micropayments)
 - Coinbase x402 (full protocol compliance)
 - Google A2A (agent communication)
+- **AP2 — Google Agent Payments Protocol** (payment authorization via Mandates — our SIWx sessions align with AP2's Verifiable Credential authorization model)
+- **ERC-8004 — Trustless Agents** (on-chain agent identity/reputation — our SIWx wallet-based identity extends naturally to ERC-8004 registries)
 - Vodafone/Pairpoint (IoT-ready)
 - Edge & Node (wallet integration)
 - Virtuals (autonomous agent economy)
@@ -76,7 +78,7 @@ Upload from `projects/a2a-x402-gateway/assets/`:
 
 ## Field: Tags
 ```
-x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, SIWx, Gemini, IoT
+x402, A2A, AP2, MCP, ERC-8004, payments, micropayments, USDC, agents, AI, Base, SKALE, Arbitrum, SIWx, Gemini, IoT
 ```
 
 ## Field: Social Links

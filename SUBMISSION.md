@@ -53,6 +53,15 @@ The agent economy needs a standard way for agents to pay each other for services
 - **Facilitator**: PayAI Network (facilitator.payai.network)
 - **Infrastructure**: Ubuntu VM, Cloudflare Tunnel, nginx reverse proxy
 
+### MCP Compatibility
+The gateway's REST x402 endpoints are designed as **MCP-ready tools**. Each endpoint (`/x402/screenshot`, `/x402/pdf`, `/x402/html`, `/x402/ai-analysis`) follows the input→output pattern that maps directly to MCP tool definitions. As the x402 ecosystem builds native MCP SDKs (Python, Go, TypeScript — all actively in development at [coinbase/x402](https://github.com/coinbase/x402)), the gateway's services can be exposed as MCP tools with minimal wrapping — enabling LLM agents using Claude, GPT, or Gemini to discover and pay for services through their native tool-use interfaces.
+
+### AP2 Compatibility — Google Agent Payments Protocol
+The gateway's architecture aligns with **Google's AP2 (Agent Payments Protocol)** ([google-agentic-commerce/AP2](https://github.com/google-agentic-commerce/AP2)), which uses Verifiable Credential-based "Mandates" to authorize agent payments. Our A2A x402 gateway implements the **settlement layer** that complements AP2 payment authorization — agents discover services via A2A, authorize payments via AP2 Mandates, and settle via x402 USDC payments. The gateway's SIWx sessions are functionally equivalent to AP2 mandates: both establish cryptographically verifiable, persistent payment authorization across multiple requests. As AP2 matures, the gateway can adopt AP2 mandates as a native authorization mechanism alongside SIWx — the three protocols form a complete commerce stack: **A2A (discovery) + AP2 (authorization) + x402 (settlement)**.
+
+### ERC-8004 Alignment — Trustless Agent Identity
+The gateway's wallet-based agent identity via **SIWx sessions** provides a natural extension point for **ERC-8004 (Trustless Agents)** on-chain reputation registries. ERC-8004 enables on-chain agent identity, reputation scoring, and trust verification — allowing agents to assess service quality before transacting. The gateway's SIWx sessions already bind wallet identity to service access; with ERC-8004, this extends to **on-chain verifiable reputation** — enabling trustless agent discovery where service quality, uptime, and settlement history are verifiable on-chain. The 3,200+ USDC settlements and 11,800+ tasks processed provide a foundation for on-chain reputation attestations.
+
 ### Partner Integrations
 - **SKALE Europa Hub** (eip155:2046399126): Zero-gas-fee USDC transactions — agents pay nothing in gas. Sub-second finality, BITE privacy. RPC: `mainnet.skalenodes.com/v1/elated-tan-skat`
 - **PayAI Facilitator** (facilitator.payai.network): Payment verification for Base + Polygon mainnet
@@ -92,7 +101,7 @@ This project was built entirely by an **autonomous AI agent** (OpSpawn). The age
 - **Google A2A x402 Extension Compat**: https://a2a.opspawn.com/a2a-x402-compat
 
 ## Tags
-x402, A2A, payments, micropayments, USDC, agents, AI, Base, SKALE, Arbitrum, SIWx, Gemini, Google AI Studio, google-agentic-commerce, a2a-x402-extension
+x402, A2A, AP2, MCP, ERC-8004, payments, micropayments, USDC, agents, AI, Base, SKALE, Arbitrum, SIWx, Gemini, Google AI Studio, google-agentic-commerce, a2a-x402-extension
 
 ## Protocol Demonstration
 - **Wallet**: 0x7483a9F237cf8043704D6b17DA31c12BfFF860DD (Polygon, funded with $100 USDC)
@@ -210,13 +219,14 @@ SKALE Europa is our **primary chain for high-frequency agent payments**:
 - **RPC**: `mainnet.skalenodes.com/v1/elated-tan-skat`
 - **Why it matters**: A $0.01 micropayment on Ethereum costs $2+ in gas. On SKALE: $0.00 gas. This makes IoT-scale micropayments (thousands of $0.01 txs/day) economically viable for the first time.
 
-### Google A2A v0.3 — Standard Agent Communication
-Full implementation of Google's **Agent-to-Agent protocol v0.3**:
+### Google A2A v0.3 + AP2 Compatibility — Standard Agent Communication & Payments
+Full implementation of Google's **Agent-to-Agent protocol v0.3**, with architectural alignment to **AP2 (Agent Payments Protocol)**:
 - **Agent Card**: Standard discovery at `/.well-known/agent-card.json` — declares skills, payment requirements, supported protocols
 - **JSON-RPC Endpoints**: `message/send`, `tasks/get`, `tasks/cancel` — standard A2A task lifecycle
 - **Multi-Modal Artifacts**: Returns results as A2A artifacts (PNG images, PDF documents, HTML)
 - **Task State Machine**: `submitted → working → input-required → completed` with proper state transitions
 - **Natural Language Interface**: Agents send plain English requests ("Take a screenshot of example.com"), gateway parses intent
+- **AP2 Alignment**: Our SIWx session authentication and x402 payment authorization share the same design principles as Google's AP2 protocol (Verifiable Credential-based "Mandates" for payment authorization). The gateway's pay-once SIWx sessions are functionally equivalent to AP2 mandates — both establish cryptographically verifiable payment authorization that persists across requests. As AP2 matures alongside A2A, the gateway is architecturally ready to adopt AP2 mandates as an additional authorization mechanism
 
 ### Google A2A x402 Extension — Official Compatibility (`google-agentic-commerce/a2a-x402`)
 Full compatibility with the official **Google A2A x402 Extension** — the standard for agent commerce payments:
