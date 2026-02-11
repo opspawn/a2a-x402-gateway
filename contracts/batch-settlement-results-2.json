@@ -1,0 +1,152 @@
+{
+  "wave": 2,
+  "txHashes": [
+    {
+      "index": 1,
+      "task": "lint-fix-monorepo-v2",
+      "txHash": "0x0e6ba5b96940c5998597707aaef3c2d330b52c2695dacc56c59882a47492f8d1",
+      "block": 241856906,
+      "gasUsed": "196635",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x0e6ba5b96940c5998597707aaef3c2d330b52c2695dacc56c59882a47492f8d1"
+    },
+    {
+      "index": 2,
+      "task": "anomaly-detect-logs",
+      "txHash": "0x98de58b4f4630f4608ce41cf37978837c0f64ac24f485a10e72389186438ee7f",
+      "block": 241856920,
+      "gasUsed": "196699",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x98de58b4f4630f4608ce41cf37978837c0f64ac24f485a10e72389186438ee7f"
+    },
+    {
+      "index": 3,
+      "task": "translate-ja-en-api",
+      "txHash": "0x7ca1dfd301146bfbc47ecf401de525f8622b09fe04a05e162271fd32f777c6da",
+      "block": 241856934,
+      "gasUsed": "196653",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x7ca1dfd301146bfbc47ecf401de525f8622b09fe04a05e162271fd32f777c6da"
+    },
+    {
+      "index": 4,
+      "task": "diagram-gen-arch-v3",
+      "txHash": "0xb49c435047de48f67bec7927b0dfb27b81efb55c0c83abbb3bb98750cfa15366",
+      "block": 241856948,
+      "gasUsed": "196714",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xb49c435047de48f67bec7927b0dfb27b81efb55c0c83abbb3bb98750cfa15366"
+    },
+    {
+      "index": 5,
+      "task": "coverage-report-feb",
+      "txHash": "0x8295d8deef24b32268a714eea611a92f4af2d941a0c077a27ca6e150c78987bb",
+      "block": 241856961,
+      "gasUsed": "196315",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x8295d8deef24b32268a714eea611a92f4af2d941a0c077a27ca6e150c78987bb"
+    },
+    {
+      "index": 6,
+      "task": "stt-meeting-notes",
+      "txHash": "0x48ea9103377875203b5835ab20c40c6978f7bedc1876cf0d3de08e84455bb2c7",
+      "block": 241856976,
+      "gasUsed": "196534",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x48ea9103377875203b5835ab20c40c6978f7bedc1876cf0d3de08e84455bb2c7"
+    },
+    {
+      "index": 7,
+      "task": "report-digest-weekly",
+      "txHash": "0x138a21e9a78a1bbad19c2dada67fe1d98159ba94fb277bd238616d50c6ec1caa",
+      "block": 241856990,
+      "gasUsed": "196668",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x138a21e9a78a1bbad19c2dada67fe1d98159ba94fb277bd238616d50c6ec1caa"
+    },
+    {
+      "index": 8,
+      "task": "arxiv-scan-agents",
+      "txHash": "0xb88808f4f5f51229762603431d0899f1b56b939f141e9f6e4281ff0aa833b811",
+      "block": 241857004,
+      "gasUsed": "196680",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xb88808f4f5f51229762603431d0899f1b56b939f141e9f6e4281ff0aa833b811"
+    },
+    {
+      "index": 9,
+      "task": "tldr-search-results",
+      "txHash": "0x6e39020a0f5396da091a1d43cb869aeba60972dbfca8c4233d9b95de8a5198b4",
+      "block": 241857016,
+      "gasUsed": "196247",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x6e39020a0f5396da091a1d43cb869aeba60972dbfca8c4233d9b95de8a5198b4"
+    },
+    {
+      "index": 10,
+      "task": "pr-review-gateway-v4",
+      "txHash": "0x7bdc143b1c0277764e16ebcdb1c265a539001d99b18a1dcba80805f703b7849f",
+      "block": 241857030,
+      "gasUsed": "196705",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x7bdc143b1c0277764e16ebcdb1c265a539001d99b18a1dcba80805f703b7849f"
+    },
+    {
+      "index": 11,
+      "task": "translate-ko-en-docs",
+      "txHash": "0xc6486eb40f0981124378f56be70318bbe96f8266b72dcbc05d3a1f1d05a3611f",
+      "block": 241857044,
+      "gasUsed": "196668",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xc6486eb40f0981124378f56be70318bbe96f8266b72dcbc05d3a1f1d05a3611f"
+    },
+    {
+      "index": 12,
+      "task": "video-narration-gen",
+      "txHash": "0x4aadd556f3e5fcaf9625a962e2e0c7f90448449b8efef7828f0d22c33fd6129c",
+      "block": 241857054,
+      "gasUsed": "196717",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x4aadd556f3e5fcaf9625a962e2e0c7f90448449b8efef7828f0d22c33fd6129c"
+    },
+    {
+      "index": 13,
+      "task": "usage-analytics-q1",
+      "txHash": "0xf870b921505e29a3d92c8157852c93cd1afdf9f9f87e2ce7fb435bd0fac865b8",
+      "block": 241857067,
+      "gasUsed": "196726",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xf870b921505e29a3d92c8157852c93cd1afdf9f9f87e2ce7fb435bd0fac865b8"
+    },
+    {
+      "index": 14,
+      "task": "subtitle-translate-es",
+      "txHash": "0xca8839244a0b919a6785adf92181a32190fbde3cfe74e5a6a039eda112272f09",
+      "block": 241857080,
+      "gasUsed": "196683",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xca8839244a0b919a6785adf92181a32190fbde3cfe74e5a6a039eda112272f09"
+    },
+    {
+      "index": 15,
+      "task": "ui-mockup-dashboard",
+      "txHash": "0x089835a966457f35f78df959d7aa943753c668ad321b172258c505ebb785ae56",
+      "block": 241857093,
+      "gasUsed": "196395",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x089835a966457f35f78df959d7aa943753c668ad321b172258c505ebb785ae56"
+    },
+    {
+      "index": 16,
+      "task": "patent-scan-x402",
+      "txHash": "0x0f74bbdc85d477001940082890f2c6d5bea57df2f5c028c9fc7722b07e3cc184",
+      "block": 241857102,
+      "gasUsed": "196540",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x0f74bbdc85d477001940082890f2c6d5bea57df2f5c028c9fc7722b07e3cc184"
+    },
+    {
+      "index": 17,
+      "task": "changelog-gen-v5",
+      "txHash": "0x0ec1b5de24f9ea465b2a6c311415c7cd7d75006faa7d0b5ac4a16fd93d51929e",
+      "block": 241857115,
+      "gasUsed": "196677",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x0ec1b5de24f9ea465b2a6c311415c7cd7d75006faa7d0b5ac4a16fd93d51929e"
+    },
+    {
+      "index": 18,
+      "task": "podcast-tts-ep15",
+      "txHash": "0x1fe0a1f7d3a824c923144774192bfb15e15607ceb28f8693bba6788cd91992e3",
+      "block": 241857128,
+      "gasUsed": "196702",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x1fe0a1f7d3a824c923144774192bfb15e15607ceb28f8693bba6788cd91992e3"
+    }
+  ],
+  "succeeded": 18,
+  "failed": 0,
+  "totalCount": "34"
+}

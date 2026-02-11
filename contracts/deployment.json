@@ -7,6 +7,9 @@
   "txHash": "0xa4db214a84b2baaf8bf521eae22c5f656b2c1ff53096d65c21df531758c70b73",
   "arbiscanUrl": "https://sepolia.arbiscan.io/address/0xb28E2076D1395c31958E4C1B2aeab8C6839F4b3E",
   "deployedAt": "2026-02-11T09:02:12.674Z",
-  "verified": false,
-  "verificationError": "You are using a deprecated V1 endpoint, switch to Etherscan API V2 using https://docs.etherscan.io/v2-migration"
+  "verified": true,
+  "verifiedAt": "2026-02-11T17:35:00Z",
+  "verifiedVia": ["sourcify", "routescan"],
+  "sourcifyUrl": "https://repo.sourcify.dev/contracts/full_match/421614/0xb28E2076D1395c31958E4C1B2aeab8C6839F4b3E/",
+  "settlementCount": 34
 }

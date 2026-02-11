@@ -1,0 +1,127 @@
+{
+  "txHashes": [
+    {
+      "index": 1,
+      "task": "code-review-pr-42",
+      "txHash": "0x8d112fde3de53766111ab4862c64dcc90849ac8b20e3b82f9f4a3b058cd4e2ca",
+      "block": 241807344,
+      "gasUsed": "171046",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x8d112fde3de53766111ab4862c64dcc90849ac8b20e3b82f9f4a3b058cd4e2ca"
+    },
+    {
+      "index": 2,
+      "task": "data-pipeline-etl",
+      "txHash": "0x367f067a20a522b4e414466d05ea066a95bd39aa333c0f08500623a66fd5ffa5",
+      "block": 241807358,
+      "gasUsed": "170998",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x367f067a20a522b4e414466d05ea066a95bd39aa333c0f08500623a66fd5ffa5"
+    },
+    {
+      "index": 3,
+      "task": "translate-en-es-batch",
+      "txHash": "0xf52c4490f4ce59584180fa8e646998662bb05ff7c57fdc2084702a22e3ee459a",
+      "block": 241807374,
+      "gasUsed": "171045",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xf52c4490f4ce59584180fa8e646998662bb05ff7c57fdc2084702a22e3ee459a"
+    },
+    {
+      "index": 4,
+      "task": "banner-gen-campaign",
+      "txHash": "0xad6b93576e3701ba8cd1e0b2791a04539500241291a5382c970cfb4c65821926",
+      "block": 241807389,
+      "gasUsed": "171057",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xad6b93576e3701ba8cd1e0b2791a04539500241291a5382c970cfb4c65821926"
+    },
+    {
+      "index": 5,
+      "task": "diff-summary-v3",
+      "txHash": "0xc0cf891e8fee2b9a57672847616f648f7a76cc166115f870b525b1f4dd28e35d",
+      "block": 241807401,
+      "gasUsed": "171047",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xc0cf891e8fee2b9a57672847616f648f7a76cc166115f870b525b1f4dd28e35d"
+    },
+    {
+      "index": 6,
+      "task": "tts-podcast-ep12",
+      "txHash": "0xef99dc02f241db53e5d3a0d8c824c6586d850fab473af429d1387a0d8a19e301",
+      "block": 241807413,
+      "gasUsed": "171035",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xef99dc02f241db53e5d3a0d8c824c6586d850fab473af429d1387a0d8a19e301"
+    },
+    {
+      "index": 7,
+      "task": "web-scrape-market",
+      "txHash": "0xf068ec5082dec491a5b489fc62932c17b84a7f05027db9fcd7bb3e0e40545d87",
+      "block": 241807429,
+      "gasUsed": "171047",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xf068ec5082dec491a5b489fc62932c17b84a7f05027db9fcd7bb3e0e40545d87"
+    },
+    {
+      "index": 8,
+      "task": "translate-zh-en-docs",
+      "txHash": "0x0b3bdbb3650c450443f231a99318b01fad41080243cb7514b5c206a660b4d77f",
+      "block": 241807445,
+      "gasUsed": "171047",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x0b3bdbb3650c450443f231a99318b01fad41080243cb7514b5c206a660b4d77f"
+    },
+    {
+      "index": 9,
+      "task": "security-audit-api",
+      "txHash": "0x0f8b48868cf87fd206f2f0f6b224c9fad656808b837c40a003b1e4ddb01fa157",
+      "block": 241807459,
+      "gasUsed": "171046",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x0f8b48868cf87fd206f2f0f6b224c9fad656808b837c40a003b1e4ddb01fa157"
+    },
+    {
+      "index": 10,
+      "task": "caption-gen-batch",
+      "txHash": "0xd3f74f580ab7f646b8867c54b02e3f843233a8c760e57a8c7dbc78174733ba14",
+      "block": 241807474,
+      "gasUsed": "171037",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xd3f74f580ab7f646b8867c54b02e3f843233a8c760e57a8c7dbc78174733ba14"
+    },
+    {
+      "index": 11,
+      "task": "sentiment-analysis-q4",
+      "txHash": "0x995fdbdd9eb52d61d20529f28aa811d6010c19a99152cd39adf221745c873764",
+      "block": 241807489,
+      "gasUsed": "171055",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x995fdbdd9eb52d61d20529f28aa811d6010c19a99152cd39adf221745c873764"
+    },
+    {
+      "index": 12,
+      "task": "voice-clone-demo",
+      "txHash": "0x6730fb05a088a441f54d48a68c429838ef7adedb4ee62ad67391cc99874f7524",
+      "block": 241807504,
+      "gasUsed": "171046",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x6730fb05a088a441f54d48a68c429838ef7adedb4ee62ad67391cc99874f7524"
+    },
+    {
+      "index": 13,
+      "task": "query-translate-fr",
+      "txHash": "0xb9f004a885a5b58528c4d90dcf5f1cdfcfe3220edf72670ee86c2b9ca60bb972",
+      "block": 241807519,
+      "gasUsed": "171033",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xb9f004a885a5b58528c4d90dcf5f1cdfcfe3220edf72670ee86c2b9ca60bb972"
+    },
+    {
+      "index": 14,
+      "task": "product-shots-batch",
+      "txHash": "0x79c9d4e313aa735969e41126acf59d42e1b566122f382ebed11c00748458c0ea",
+      "block": 241807532,
+      "gasUsed": "171059",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0x79c9d4e313aa735969e41126acf59d42e1b566122f382ebed11c00748458c0ea"
+    },
+    {
+      "index": 15,
+      "task": "competitor-intel-scan",
+      "txHash": "0xb59988bea55100c13be0a068367bebc4c37d9e74ee17a533c9b1cb66dfadc0cc",
+      "block": 241807548,
+      "gasUsed": "171046",
+      "arbiscanUrl": "https://sepolia.arbiscan.io/tx/0xb59988bea55100c13be0a068367bebc4c37d9e74ee17a533c9b1cb66dfadc0cc"
+    }
+  ],
+  "succeeded": 15,
+  "failed": 0,
+  "totalCount": "16"
+}

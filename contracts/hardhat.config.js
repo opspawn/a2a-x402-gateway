@@ -27,18 +27,9 @@ module.exports = {
     },
   },
   etherscan: {
-    apiKey: {
-      arbitrumSepolia: process.env.ARBISCAN_API_KEY || "PLACEHOLDER",
-    },
-    customChains: [
-      {
-        network: "arbitrumSepolia",
-        chainId: 421614,
-        urls: {
-          apiURL: "https://api-sepolia.arbiscan.io/api",
-          browserURL: "https://sepolia.arbiscan.io",
-        },
-      },
-    ],
+    apiKey: process.env.ARBISCAN_API_KEY || "PLACEHOLDER",
+  },
+  sourcify: {
+    enabled: true,
   },
 };
