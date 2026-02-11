@@ -1,0 +1,96 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="40%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a1f35"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </radialGradient>
+    <linearGradient id="agentA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5cfc"/>
+      <stop offset="100%" stop-color="#5a3fd6"/>
+    </linearGradient>
+    <linearGradient id="agentB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="glowA" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#7c5cfc" flood-opacity="0.1" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feComposite in="SourceGraphic" in2="shadow" operator="over"/>
+    </filter>
+    <filter id="glowB" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#22d3ee" flood-opacity="0.1" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feComposite in="SourceGraphic" in2="shadow" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid dots -->
+  <g opacity="0.04">
+    <circle cx="80" cy="80" r="1.5" fill="white"/>
+    <circle cx="80" cy="550" r="1.5" fill="white"/>
+    <circle cx="1120" cy="80" r="1.5" fill="white"/>
+    <circle cx="1120" cy="550" r="1.5" fill="white"/>
+    <circle cx="600" cy="80" r="1.2" fill="white"/>
+    <circle cx="600" cy="550" r="1.2" fill="white"/>
+  </g>
+
+  <!-- Icon group: left side -->
+  <g transform="translate(340, 280)">
+    <!-- Agent A diamond -->
+    <g transform="translate(-160, -55)" filter="url(#glowA)">
+      <path d="M0,55 L55,0 L110,55 L55,110 Z" fill="rgba(124,92,252,0.06)" stroke="url(#agentA)" stroke-width="2.5"/>
+      <text x="55" y="63" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#c4b5fd">A</text>
+    </g>
+
+    <!-- Connection -->
+    <line x1="-42" y1="0" x2="-14" y2="0" stroke="#475569" stroke-width="1.8" stroke-dasharray="5,4" opacity="0.5"/>
+    <circle cx="6" cy="0" r="20" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="2"/>
+    <text x="6" y="7" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#fbbf24">$</text>
+    <line x1="28" y1="0" x2="56" y2="0" stroke="#475569" stroke-width="1.8" stroke-dasharray="5,4" opacity="0.5"/>
+    <polygon points="54,-6 66,0 54,6" fill="#22d3ee" opacity="0.7"/>
+
+    <!-- Agent B diamond -->
+    <g transform="translate(70, -55)" filter="url(#glowB)">
+      <path d="M0,55 L55,0 L110,55 L55,110 Z" fill="rgba(34,211,238,0.06)" stroke="url(#agentB)" stroke-width="2.5"/>
+      <text x="55" y="63" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#67e8f9">B</text>
+    </g>
+  </g>
+
+  <!-- Text group: right side -->
+  <g>
+    <!-- Title -->
+    <text x="740" y="260" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="1">
+      <tspan fill="#e2e8f0">A2A</tspan>
+      <tspan fill="#64748b" font-size="42" dx="8" font-weight="400">x</tspan>
+      <tspan fill="#fbbf24" dx="8">402</tspan>
+    </text>
+
+    <!-- Subtitle -->
+    <text x="740" y="300" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#64748b" letter-spacing="5">AGENT-TO-AGENT GATEWAY</text>
+
+    <!-- Description -->
+    <text x="740" y="345" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Autonomous commerce on Base, Arbitrum, SKALE
+    </text>
+
+    <!-- Feature pills -->
+    <g transform="translate(740, 375)">
+      <rect x="0" y="0" width="80" height="28" rx="14" fill="rgba(124,92,252,0.15)" stroke="#7c5cfc" stroke-width="1" opacity="0.6"/>
+      <text x="40" y="19" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#c4b5fd">Google A2A</text>
+
+      <rect x="92" y="0" width="55" height="28" rx="14" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+      <text x="119" y="19" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#fbbf24">x402</text>
+
+      <rect x="159" y="0" width="55" height="28" rx="14" fill="rgba(34,211,238,0.12)" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <text x="186" y="19" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#67e8f9">USDC</text>
+
+      <rect x="226" y="0" width="72" height="28" rx="14" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+      <text x="262" y="19" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#4ade80">Multi-Chain</text>
+    </g>
+  </g>
+</svg>

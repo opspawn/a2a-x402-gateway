@@ -27,7 +27,7 @@ await test('GET /.well-known/agent-card.json returns valid V2 agent card', async
   const d = await r.json();
   assert(d.name === 'OpSpawn AI Agent');
   assert(d.version === '2.2.0', `Version: ${d.version}`);
-  assert(d.skills.length === 4);
+  assert(d.skills.length === 5, `Skills count: ${d.skills.length}`);
   assert(d.skills[0].id === 'screenshot');
   assert(d.protocolVersion === '0.3.0');
   assert(d.provider.organization === 'OpSpawn');
@@ -49,7 +49,7 @@ await test('GET /x402 returns V2 service catalog', async () => {
   assert(d.protocols.x402.networks.length >= 2, 'Has multiple networks');
   assert(d.protocols.x402.networks[0].network === 'eip155:8453', 'Base CAIP-2 ID');
   assert(d.protocols.x402.features.siwx, 'SIWx feature documented');
-  assert(d.endpoints.length === 4);
+  assert(d.endpoints.length === 5, `Endpoints: ${d.endpoints.length}`);
   assert(d.endpoints[0].price === '$0.01');
   assert(d.endpoints[3].price === 'free');
 });
@@ -843,6 +843,53 @@ await test('Google x402 Ext: /a2a-x402-compat shows v0.1 and v0.2', async () => 
   assert(d.features.paymentStatuses.includes('payment-verified'), 'Has payment-verified status');
   assert(d.stateTransitions, 'Has state transitions');
   assert(d.dataStructures, 'Has data structures documentation');
+});
+
+// === x402 Test Endpoint ===
+
+await test('GET /x402/test returns 402 with $0.00 payment requirements', async () => {
+  const r = await fetch(`${BASE}/x402/test`);
+  assert(r.status === 402, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.version === '2.0', `Version: ${d.version}`);
+  assert(d.accepts, 'Has accepts array');
+  assert(d.accepts.length >= 2, `Accepts: ${d.accepts.length}`);
+  const baseAccept = d.accepts.find(a => a.network === 'eip155:8453');
+  assert(baseAccept, 'Has Base network');
+  assert(baseAccept.price === '$0.00', `Price: ${baseAccept.price}`);
+  assert(baseAccept.maxAmountRequired === '0', `MaxAmount: ${baseAccept.maxAmountRequired}`);
+  assert(d.description.includes('Test'), `Description: ${d.description}`);
+});
+
+await test('POST /x402/test without Payment-Signature returns 402', async () => {
+  const r = await fetch(`${BASE}/x402/test`, { method: 'POST' });
+  assert(r.status === 402, `Status: ${r.status}`);
+});
+
+await test('POST /x402/test with Payment-Signature returns 200 success', async () => {
+  const r = await fetch(`${BASE}/x402/test`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Payment-Signature': '0xtest_mock_payment_signature',
+    },
+  });
+  assert(r.status === 200, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.success === true, `success: ${d.success}`);
+  assert(d.message === 'x402 test flow completed', `message: ${d.message}`);
+  assert(d.amount === '0.00', `amount: ${d.amount}`);
+  assert(d.chain === 'base', `chain: ${d.chain}`);
+  assert(d.payment.settled === true, 'payment settled');
+});
+
+await test('Agent card includes x402-test skill', async () => {
+  const r = await fetch(`${BASE}/.well-known/agent-card.json`);
+  const d = await r.json();
+  const testSkill = d.skills.find(s => s.id === 'x402-test');
+  assert(testSkill, 'Has x402-test skill');
+  assert(testSkill.tags.includes('test'), 'Has test tag');
+  assert(testSkill.description.includes('$0.00'), 'Description mentions $0.00');
 });
 
 console.log(`\nResults: ${passed} passed, ${failed} failed, ${passed + failed} total\n`);

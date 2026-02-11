@@ -1,0 +1,17 @@
+{
+  "name": "opspawn-contracts",
+  "version": "1.0.0",
+  "description": "AgentPaymentSettlement smart contract for Arbitrum Sepolia",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network arbitrumSepolia",
+    "verify": "npx hardhat verify --network arbitrumSepolia"
+  },
+  "keywords": [],
+  "author": "OpSpawn",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.28.5"
+  }
+}

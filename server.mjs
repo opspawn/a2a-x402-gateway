@@ -52,10 +52,12 @@ const GOOGLE_X402_EXTENSION_URI = GOOGLE_X402_EXTENSION_URI_V02; // default to l
 // x402 V2: CAIP-2 network identifiers
 const SKALE_USDC = '0x5F795bb52dAC3085f578f4877D450e2929D2F13d'; // Bridged USDC on SKALE Europa Hub
 const ARBITRUM_USDC = '0xaf88d065e77c8cC2239327C5EDb3A432268e5831'; // Native USDC on Arbitrum One
+const ARBITRUM_SEPOLIA_SETTLEMENT = '0xb28E2076D1395c31958E4C1B2aeab8C6839F4b3E'; // AgentPaymentSettlement contract
 const NETWORKS = {
   base: { caip2: 'eip155:8453', name: 'Base', chainId: 8453, usdc: BASE_USDC, rpc: 'https://mainnet.base.org' },
   skale: { caip2: 'eip155:2046399126', name: 'SKALE Europa', chainId: 2046399126, usdc: SKALE_USDC, gasless: true, rpc: 'https://mainnet.skalenodes.com/v1/elated-tan-skat', finality: '<1s', privacy: 'BITE' },
   arbitrum: { caip2: 'eip155:42161', name: 'Arbitrum One', chainId: 42161, usdc: ARBITRUM_USDC, rpc: 'https://arb1.arbitrum.io/rpc' },
+  arbitrumSepolia: { caip2: 'eip155:421614', name: 'Arbitrum Sepolia', chainId: 421614, testnet: true, rpc: 'https://sepolia-rollup.arbitrum.io/rpc', settlementContract: ARBITRUM_SEPOLIA_SETTLEMENT, explorer: 'https://sepolia.arbiscan.io' },
 };
 const DEFAULT_NETWORK = NETWORKS.base;
 
@@ -182,6 +184,15 @@ const agentCard = {
       examples: ['Convert to HTML: # Hello World'],
       inputModes: ['text/plain'],
       outputModes: ['text/html'],
+    },
+    {
+      id: 'x402-test',
+      name: 'x402 Test Flow',
+      description: 'Test x402 payment flow with zero cost. Returns 402 on GET, accepts any Payment-Signature on POST. Use this to validate your x402 client integration without spending real money. Price: $0.00 USDC.',
+      tags: ['x402', 'test', 'free', 'integration', 'validation'],
+      examples: ['Test x402 payment flow'],
+      inputModes: ['text/plain'],
+      outputModes: ['application/json'],
     },
   ],
   extensions: [
@@ -416,6 +427,7 @@ function createPaymentRequired(skill) {
     screenshot: { price: '$0.01', amount: '10000', description: 'Screenshot - $0.01 USDC' },
     'markdown-to-pdf': { price: '$0.005', amount: '5000', description: 'Markdown to PDF - $0.005 USDC' },
     'ai-analysis': { price: '$0.01', amount: '10000', description: 'AI Analysis (Gemini) - $0.01 USDC' },
+    'x402-test': { price: '$0.00', amount: '0', description: 'x402 Test Flow - $0.00 USDC (free test)' },
   };
   const p = pricing[skill];
   if (!p) return null;
@@ -884,6 +896,7 @@ app.get('/x402', (req, res) => res.json({
     { skill: 'ai-analysis', price: '$0.01', description: 'AI content analysis via Gemini 2.0 Flash', input: 'Text content', output: 'text/plain + application/json', poweredBy: 'Google AI Studio (Gemini 2.0 Flash)' },
     { skill: 'markdown-to-pdf', price: '$0.005', description: 'Convert markdown to PDF', input: 'Markdown text', output: 'application/pdf' },
     { skill: 'markdown-to-html', price: 'free', description: 'Convert markdown to HTML', input: 'Markdown text', output: 'text/html' },
+    { skill: 'x402-test', price: 'free ($0.00)', description: 'Test x402 payment flow — validates client integration', input: 'Any', output: 'application/json' },
   ],
   rest: {
     description: 'Standard x402 HTTP REST endpoints (alternative to A2A JSON-RPC)',
@@ -895,6 +908,8 @@ app.get('/x402', (req, res) => res.json({
       { method: 'POST', path: '/x402/html', body: '{"markdown":"# ..."}', returns: 'text/html (free)' },
       { method: 'GET', path: '/x402/ai-analysis', returns: '402 with payment requirements' },
       { method: 'POST', path: '/x402/ai-analysis', headers: 'Payment-Signature: <signed>', body: '{"content":"text to analyze"}', returns: 'Gemini AI analysis (JSON)' },
+      { method: 'GET', path: '/x402/test', returns: '402 with $0.00 payment requirements (test endpoint)' },
+      { method: 'POST', path: '/x402/test', headers: 'Payment-Signature: <any>', returns: 'Test success (no real payment)' },
       { method: 'POST', path: '/gemini', body: '{"content":"short text"}', returns: 'Free Gemini demo (500 char limit)' },
       { method: 'GET', path: '/gemini', returns: 'Gemini service info' },
       { method: 'GET', path: '/x402/chains', returns: 'Supported chains with metadata (RPC, gas, finality)' },
@@ -1050,6 +1065,35 @@ app.post('/x402/ai-analysis', async (req, res) => {
   }
 });
 
+// === x402 Test Endpoint ===
+// Zero-cost endpoint for testing x402 client integration
+// GET returns 402 with standard payment requirements ($0.00)
+// POST with any Payment-Signature returns 200 success
+app.get('/x402/test', (req, res) => {
+  const payReq = createPaymentRequired('x402-test');
+  res.status(402).json(payReq);
+});
+
+app.post('/x402/test', (req, res) => {
+  const paymentSig = req.headers['payment-signature'] || req.headers['x-payment'];
+  if (!paymentSig) {
+    const payReq = createPaymentRequired('x402-test');
+    return res.status(402).json(payReq);
+  }
+  // Accept any valid-looking payment signature — no on-chain verification for $0
+  return res.json({
+    success: true,
+    message: 'x402 test flow completed',
+    amount: '0.00',
+    chain: 'base',
+    payment: {
+      settled: true,
+      txHash: `0x${'0'.repeat(64)}`,
+      note: 'Test endpoint — no real payment was processed',
+    },
+  });
+});
+
 // Free Gemini endpoint for demos (limited to short inputs)
 app.post('/gemini', async (req, res) => {
   const content = req.body?.content || req.body?.text || req.body?.prompt;
@@ -1113,6 +1157,17 @@ app.get('/x402/chains', (req, res) => {
   });
 });
 
+// /x402/settlement — Arbitrum Sepolia on-chain settlement contract info
+app.get('/x402/settlement', (req, res) => {
+  res.json({
+    contract: ARBITRUM_SEPOLIA_SETTLEMENT,
+    network: NETWORKS.arbitrumSepolia,
+    abi: ['function recordSettlement(address payer, address payee, uint256 amount, bytes32 taskId)', 'function getSettlement(bytes32 taskId) view returns (address payer, address payee, uint256 amount, uint256 timestamp, bool exists)', 'event SettlementRecorded(bytes32 indexed taskId, address indexed payer, address indexed payee, uint256 amount, uint256 timestamp)'],
+    explorer: `https://sepolia.arbiscan.io/address/${ARBITRUM_SEPOLIA_SETTLEMENT}`,
+    description: 'On-chain settlement contract for recording AI agent-to-agent micropayment settlements on Arbitrum Sepolia',
+  });
+});
+
 // /x402/bazaar — machine-readable service catalog for automated agent discovery
 app.get('/x402/bazaar', (req, res) => {
   res.json({
@@ -1150,6 +1205,15 @@ app.get('/x402/bazaar', (req, res) => {
         input: { type: 'application/json', schema: { markdown: { type: 'string', required: true, description: 'Markdown content' } } },
         output: { type: 'text/html' },
         endpoints: { a2a: '/a2a', rest: '/x402/html' },
+      },
+      {
+        id: 'x402-test', name: 'x402 Test Flow', description: 'Test x402 payment flow with zero cost — validates client integration',
+        price: { amount: '0', currency: 'USDC' },
+        chains: Object.values(NETWORKS).map(n => ({ caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
+        input: { type: 'any' },
+        output: { type: 'application/json' },
+        endpoints: { rest: '/x402/test' },
+        test: true,
       },
     ],
     payment: {

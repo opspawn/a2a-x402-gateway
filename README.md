@@ -2,9 +2,9 @@
 
 **Pay-per-request AI agent services via A2A protocol + x402 V2 micropayments**
 
-An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 V2 cryptocurrency micropayments on Base + SKALE Europa (gasless) networks. Features SIWx session authentication for repeat access.
+An A2A-compliant agent server that exposes screenshot, PDF, and document generation services with x402 V2 cryptocurrency micropayments on Base + SKALE Europa (gasless) + Arbitrum networks. Features SIWx session authentication, on-chain settlement recording on Arbitrum Sepolia, and multi-chain support.
 
-Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackathon](https://dorahacks.io/hackathon/x402).
+Built by [OpSpawn](https://opspawn.com) for the [SF Agentic Commerce x402 Hackathon](https://dorahacks.io/hackathon/x402) and [Arbitrum Open House NYC Buildathon](https://www.hackquest.io/en/hackathon/Arbitrum-Open-House-NYC-Buildathon).
 
 ## Live Demo
 
@@ -47,7 +47,8 @@ Server starts on `http://localhost:4002`
 - `GET /.well-known/agent-card.json` — A2A agent discovery
 - `POST /` — A2A JSON-RPC endpoint (message/send, tasks/get, tasks/cancel)
 - `GET /x402` — x402 service catalog
-- `GET /x402/chains` — Multi-chain discovery (Base + SKALE Europa)
+- `GET /x402/chains` — Multi-chain discovery (Base + SKALE Europa + Arbitrum)
+- `GET /x402/settlement` — Arbitrum Sepolia on-chain settlement contract info
 - `POST /x402/screenshot` — REST x402 screenshot (402 → pay → 200)
 - `POST /x402/pdf` — REST x402 PDF generation (402 → pay → 200)
 - `POST /x402/html` — REST x402 HTML conversion (free)
@@ -170,18 +171,33 @@ const { result: task } = await r1.json();
 └─────────────┘                      └──────────────┘             └──────────┘
                                            │
                                      x402 Payment
-                                      ┌────┴────┐
-                                ┌──────────┐ ┌──────────────┐
-                                │  Base    │ │ SKALE Europa │
-                                │  (USDC)  │ │ (USDC, $0)   │
-                                └──────────┘ └──────────────┘
+                                  ┌────────┼────────┐
+                            ┌──────────┐ ┌────────────┐ ┌───────────────┐
+                            │  Base    │ │SKALE Europa│ │ Arbitrum One  │
+                            │  (USDC)  │ │(USDC, $0)  │ │   (USDC)      │
+                            └──────────┘ └────────────┘ └───────────────┘
+                                                              │
+                                                    ┌───────────────────┐
+                                                    │ Arbitrum Sepolia  │
+                                                    │ Settlement Contract│
+                                                    │ (on-chain records)│
+                                                    └───────────────────┘
 ```
+
+## On-Chain Settlement (Arbitrum Sepolia)
+
+The gateway includes an **AgentPaymentSettlement** smart contract deployed on Arbitrum Sepolia that records agent-to-agent micropayment settlements on-chain, providing verifiable proof of agent commerce.
+
+- **Contract**: [`0xb28E2076D1395c31958E4C1B2aeab8C6839F4b3E`](https://sepolia.arbiscan.io/address/0xb28E2076D1395c31958E4C1B2aeab8C6839F4b3E)
+- **Network**: Arbitrum Sepolia (Chain ID: 421614)
+- **API Endpoint**: `GET /x402/settlement` — contract info and ABI
 
 ## Tech Stack
 
 - **Runtime**: Node.js 22
 - **Protocol**: A2A v0.3 (JSON-RPC 2.0 over HTTP)
-- **Payments**: x402 V2 (SDK v2.3.0) on Base + SKALE Europa (USDC, gasless)
+- **Payments**: x402 V2 (SDK v2.3.0) on Base + SKALE Europa (USDC, gasless) + Arbitrum
+- **Settlement**: Solidity smart contract on Arbitrum Sepolia (on-chain micropayment records)
 - **Auth**: SIWx (CAIP-122 wallet sessions)
 - **Backend**: Express 5
 - **Facilitator**: PayAI (facilitator.payai.network)
