@@ -21,6 +21,7 @@
     "@a2a-js/sdk": "^0.3.10",
     "@skaleproject/pow-ethers": "^0.3.3",
     "a2a-x402": "^0.0.8",
+    "canvas": "^3.2.1",
     "ethers": "^6.16.0",
     "express": "^5.2.1",
     "uuid": "^13.0.0"

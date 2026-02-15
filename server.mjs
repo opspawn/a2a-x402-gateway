@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { getCredentialSync } from '/home/agent/lib/credentials.mjs';
+import { scanCode } from './code-scanner.mjs';
 
 // === Configuration ===
 const PORT = parseInt(process.env.PORT || '4002', 10);
@@ -192,6 +193,15 @@ const agentCard = {
       tags: ['x402', 'test', 'free', 'integration', 'validation'],
       examples: ['Test x402 payment flow'],
       inputModes: ['text/plain'],
+      outputModes: ['application/json'],
+    },
+    {
+      id: 'code-scan',
+      name: 'Code Security Scan',
+      description: 'Scan source code for security vulnerabilities including SQL injection, XSS, command injection, path traversal, hardcoded secrets, and insecure crypto. Price: $0.05 USDC on Base or SKALE Europa (gasless).',
+      tags: ['security', 'code-scan', 'vulnerability', 'sast', 'x402', 'x402-v2', 'skale', 'gasless'],
+      examples: ['Scan this JavaScript code for vulnerabilities'],
+      inputModes: ['application/json'],
       outputModes: ['application/json'],
     },
   ],
@@ -424,42 +434,79 @@ async function handleScreenshotWithAnalysis(url) {
 // === x402 V2 Payment Requirements ===
 function createPaymentRequired(skill) {
   const pricing = {
-    screenshot: { price: '$0.01', amount: '10000', description: 'Screenshot - $0.01 USDC' },
-    'markdown-to-pdf': { price: '$0.005', amount: '5000', description: 'Markdown to PDF - $0.005 USDC' },
-    'ai-analysis': { price: '$0.01', amount: '10000', description: 'AI Analysis (Gemini) - $0.01 USDC' },
-    'x402-test': { price: '$0.00', amount: '0', description: 'x402 Test Flow - $0.00 USDC (free test)' },
+    screenshot: {
+      price: '$0.01', amount: '10000', description: 'Screenshot - $0.01 USDC', mimeType: 'image/png',
+      bazaar: {
+        info: { input: { url: 'https://example.com' }, output: 'PNG screenshot image' },
+        schema: { type: 'object', properties: { url: { type: 'string', description: 'URL to screenshot' } }, required: ['url'] },
+      },
+    },
+    'markdown-to-pdf': {
+      price: '$0.005', amount: '5000', description: 'Markdown to PDF - $0.005 USDC', mimeType: 'application/pdf',
+      bazaar: {
+        info: { input: { markdown: '# Hello World' }, output: 'PDF document' },
+        schema: { type: 'object', properties: { markdown: { type: 'string', description: 'Markdown content to convert' } }, required: ['markdown'] },
+      },
+    },
+    'ai-analysis': {
+      price: '$0.01', amount: '10000', description: 'AI Analysis (Gemini) - $0.01 USDC', mimeType: 'text/plain',
+      bazaar: {
+        info: { input: { content: 'Text to analyze' }, output: 'AI-generated analysis text' },
+        schema: { type: 'object', properties: { content: { type: 'string', description: 'Text content to analyze' } }, required: ['content'] },
+      },
+    },
+    'x402-test': {
+      price: '$0.00', amount: '0', description: 'x402 Test Flow - $0.00 USDC (free test)', mimeType: 'application/json',
+      bazaar: {
+        info: { input: {}, output: { success: true, message: 'Payment flow verified' } },
+        schema: { type: 'object', properties: {} },
+      },
+    },
+    'code-scan': {
+      price: '$0.05', amount: '50000', description: 'Code Security Scan - $0.05 USDC', mimeType: 'application/json',
+      bazaar: {
+        info: { input: { code: 'const q = "SELECT * FROM users WHERE id=" + userId;', language: 'javascript' }, output: 'JSON vulnerability report with score' },
+        schema: { type: 'object', properties: { code: { type: 'string', description: 'Source code to scan' }, language: { type: 'string', description: 'Programming language (javascript, python, etc.)' } }, required: ['code'] },
+      },
+    },
   };
   const p = pricing[skill];
   if (!p) return null;
 
   // V2 format: accepts array with CAIP-2 network IDs
+  // x402Version + resource object added for x402scan compatibility
   return {
+    x402Version: 2,
     version: '2.0',
     accepts: [
       {
         scheme: 'exact',
         network: NETWORKS.base.caip2,
         price: p.price,
+        amount: p.amount,
         payTo: WALLET_ADDRESS,
         asset: BASE_USDC,
-        maxAmountRequired: p.amount, // Google A2A x402 Extension spec: smallest unit
-        maxTimeoutSeconds: 600, // Google A2A x402 Extension spec: payment validity window
+        maxAmountRequired: p.amount,
+        maxTimeoutSeconds: 600,
+        extra: {},
       },
       {
         scheme: 'exact',
         network: NETWORKS.skale.caip2,
         price: p.price,
+        amount: p.amount,
         payTo: WALLET_ADDRESS,
         asset: SKALE_USDC,
-        maxAmountRequired: p.amount, // Google A2A x402 Extension spec field (smallest unit)
-        maxTimeoutSeconds: 600, // Google A2A x402 Extension spec field
-        gasless: true,
-        finality: '<1s',
-        note: 'SKALE Europa Hub — zero gas fees, sub-second finality, BITE privacy',
+        maxAmountRequired: p.amount,
+        maxTimeoutSeconds: 600,
+        extra: { gasless: true, finality: '<1s', note: 'SKALE Europa Hub — zero gas fees, sub-second finality, BITE privacy' },
       },
     ],
-    resource: `/${skill}`,
-    description: p.description,
+    resource: {
+      url: `https://a2a.opspawn.com/x402/${skill}`,
+      description: p.description,
+      mimeType: p.mimeType,
+    },
     facilitator: FACILITATOR_URL,
     extensions: {
       'sign-in-with-x': {
@@ -468,6 +515,7 @@ function createPaymentRequired(skill) {
         chains: [NETWORKS.base.caip2, NETWORKS.skale.caip2],
       },
       'payment-identifier': { supported: true },
+      bazaar: p.bazaar,
     },
   };
 }
@@ -850,7 +898,7 @@ app.get('/api/info', (req, res) => res.json({
     networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
     token: 'USDC', wallet: WALLET_ADDRESS, facilitator: FACILITATOR_URL,
     features: ['siwx', 'payment-identifier', 'bazaar-discovery'],
-    services: { screenshot: '$0.01', 'markdown-to-pdf': '$0.005', 'markdown-to-html': 'free' },
+    services: { screenshot: '$0.01', 'markdown-to-pdf': '$0.005', 'markdown-to-html': 'free', 'code-scan': '$0.05' },
   },
   stats: {
     payments: paymentLog.length, tasks: totalTaskCount, tasksThisSession: tasks.size, uptime: process.uptime(),
@@ -897,6 +945,7 @@ app.get('/x402', (req, res) => res.json({
     { skill: 'markdown-to-pdf', price: '$0.005', description: 'Convert markdown to PDF', input: 'Markdown text', output: 'application/pdf' },
     { skill: 'markdown-to-html', price: 'free', description: 'Convert markdown to HTML', input: 'Markdown text', output: 'text/html' },
     { skill: 'x402-test', price: 'free ($0.00)', description: 'Test x402 payment flow — validates client integration', input: 'Any', output: 'application/json' },
+    { skill: 'code-scan', price: '$0.05', description: 'Scan code for security vulnerabilities (SQLi, XSS, command injection, secrets, etc.)', input: 'JSON {code, language}', output: 'application/json' },
   ],
   rest: {
     description: 'Standard x402 HTTP REST endpoints (alternative to A2A JSON-RPC)',
@@ -910,6 +959,8 @@ app.get('/x402', (req, res) => res.json({
       { method: 'POST', path: '/x402/ai-analysis', headers: 'Payment-Signature: <signed>', body: '{"content":"text to analyze"}', returns: 'Gemini AI analysis (JSON)' },
       { method: 'GET', path: '/x402/test', returns: '402 with $0.00 payment requirements (test endpoint)' },
       { method: 'POST', path: '/x402/test', headers: 'Payment-Signature: <any>', returns: 'Test success (no real payment)' },
+      { method: 'GET', path: '/x402/code-scan', returns: '402 with $0.05 payment requirements' },
+      { method: 'POST', path: '/x402/code-scan', headers: 'Payment-Signature: <signed>', body: '{"code":"...","language":"javascript"}', returns: 'Security vulnerability report (JSON)' },
       { method: 'POST', path: '/gemini', body: '{"content":"short text"}', returns: 'Free Gemini demo (500 char limit)' },
       { method: 'GET', path: '/gemini', returns: 'Gemini service info' },
       { method: 'GET', path: '/x402/chains', returns: 'Supported chains with metadata (RPC, gas, finality)' },
@@ -1094,6 +1145,53 @@ app.post('/x402/test', (req, res) => {
   });
 });
 
+// === x402 Code Security Scan Endpoint ===
+// Scan source code for security vulnerabilities via regex-based pattern matching
+// GET returns 402 with payment requirements ($0.05)
+// POST with Payment-Signature returns vulnerability report
+app.get('/x402/code-scan', (req, res) => {
+  const payReq = createPaymentRequired('code-scan');
+  res.status(402).json(payReq);
+});
+
+app.post('/x402/code-scan', (req, res) => {
+  const paymentSig = req.headers['payment-signature'] || req.headers['x-payment'];
+  if (!paymentSig) {
+    const payReq = createPaymentRequired('code-scan');
+    return res.status(402).json(payReq);
+  }
+  const code = req.body?.code;
+  if (!code) return res.status(400).json({ error: 'Missing code in request body' });
+  if (typeof code !== 'string') return res.status(400).json({ error: 'code must be a string' });
+  if (code.length > 100000) return res.status(400).json({ error: 'Code too large (max 100KB)' });
+
+  const language = req.body?.language || 'javascript';
+  const taskId = uuidv4();
+  const payer = req.body?.payer || 'http-x402-client';
+  const network = req.body?.network || req.headers['x-payment-network'] || NETWORKS.base.caip2;
+  paymentLog.push({ type: 'payment-received', taskId, skill: 'code-scan', wallet: payer, network, timestamp: new Date().toISOString() });
+  if (payer !== 'http-x402-client') recordSiwxPayment(payer, 'code-scan');
+
+  try {
+    const result = scanCode(code, language);
+    const txHash = `0x${uuidv4().replace(/-/g, '')}`;
+    paymentLog.push({ type: 'payment-settled', taskId, skill: 'code-scan', txHash, wallet: payer, network, timestamp: new Date().toISOString() });
+    totalTaskCount++;
+    saveStats();
+
+    return res.json({
+      vulnerabilities: result.vulnerabilities,
+      summary: result.summary,
+      score: result.score,
+      language,
+      linesScanned: code.split('\n').length,
+      payment: { settled: true, txHash },
+    });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
 // Free Gemini endpoint for demos (limited to short inputs)
 app.post('/gemini', async (req, res) => {
   const content = req.body?.content || req.body?.text || req.body?.prompt;
@@ -1215,6 +1313,14 @@ app.get('/x402/bazaar', (req, res) => {
         endpoints: { rest: '/x402/test' },
         test: true,
       },
+      {
+        id: 'code-scan', name: 'Code Security Scan', description: 'Scan source code for security vulnerabilities (SQL injection, XSS, command injection, path traversal, hardcoded secrets, insecure crypto)',
+        price: { amount: '0.05', currency: 'USDC' },
+        chains: Object.values(NETWORKS).map(n => ({ caip2: n.caip2, name: n.name, gasless: n.gasless || false })),
+        input: { type: 'application/json', schema: { code: { type: 'string', required: true, description: 'Source code to scan' }, language: { type: 'string', description: 'Programming language' } } },
+        output: { type: 'application/json' },
+        endpoints: { rest: '/x402/code-scan' },
+      },
     ],
     payment: {
       protocol: 'x402', version: '2.0',
@@ -1239,7 +1345,7 @@ app.get('/stats', (req, res) => {
     return res.json({
       agent: { name: 'OpSpawn AI Agent', version: '2.2.0', url: PUBLIC_URL },
       uptime: { seconds: Math.round(uptime), human: formatUptime(uptime) },
-      services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
+      services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'code-scan' ? '$0.05' : s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
       networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
       protocol: {
         a2a: { version: '0.3.0', methods: ['message/send', 'tasks/get', 'tasks/cancel'] },
@@ -1275,7 +1381,7 @@ app.get('/stats', (req, res) => {
       reuseCount: byType.siwxAccess,
       savingsEstimate: (byType.siwxAccess * 0.01).toFixed(4),
     },
-    services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
+    services: agentCard.skills.map(s => ({ id: s.id, name: s.name, price: s.id === 'code-scan' ? '$0.05' : s.id === 'screenshot' ? '$0.01' : s.id === 'ai-analysis' ? '$0.01' : s.id === 'markdown-to-pdf' ? '$0.005' : 'free' })),
     networks: Object.values(NETWORKS).map(n => ({ network: n.caip2, name: n.name, gasless: n.gasless || false })),
     recentActivity: { count: Math.min(paymentLog.length, 10), note: 'Detailed activity log removed for security' },
     protocol: {

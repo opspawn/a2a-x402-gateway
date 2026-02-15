@@ -27,7 +27,7 @@ await test('GET /.well-known/agent-card.json returns valid V2 agent card', async
   const d = await r.json();
   assert(d.name === 'OpSpawn AI Agent');
   assert(d.version === '2.2.0', `Version: ${d.version}`);
-  assert(d.skills.length === 5, `Skills count: ${d.skills.length}`);
+  assert(d.skills.length === 6, `Skills count: ${d.skills.length}`);
   assert(d.skills[0].id === 'screenshot');
   assert(d.protocolVersion === '0.3.0');
   assert(d.provider.organization === 'OpSpawn');
@@ -49,7 +49,7 @@ await test('GET /x402 returns V2 service catalog', async () => {
   assert(d.protocols.x402.networks.length >= 2, 'Has multiple networks');
   assert(d.protocols.x402.networks[0].network === 'eip155:8453', 'Base CAIP-2 ID');
   assert(d.protocols.x402.features.siwx, 'SIWx feature documented');
-  assert(d.endpoints.length === 5, `Endpoints: ${d.endpoints.length}`);
+  assert(d.endpoints.length === 6, `Endpoints: ${d.endpoints.length}`);
   assert(d.endpoints[0].price === '$0.01');
   assert(d.endpoints[3].price === 'free');
 });
@@ -374,7 +374,7 @@ await test('SKALE Europa: correct USDC in payment requirements', async () => {
   const skaleAccept = accepts.find(a => a.network === 'eip155:2046399126');
   assert(skaleAccept, 'SKALE Europa in payment accepts');
   assert(skaleAccept.asset === '0x5F795bb52dAC3085f578f4877D450e2929D2F13d', `SKALE USDC asset: ${skaleAccept.asset}`);
-  assert(skaleAccept.gasless === true, 'Marked gasless');
+  assert(skaleAccept.extra?.gasless === true, 'Marked gasless');
   // Base should use different USDC address
   const baseAccept = accepts.find(a => a.network === 'eip155:8453');
   assert(baseAccept.asset !== skaleAccept.asset, 'Base and SKALE use different USDC addresses');
@@ -485,7 +485,7 @@ await test('Gemini: GET /x402/ai-analysis returns 402', async () => {
   const d = await r.json();
   assert(d.version === '2.0', 'V2 payment requirements');
   assert(d.accepts[0].price === '$0.01', `Price: ${d.accepts[0].price}`);
-  assert(d.description.includes('Gemini'), 'Mentions Gemini');
+  assert(d.resource.description.includes('Gemini'), 'Mentions Gemini');
 });
 
 await test('Gemini: POST /gemini with content returns analysis', async () => {
@@ -858,7 +858,7 @@ await test('GET /x402/test returns 402 with $0.00 payment requirements', async (
   assert(baseAccept, 'Has Base network');
   assert(baseAccept.price === '$0.00', `Price: ${baseAccept.price}`);
   assert(baseAccept.maxAmountRequired === '0', `MaxAmount: ${baseAccept.maxAmountRequired}`);
-  assert(d.description.includes('Test'), `Description: ${d.description}`);
+  assert(d.resource.description.includes('Test'), `Description: ${d.resource.description}`);
 });
 
 await test('POST /x402/test without Payment-Signature returns 402', async () => {
@@ -890,6 +890,126 @@ await test('Agent card includes x402-test skill', async () => {
   assert(testSkill, 'Has x402-test skill');
   assert(testSkill.tags.includes('test'), 'Has test tag');
   assert(testSkill.description.includes('$0.00'), 'Description mentions $0.00');
+});
+
+// === Code Security Scan Endpoint Tests ===
+
+await test('Code Scan: GET /x402/code-scan returns 402 with $0.05 price', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`);
+  assert(r.status === 402, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.version === '2.0', `Version: ${d.version}`);
+  assert(d.accepts[0].price === '$0.05', `Price: ${d.accepts[0].price}`);
+  assert(d.accepts[0].amount === '50000', `Amount: ${d.accepts[0].amount}`);
+  assert(d.resource.description.includes('Code Security Scan'), `Description: ${d.resource.description}`);
+});
+
+await test('Code Scan: clean code returns 0 vulnerabilities', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({
+      code: 'function add(a, b) { return a + b; }\nconsole.log(add(1, 2));',
+      language: 'javascript',
+    }),
+  });
+  assert(r.status === 200, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.vulnerabilities.length === 0, `Vulns: ${d.vulnerabilities.length}`);
+  assert(d.score === 100, `Score: ${d.score}`);
+  assert(d.summary.includes('No security vulnerabilities'), `Summary: ${d.summary}`);
+  assert(d.payment.settled === true, 'Payment settled');
+});
+
+await test('Code Scan: SQL injection detected', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({
+      code: 'const q = "SELECT * FROM users WHERE id=" + userId;\ndb.query(q);',
+      language: 'javascript',
+    }),
+  });
+  assert(r.status === 200, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.vulnerabilities.length > 0, 'Has vulnerabilities');
+  assert(d.vulnerabilities.some(v => v.type === 'sql-injection'), `Types: ${d.vulnerabilities.map(v => v.type).join(', ')}`);
+  assert(d.score < 100, `Score: ${d.score}`);
+});
+
+await test('Code Scan: XSS detected', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({
+      code: 'document.getElementById("output").innerHTML = userInput;\ndocument.write(data);',
+      language: 'javascript',
+    }),
+  });
+  assert(r.status === 200, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.vulnerabilities.length > 0, 'Has vulnerabilities');
+  assert(d.vulnerabilities.some(v => v.type === 'xss'), `Types: ${d.vulnerabilities.map(v => v.type).join(', ')}`);
+});
+
+await test('Code Scan: hardcoded secrets detected', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({
+      code: 'const apiKey = "sk-1234567890abcdefghijklmnop";\nconst password = "super_secret_pass123";',
+      language: 'javascript',
+    }),
+  });
+  assert(r.status === 200, `Status: ${r.status}`);
+  const d = await r.json();
+  assert(d.vulnerabilities.length > 0, 'Has vulnerabilities');
+  assert(d.vulnerabilities.some(v => v.type === 'hardcoded-secret'), `Types: ${d.vulnerabilities.map(v => v.type).join(', ')}`);
+});
+
+await test('Code Scan: invalid input returns 400', async () => {
+  // Missing code field
+  const r1 = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({ language: 'javascript' }),
+  });
+  assert(r1.status === 400, `Status (missing code): ${r1.status}`);
+
+  // code is not a string
+  const r2 = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Payment-Signature': '0xdemo_payment' },
+    body: JSON.stringify({ code: 12345 }),
+  });
+  assert(r2.status === 400, `Status (non-string): ${r2.status}`);
+});
+
+await test('Code Scan: POST without Payment-Signature returns 402', async () => {
+  const r = await fetch(`${BASE}/x402/code-scan`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code: 'console.log("hello")', language: 'javascript' }),
+  });
+  assert(r.status === 402, `Status: ${r.status}`);
+});
+
+await test('Code Scan: bazaar includes code-scan service', async () => {
+  const r = await fetch(`${BASE}/x402/bazaar`);
+  const d = await r.json();
+  const codeScan = d.services.find(s => s.id === 'code-scan');
+  assert(codeScan, 'Has code-scan service in bazaar');
+  assert(codeScan.price.amount === '0.05', `Price: ${codeScan.price.amount}`);
+  assert(codeScan.endpoints.rest === '/x402/code-scan', `Endpoint: ${codeScan.endpoints.rest}`);
+});
+
+await test('Code Scan: agent card includes code-scan skill', async () => {
+  const r = await fetch(`${BASE}/.well-known/agent-card.json`);
+  const d = await r.json();
+  const scanSkill = d.skills.find(s => s.id === 'code-scan');
+  assert(scanSkill, 'Has code-scan skill');
+  assert(scanSkill.tags.includes('security'), 'Has security tag');
+  assert(scanSkill.description.includes('$0.05'), 'Description mentions $0.05');
 });
 
 console.log(`\nResults: ${passed} passed, ${failed} failed, ${passed + failed} total\n`);
